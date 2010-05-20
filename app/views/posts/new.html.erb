@@ -1,3 +1,5 @@
+<%= javascript_include_tag :defaults %>
+
 <h1>New post</h1>
 
 <% form_for(@post) do |f| %>
@@ -9,19 +11,28 @@
   </p>
   <p>
   	<%= check_box("post","has_time_from", {}, true, false) %>
-    <%= f.label :time_from %><br />
-    <%= f.datetime_select :time_from %>
+    <%= f.label :time_from %>
+    <div id="time_from">
+    	<%= f.datetime_select :time_from %>
+	</div>
+	<%= observe_field("post_has_time_from",
+			:url => {:action => :toggle, :element => "time_from"}, :with => "value") %>
   </p>
   <p>
   	<%= check_box("post","has_date_to", {}, true, false) %>
-    <%= f.label :date_to %><br />
-    <%= f.date_select :date_to %>
-  </p>
-  <p>
-  	<%= check_box("post","has_time_to", {}, true, false) %>
-    <%= f.label :time_to %><br />
-    <%= f.datetime_select :time_to %>
-  </p>
+	<%= f.label :date_to %>
+	<div id="date_to">
+    	<%= f.date_select :date_to %>
+	<%= observe_field("post_has_date_to", 
+			:url => {:action => :toggle, :element => "date_to"}, :with => "value") %><br />
+   	<%= check_box("post","has_time_to", {}, true, false) %>
+    <%= f.label :time_to %>
+	<div id="time_to">
+    	<%= f.datetime_select :time_to %>
+	</div>
+	<%= observe_field("post_has_time_to", 
+			:url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
+   </div>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

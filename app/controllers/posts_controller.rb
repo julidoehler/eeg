@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -91,6 +90,21 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  #TODO add default value to hide
+  def toggle
+    respond_to do |format|
+      format.js do
+        render :update do |page|
+          if params[:value] == "true"
+            page.show(params[:element])
+          else
+            page.hide(params[:element])
+          end
+        end
+      end
     end
   end
   
