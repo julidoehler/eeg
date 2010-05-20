@@ -5,7 +5,7 @@
 
 <p>
   <b>Time from:</b>
-  <%=h @post.time_from %>
+  <%=h @post.time_from unless @post.time_from.nil? %>
 </p>
 
 <p>
@@ -15,7 +15,7 @@
 
 <p>
   <b>Time to:</b>
-  <%=h @post.time_to %>
+  <%=h @post.time_to unless @post.time_to.nil? %>
 </p>
 
 <p>

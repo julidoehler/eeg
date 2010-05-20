@@ -2,9 +2,9 @@
 
 one:
   date_from: 2010-05-20
-  time_from: 2010-05-20 12:38:17
+  time_from: 2010-05-20 13:49:16
   date_to: 2010-05-20
-  time_to: 2010-05-20 12:38:17
+  time_to: 2010-05-20 13:49:16
   title: MyString
   short_text: MyText
   published: false
@@ -14,9 +14,9 @@ one:
 
 two:
   date_from: 2010-05-20
-  time_from: 2010-05-20 12:38:17
+  time_from: 2010-05-20 13:49:16
   date_to: 2010-05-20
-  time_to: 2010-05-20 12:38:17
+  time_to: 2010-05-20 13:49:16
   title: MyString
   short_text: MyText
   published: false

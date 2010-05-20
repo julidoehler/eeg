@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -40,8 +40,19 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @post = Post.new(params[:post])
+    #make date and time field empty if they are not used
     
+    make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
+    make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
+    make_empty("time_to") if params[:post].fetch("has_time_to") == "false"
+    
+    #delete unnessecary variables
+    params[:post].delete("has_date_to")
+    params[:post].delete("has_time_from")
+    params[:post].delete("has_time_to")
+        
+    @post = Post.new(params[:post])
+
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
@@ -81,5 +92,14 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def make_empty(field)
+    params[:post][field+"(1i)"] = ""
+    params[:post][field+"(2i)"] = ""
+    params[:post][field+"(3i)"] = ""
+    params[:post][field+"(4i)"] = ""
+    params[:post][field+"(5i)"] = ""
   end
 end

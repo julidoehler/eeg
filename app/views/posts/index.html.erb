@@ -17,9 +17,9 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%=h post.date_from %></td>
-    <td><%=h post.time_from %></td>
+    <td><%=h post.time_from unless post.time_from.nil? %></td>
     <td><%=h post.date_to %></td>
-    <td><%=h post.time_to %></td>
+    <td><%=h post.time_to unless post.time_to.nil? %></td>
     <td><%=h post.title %></td>
     <td><%=h post.short_text %></td>
     <td><%=h post.published %></td>

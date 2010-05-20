@@ -8,16 +8,17 @@
     <%= f.date_select :date_from %>
   </p>
   <p>
-  	<%= f.check_box :has_time_from %>
+  	<%= check_box("post","has_time_from", {}, true, false) %>
     <%= f.label :time_from %><br />
     <%= f.datetime_select :time_from %>
   </p>
   <p>
+  	<%= check_box("post","has_date_to", {}, true, false) %>
     <%= f.label :date_to %><br />
     <%= f.date_select :date_to %>
   </p>
   <p>
-  	<%= f.check_box :has_time_to %>
+  	<%= check_box("post","has_time_to", {}, true, false) %>
     <%= f.label :time_to %><br />
     <%= f.datetime_select :time_to %>
   </p>
