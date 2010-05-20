@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_from: 2010-05-20
+  time_from: 2010-05-20 12:38:17
+  date_to: 2010-05-20
+  time_to: 2010-05-20 12:38:17
+  title: MyString
+  short_text: MyText
+  published: false
+  post_to_twitter: false
+  post_to_facebook: false
+  post_to_myspace: false
+
+two:
+  date_from: 2010-05-20
+  time_from: 2010-05-20 12:38:17
+  date_to: 2010-05-20
+  time_to: 2010-05-20 12:38:17
+  title: MyString
+  short_text: MyText
+  published: false
+  post_to_twitter: false
+  post_to_facebook: false
+  post_to_myspace: false

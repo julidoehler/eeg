@@ -1,0 +1,53 @@
+<p>
+  <b>Date from:</b>
+  <%=h @post.date_from %>
+</p>
+
+<p>
+  <b>Time from:</b>
+  <%=h @post.time_from %>
+</p>
+
+<p>
+  <b>Date to:</b>
+  <%=h @post.date_to %>
+</p>
+
+<p>
+  <b>Time to:</b>
+  <%=h @post.time_to %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @post.title %>
+</p>
+
+<p>
+  <b>Short text:</b>
+  <%=h @post.short_text %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%=h @post.published %>
+</p>
+
+<p>
+  <b>Post to twitter:</b>
+  <%=h @post.post_to_twitter %>
+</p>
+
+<p>
+  <b>Post to facebook:</b>
+  <%=h @post.post_to_facebook %>
+</p>
+
+<p>
+  <b>Post to myspace:</b>
+  <%=h @post.post_to_myspace %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
