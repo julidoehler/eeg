@@ -13,7 +13,7 @@
   	<%= check_box("post","has_time_from", {}, true, false) %>
     <%= f.label :time_from %>
     <div id="time_from">
-    	<%= f.datetime_select :time_from %>
+    	<%= f.time_select :time_from %>
 	</div>
 	<%= javascript_tag "Element.hide('time_from')" %>
 	<%= observe_field("post_has_time_from",
@@ -29,7 +29,7 @@
    	<%= check_box("post","has_time_to", {}, true, false) %>
     <%= f.label :time_to %>
 	<div id="time_to">
-    	<%= f.datetime_select :time_to %>
+    	<%= f.time_select :time_to %>
 	</div>
 	<%= javascript_tag "Element.hide('time_to')" %>
 	<%= observe_field("post_has_time_to", 
