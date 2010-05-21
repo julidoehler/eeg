@@ -15,6 +15,7 @@
     <div id="time_from">
     	<%= f.datetime_select :time_from %>
 	</div>
+	<%= javascript_tag "Element.hide('time_from')" %>
 	<%= observe_field("post_has_time_from",
 			:url => {:action => :toggle, :element => "time_from"}, :with => "value") %>
   </p>
@@ -30,9 +31,11 @@
 	<div id="time_to">
     	<%= f.datetime_select :time_to %>
 	</div>
+	<%= javascript_tag "Element.hide('time_to')" %>
 	<%= observe_field("post_has_time_to", 
 			:url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
    </div>
+   <%= javascript_tag "Element.hide('date_to')" %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

@@ -93,7 +93,6 @@ class PostsController < ApplicationController
     end
   end
   
-  #TODO add default value to hide
   def toggle
     respond_to do |format|
       format.js do
