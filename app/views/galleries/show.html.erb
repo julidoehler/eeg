@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @gallery.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @gallery.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_gallery_path(@gallery) %> |
+<%= link_to 'Back', galleries_path %>
