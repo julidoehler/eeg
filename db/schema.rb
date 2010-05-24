@@ -9,10 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100524201422) do
+ActiveRecord::Schema.define(:version => 20100524211112) do
+
+  create_table "galleries", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pictures", :force => true do |t|
     t.text     "description"
+    t.integer  "gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "pic_file_file_name"
@@ -23,9 +31,9 @@ ActiveRecord::Schema.define(:version => 20100524201422) do
 
   create_table "posts", :force => true do |t|
     t.date     "date_from"
-    t.time     "time_from",        :default => '2000-01-01 00:00:00'
+    t.time     "time_from"
     t.date     "date_to"
-    t.time     "time_to",          :default => '2000-01-01 00:00:00'
+    t.time     "time_to"
     t.string   "title"
     t.text     "short_text"
     t.boolean  "published"

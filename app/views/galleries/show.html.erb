@@ -7,6 +7,13 @@
   <b>Description:</b>
   <%=h @gallery.description %>
 </p>
+<p>
+  <b>Pcitures in the Gallery:</b>
+  <% @gallery.pictures.each do |pic| %>
+  <%= image_tag pic.pic_file.url(:thumb) %>
+  <% end%>
+  
+</p>
 
 
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |

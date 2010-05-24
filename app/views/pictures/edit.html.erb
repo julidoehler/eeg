@@ -1,9 +1,13 @@
 <h1>Editing picture</h1>
 
-<% form_for :picture, @picture, :url => picture_path, :html => { :multipart => true } do |f| %>
+<% form_for @picture, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
   	<%= f.file_field :pic_file %>
+  </p>
+  <p>
+    <%= f.label :gallery %><br />
+    <%= f.text_field :gallery_id %>
   </p>
   <p>
     <%= f.label :description %><br />
