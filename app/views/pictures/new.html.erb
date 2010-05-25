@@ -3,15 +3,16 @@
 <% form_for @picture, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
-  	<%= f.file_field :pic_file %>
-  </p>
-  <p>
     <%= f.label :gallery %><br />
     <%= f.text_field :gallery_id %>
   </p>
   <p>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.file_field :data %>
   </p>
   <p>
     <%= f.submit 'Create' %>

@@ -1,6 +1,16 @@
 class Post < ActiveRecord::Base
+  has_one :picture
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
-
+  
+  validates_presence_of :title
+  validates_associated :picture
+    
+  def picture_attributes=(picture_attributes)
+    picture_attributes.each do |attributes|
+      pictures.build(attributes)
+    end
+  end
+  
   def has_time_from
   end
   def has_time_to

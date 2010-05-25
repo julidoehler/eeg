@@ -8,9 +8,9 @@
   <%=h @gallery.description %>
 </p>
 <p>
-  <b>Pcitures in the Gallery:</b>
-  <% @gallery.pictures.each do |pic| %>
-  <%= image_tag pic.pic_file.url(:thumb) %>
+  <b>Pictures in the Gallery:</b>
+  <% @gallery.pictures.each do |p| %>
+  <%= image_tag p.data.url(:thumb) %>
   <% end%>
   
 </p>

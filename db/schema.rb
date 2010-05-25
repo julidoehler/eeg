@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(:version => 20100524211112) do
     t.integer  "gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "pic_file_file_name"
-    t.string   "pic_file_content_type"
-    t.integer  "pic_file_file_size"
-    t.datetime "pic_file_updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
   end
 
   create_table "posts", :force => true do |t|

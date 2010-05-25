@@ -25,6 +25,8 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
+    @post.build_picture
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -38,9 +40,8 @@ class PostsController < ApplicationController
 
   # POST /posts
   # POST /posts.xml
-  def create
+  def create    
     #make date and time field empty if they are not used
-    
     make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
     make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
     make_empty("time_to") if params[:post].fetch("has_time_to") == "false"
@@ -49,8 +50,9 @@ class PostsController < ApplicationController
     params[:post].delete("has_date_to")
     params[:post].delete("has_time_from")
     params[:post].delete("has_time_to")
-        
+    
     @post = Post.new(params[:post])
+    @picture = @post.create_picture(params[:picture])
 
     respond_to do |format|
       if @post.save

@@ -1,8 +1,8 @@
 <p>
   <b>Description:</b>
-  <%= image_tag @picture.pic_file.url %>
-  <%= image_tag @picture.pic_file.url(:medium) %>
-  <%= image_tag @picture.pic_file.url(:thumb) %>
+  <%= image_tag @picture.data.url %>
+  <%= image_tag @picture.data.url(:medium) %>
+  <%= image_tag @picture.data.url(:thumb) %>
   
   <%=h @picture.description %>
 </p>
