@@ -52,7 +52,10 @@ class PostsController < ApplicationController
     params[:post].delete("has_time_to")
     
     @post = Post.new(params[:post])
+    #additionally create a picture
     @picture = @post.create_picture(params[:picture])
+    #set the picture_id of the post to the picture id
+    @post.picture_id = @picture.id
 
     respond_to do |format|
       if @post.save

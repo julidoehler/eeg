@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20100524211112) do
     t.boolean  "post_to_twitter"
     t.boolean  "post_to_facebook"
     t.boolean  "post_to_myspace"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
