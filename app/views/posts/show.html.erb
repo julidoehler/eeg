@@ -47,7 +47,11 @@
   <b>Post to myspace:</b>
   <%=h @post.post_to_myspace %>
 </p>
-
-
+<p>
+  <b>Tags:</b>
+  <% @post.tag_list.each do |t| %>
+    <%=h t + " "%>
+  <% end%>
+</p>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

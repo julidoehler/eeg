@@ -12,6 +12,7 @@
     <th>Post to twitter</th>
     <th>Post to facebook</th>
     <th>Post to myspace</th>
+    <th>Tags</th>
   </tr>
 
 <% @posts.each do |post| %>
@@ -26,6 +27,11 @@
     <td><%=h post.post_to_twitter %></td>
     <td><%=h post.post_to_facebook %></td>
     <td><%=h post.post_to_myspace %></td>
+    <td>
+      <% post.tag_list.each do |t| %>
+        <%=h t + " "%>
+      <% end%>
+    </td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
