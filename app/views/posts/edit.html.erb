@@ -28,6 +28,12 @@
     <%= f.text_area :short_text %>
   </p>
   <p>
+    <% fields_for :picture do |picture_form| %>
+        Picture: <%= picture_form.file_field :data %>
+        <%= picture_form.hidden_field :gallery_id, :value => "1" %>
+    <% end %>
+  </p>
+  <p>
     <%= f.label :published %><br />
     <%= f.check_box :published %>
   </p>

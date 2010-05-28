@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Picture</th>
     <th>Date from</th>
     <th>Time from</th>
     <th>Date to</th>
@@ -16,6 +17,7 @@
 
 <% @posts.each do |post| %>
   <tr>
+    <td><%= image_tag Picture.find(post.picture_id).data.url(:thumb) %></td>
     <td><%=h post.date_from %></td>
     <td><%=h post.time_from unless post.time_from.nil? %></td>
     <td><%=h post.date_to %></td>
