@@ -85,6 +85,12 @@ class PostsController < ApplicationController
     params[:post].delete("has_time_to")
     
     @post = Post.find(params[:id])
+    
+    #only update the picture if there is new data for it
+    if params[:picture].has_key?("data")
+      @picture = Picture.find(@post.picture_id)
+      @picture.update_attributes(params[:picture])
+    end
 
     respond_to do |format|
       if @post.update_attributes(params[:post])

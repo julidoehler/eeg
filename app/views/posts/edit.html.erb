@@ -2,8 +2,8 @@
 
 <h1>Editing post</h1>
 
-<% form_for(@post) do |f| %>
-  <%= f.error_messages %>
+<% form_for @post, :html => { :multipart => true } do  |f| %>
+  <%= error_messages_for 'post', 'picture' %>
 
   <p>
     <%= f.label :date_from %><br />
