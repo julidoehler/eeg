@@ -1,3 +1,5 @@
+<%= javascript_include_tag :defaults %>
+
 <h1>Editing post</h1>
 
 <% form_for(@post) do |f| %>
@@ -8,16 +10,44 @@
     <%= f.date_select :date_from %>
   </p>
   <p>
-    <%= f.label :time_from %><br />
-    <%= f.datetime_select :time_from %>
+  	<%= if @post.time_from.nil?
+			check_box("post","has_time_from", {}, true, false)
+		else
+			check_box("post","has_time_from", {:checked => "checked"}, true, false)
+		end %>
+    <%= f.label :time_from %>
+    <div id="time_from">
+    	<%= f.time_select :time_from %>
+	</div>
+	<%= javascript_tag "Element.hide('time_from')" if @post.time_from.nil? %>
+	<%= observe_field("post_has_time_from",
+			:url => {:action => :toggle, :element => "time_from"}, :with => "value") %>
   </p>
   <p>
-    <%= f.label :date_to %><br />
-    <%= f.date_select :date_to %>
-  </p>
-  <p>
-    <%= f.label :time_to %><br />
-    <%= f.datetime_select :time_to %>
+  	<%= if @post.date_to.nil?
+			check_box("post","has_date_to", {}, true, false)
+		else
+			check_box("post","has_date_to", {:checked => "checked"}, true, false)
+		end %>
+	<%= f.label :date_to %>
+	<div id="date_to">
+    	<%= f.date_select :date_to %>
+	<%= observe_field("post_has_date_to", 
+			:url => {:action => :toggle, :element => "date_to"}, :with => "value") %><br />
+  	<%= if @post.time_to.nil?
+			check_box("post","has_time_to", {}, true, false)
+		else
+			check_box("post","has_time_to", {:checked => "checked"}, true, false)
+		end %>
+    <%= f.label :time_to %>
+	<div id="time_to">
+    	<%= f.time_select :time_to %>
+	</div>
+	<%= javascript_tag "Element.hide('time_to')" if @post.time_to.nil? %>
+	<%= observe_field("post_has_time_to", 
+			:url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
+   </div>
+   <%= javascript_tag "Element.hide('date_to')" if @post.date_to.nil? %>
   </p>
   <p>
     <%= f.label :title %><br />

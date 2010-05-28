@@ -44,7 +44,8 @@ class PostsController < ApplicationController
     #make date and time field empty if they are not used
     make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
     make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
-    make_empty("time_to") if params[:post].fetch("has_time_to") == "false"
+    #if there is no date, then we need no time
+    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false"
     
     #delete unnessecary variables
     params[:post].delete("has_date_to")
@@ -72,6 +73,17 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
+    #make date and time field empty if they are not used
+    make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
+    make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
+    #if there is no date, then we need no time
+    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false"
+    
+    #delete unnessecary variables
+    params[:post].delete("has_date_to")
+    params[:post].delete("has_time_from")
+    params[:post].delete("has_time_to")
+    
     @post = Post.find(params[:id])
 
     respond_to do |format|
