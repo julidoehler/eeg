@@ -1,40 +1,23 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Picture</th>
-    <th>Date from</th>
-    <th>Time from</th>
-    <th>Date to</th>
-    <th>Time to</th>
-    <th>Title</th>
-    <th>Short text</th>
-    <th>Published</th>
-    <th>Post to twitter</th>
-    <th>Post to facebook</th>
-    <th>Post to myspace</th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= image_tag Picture.find(post.picture_id).data.url(:thumb) %></td>
-    <td><%=h post.date_from %></td>
-    <td><%=h post.time_from unless post.time_from.nil? %></td>
-    <td><%=h post.date_to %></td>
-    <td><%=h post.time_to unless post.time_to.nil? %></td>
-    <td><%=h post.title %></td>
-    <td><%=h post.short_text %></td>
-    <td><%=h post.published %></td>
-    <td><%=h post.post_to_twitter %></td>
-    <td><%=h post.post_to_facebook %></td>
-    <td><%=h post.post_to_myspace %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="news_box">
+	<div class="news_box_picture">
+		<%= image_tag Picture.find(post.picture_id).data.url(:thumb) %>
+	</div>
+	<div class="news_box_text yellow">
+		<%=h post.date_from %>
+		<%=h post.time_from unless post.time_from.nil? %>
+		bis 
+		<%=h post.date_to %>
+		<%=h post.time_to unless post.time_to.nil? %><br />
+		<%=h post.title %><br />
+		<%=h post.short_text %><br />
+		<%= link_to 'Show', post %>
+		<%= link_to 'Edit', edit_post_path(post) %>
+		<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+</div>
 <% end %>
-</table>
 
-<br />
-
+<div id="content" class="news_box yellow">
 <%= link_to 'New post', new_post_path %>
+</div>

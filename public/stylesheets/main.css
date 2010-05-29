@@ -1,4 +1,36 @@
-body { background-color: #fff; color: #333; }
+/* CLASSES */
+.green {
+	background-image: url(../images/bg_green.png);
+}
+
+.yellow {
+	background-image: url(../images/bg_yellow.png);
+}
+
+.news_box {
+	clear:left;
+	margin-bottom:10px;
+}
+
+.news_box_picture {
+	float:left;
+}
+
+.news_box_text {
+	padding:10px;
+}
+/* IDs */
+#content_left {
+	padding:50px;
+	width:600px;
+}
+/* TAGS */
+body {
+	background-color: #fff;
+	background-image: url(../images/bg.jpg);
+	color: #333;
+	float:none;
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
