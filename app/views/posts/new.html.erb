@@ -1,5 +1,5 @@
 <%= javascript_include_tag :defaults %>
-
+<div class="yellow">
 <h1>New post</h1>
 
 <% form_for @post, :html => { :multipart => true } do  |f| %>
@@ -74,3 +74,4 @@
 <% end %>
 
 <%= link_to 'Back', posts_path %>
+</div>

@@ -10,6 +10,13 @@
 		<div id="head" class="green">
 			<%= image_tag "logo.png" %>
 		</div>
+		<div id="nav">
+			<ul>
+				<li><%= link_to "News", posts_path, :class => 'green' %></li>
+				<li><%= link_to "Pictures", pictures_path, :class => 'green' %></li>
+				<li><%= link_to "Galleries", galleries_path, :class => 'green' %></li>
+			</ul>
+		</div>
 		<div id="content_left">
 			<p style="color: green"><%= flash[:notice] %></p>
 			<%= yield %>
