@@ -6,6 +6,7 @@
     <th>Date to</th>
     <th>Title</th>
     <th>Info</th>
+    <th>Tags</th>
   </tr>
 
 <% @projects.each do |project| %>
@@ -14,6 +15,11 @@
     <td><%=h project.date_to %></td>
     <td><%=h project.title %></td>
     <td><%=h project.info %></td>
+    <td>
+      <% projects.tag_list.each do |t| %>
+        <%=h t + " "%>
+      <% end%>
+    </td>
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>

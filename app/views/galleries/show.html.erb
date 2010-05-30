@@ -14,7 +14,11 @@
   <% end%>
   
 </p>
-
-
+<p>
+  <b>Tags:</b>
+  <% @gallery.tag_list.each do |t| %>
+    <%=h t + " "%>
+  <% end%>
+</p>
 <%= link_to 'Edit', edit_gallery_path(@gallery) %> |
 <%= link_to 'Back', galleries_path %>

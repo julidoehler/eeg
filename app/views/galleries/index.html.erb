@@ -4,12 +4,18 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
+    <th>Tags</th>
   </tr>
 
 <% @galleries.each do |gallery| %>
   <tr>
     <td><%=h gallery.title %></td>
     <td><%=h gallery.description %></td>
+    <td>
+      <% gallery.tag_list.each do |t| %>
+        <%=h t + " "%>
+      <% end%>
+    </td>
     <td><%= link_to 'Show', gallery %></td>
     <td><%= link_to 'Edit', edit_gallery_path(gallery) %></td>
     <td><%= link_to 'Destroy', gallery, :confirm => 'Are you sure?', :method => :delete %></td>

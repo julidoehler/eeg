@@ -4,12 +4,18 @@
   <tr>
     <th>Type</th>
     <th>Content</th>
+    <th>Tags</th>
   </tr>
 
 <% @elements.each do |element| %>
   <tr>
     <td><%=h element.type %></td>
     <td><%=h element.content %></td>
+    <td>
+      <% element.tag_list.each do |t| %>
+        <%=h t + " "%>
+      <% end%>
+    </td>
     <td><%= link_to 'Show', element %></td>
     <td><%= link_to 'Edit', edit_element_path(element) %></td>
     <td><%= link_to 'Destroy', element, :confirm => 'Are you sure?', :method => :delete %></td>

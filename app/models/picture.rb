@@ -1,4 +1,5 @@
 class Picture < ActiveRecord::Base
+  acts_as_taggable
   belongs_to :gallery
   
   validate :existence_of_gallery_id

@@ -2,7 +2,12 @@
   <b>Type:</b>
   <%=h @element.type %>
 </p>
-
+<p>
+  <b>Tags:</b>
+  <% @element.tag_list.each do |t| %>
+    <%=h t + " "%>
+  <% end%>
+</p>
 <p>
   <b>Content:</b>
   <%=h @element.content %>

@@ -6,7 +6,11 @@
   
   <%=h @picture.description %>
 </p>
-
-
+<p>
+  <b>Tags:</b>
+  <% @picture.tag_list.each do |t| %>
+    <%=h t + " "%>
+  <% end%>
+</p>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
