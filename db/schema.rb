@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100524211112) do
+ActiveRecord::Schema.define(:version => 20100530193125) do
+
+  create_table "elements", :force => true do |t|
+    t.integer  "type"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "galleries", :force => true do |t|
     t.string   "title"
@@ -41,6 +48,21 @@ ActiveRecord::Schema.define(:version => 20100524211112) do
     t.boolean  "post_to_facebook"
     t.boolean  "post_to_myspace"
     t.integer  "picture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.date     "date_from"
+    t.date     "date_to"
+    t.string   "title"
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sidepics", :force => true do |t|
+    t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

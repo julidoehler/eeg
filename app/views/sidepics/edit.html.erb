@@ -1,0 +1,16 @@
+<h1>Editing sidepic</h1>
+
+<% form_for(@sidepic) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sidepic %> |
+<%= link_to 'Back', sidepics_path %>
