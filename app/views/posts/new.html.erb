@@ -37,6 +37,7 @@
 			:url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
    </div>
    <%= javascript_tag "Element.hide('date_to')" %>
+  </p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -45,12 +46,12 @@
     <%= f.label :short_text %><br />
     <%= f.text_area :short_text %>
   </p>
+  <p>
     <% fields_for :picture do |picture_form| %>
-      <p>
         Picture: <%= picture_form.file_field :data %>
         <%= picture_form.hidden_field :gallery_id, :value => "1" %>
-      </p>
     <% end %>
+  </p>
   <p>
     <%= f.label :published %><br />
     <%= f.check_box :published %>

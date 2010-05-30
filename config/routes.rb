@@ -1,9 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :elements
+
+  map.resources :sidepics
+
+  map.resources :projects
+
   map.resources :galleries
 
   map.resources :pictures
 
   map.resources :posts
+  
+  #some tests
+  map.kontakt 'kontakt', :controller => 'pages', :action => 'contact'
+  map.tag 'tag/:id', :controller => 'pages', :action => 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

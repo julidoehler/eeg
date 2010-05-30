@@ -7,6 +7,8 @@
 
 <% @pictures.each do |picture| %>
   <tr>
+    <td><%=h picture.id %></td>
+    <td><%= image_tag picture.data.url(:thumb) %></td>
     <td><%=h picture.description %></td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
