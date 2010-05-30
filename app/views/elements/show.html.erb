@@ -1,6 +1,10 @@
 <p>
   <b>Type:</b>
-  <%=h @element.type %>
+  <%=h @element.content_type %>
+</p>
+<p>
+  <b>Content:</b>
+  <%=h @element.content %>
 </p>
 <p>
   <b>Tags:</b>
@@ -8,11 +12,5 @@
     <%=h t + " "%>
   <% end%>
 </p>
-<p>
-  <b>Content:</b>
-  <%=h @element.content %>
-</p>
-
-
 <%= link_to 'Edit', edit_element_path(@element) %> |
 <%= link_to 'Back', elements_path %>

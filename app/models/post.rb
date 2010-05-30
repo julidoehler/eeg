@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
   belongs_to :picture
+  has_many :elements
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
   validates_presence_of :title

@@ -12,8 +12,10 @@
 ActiveRecord::Schema.define(:version => 20100530193125) do
 
   create_table "elements", :force => true do |t|
-    t.integer  "type"
+    t.integer  "content_type"
     t.text     "content"
+    t.integer  "parent_id_id"
+    t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

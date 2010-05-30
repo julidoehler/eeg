@@ -9,7 +9,7 @@
 
 <% @elements.each do |element| %>
   <tr>
-    <td><%=h element.type %></td>
+    <td><%=h element.content_type %></td>
     <td><%=h element.content %></td>
     <td>
       <% element.tag_list.each do |t| %>
