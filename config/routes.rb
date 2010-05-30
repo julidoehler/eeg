@@ -4,6 +4,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pictures
 
   map.resources :posts
+  
+  map.news 'news', :controller => 'posts', :action => 'index'
+  map.news 'news/:id', :controller => 'posts', :action => 'show'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
