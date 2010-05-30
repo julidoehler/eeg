@@ -8,16 +8,14 @@
 }
 
 .news_box {
-	float:left;
+  clear:left;
 }
 
 .news_box_picture {
-	float:left;
+  float:left;
 }
 
 .news_box_text {
-	float:left;
-	width:450px;
 }
 
 div.news_box_text h1 a {
@@ -26,19 +24,42 @@ div.news_box_text h1 a {
 }
 /* IDs */
 #nav {
-	float:left;
 }
+
 #nav ul {
 	list-style-type: none;
+	clear:left;
 }
-#nav li {
+
+#nav ul li {
 	display:inline;
+	float:left;
+	margin:2px 2px 0px 0px;
 }
-#nav a {
+
+#nav ul li a {
 	text-decoration:none;
+	color:#000000;
+	font-weight:bold;
+	margin:3px;
 }
+
+#nav ul li:first-child {
+  padding-left:50px;
+}
+#page {
+  background-image: url(../images/guilloche.png);
+}
+
 #content_left {
 	width:600px;
+	margin:80px 0px 0px 80px;
+	clear:all;
+}
+
+#foot {
+  background-color:#000000;
+  color:#ffffff;
 }
 /* TAGS */
 * {
@@ -49,7 +70,6 @@ body {
 	background-color: #fff;
 	background-image: url(../images/bg.jpg);
 	color: #333;
-	float:none;
 }
 
 body, p, ol, ul, td {
