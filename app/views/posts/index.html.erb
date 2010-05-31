@@ -1,3 +1,7 @@
+<div class="news_box admin">
+<%= link_to 'New post', new_post_path %>
+</div>
+
 <% @posts.each do |post| %>
 <div class="news_box">
 	<div class="news_box_picture">
@@ -8,15 +12,13 @@
 		<%=h post.time_from unless post.time_from.nil? %>
 		bis 
 		<%=h post.date_to %>
-		<%=h post.time_to unless post.time_to.nil? %><br />
+		<%=h post.time_to unless post.time_to.nil? %>
+		<%= link_to 'Edit', edit_post_path(post), :class => 'admin' %>
+		<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin' %><br />
 		<h1><%= link_to post.title.upcase, news_path(post) %></h1>
 		<%=h post.short_text %> <%= link_to '&raquo;', news_path(post) %><br />
-		<%= link_to 'Edit', edit_post_path(post) %>
-		<%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+		
+		
 	</div>
 </div>
 <% end %>
-
-<div class="news_box yellow">
-<%= link_to 'New post', new_post_path %>
-</div>

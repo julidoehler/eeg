@@ -7,6 +7,11 @@
 	background-image: url(../images/bg_yellow.png);
 }
 
+.admin {
+  background-color: #ffffff;
+  color: #000000;
+}
+
 .news_box {
   clear:left;
 }
@@ -23,6 +28,33 @@ div.news_box_text h1 a {
 	color: #000000;
 }
 /* IDs */
+#sub_head {
+  margin-top:30px;
+}
+
+#sub_head ul {
+  list-style-type: none;
+  margin-left:55px;
+}
+
+#sub_head ul li {
+  display:inline;
+}
+
+#sub_head ul li a {
+  text-decoration:none;
+  color:#000000;
+  font-weight:bold;
+  font-size:80%;
+}
+
+#head {
+}
+
+#head img {
+  margin:20px 0px 20px 0px;
+}
+
 #nav {
 }
 
@@ -47,8 +79,12 @@ div.news_box_text h1 a {
 #nav ul li:first-child {
   padding-left:50px;
 }
+
 #page {
-  background-image: url(../images/guilloche.png);
+  background-image: url(../images/gekritzel.png);
+  background-repeat:repeat-x;
+  position:absolute;
+  width:100%;
 }
 
 #content_left {
@@ -60,6 +96,7 @@ div.news_box_text h1 a {
 #foot {
   background-color:#000000;
   color:#ffffff;
+  clear:left;
 }
 /* TAGS */
 * {
