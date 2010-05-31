@@ -1,0 +1,20 @@
+<h1>Listing sidepics</h1>
+
+<table>
+  <tr>
+    <th>Link</th>
+  </tr>
+
+<% @sidepics.each do |sidepic| %>
+  <tr>
+    <td><%=h sidepic.link %></td>
+    <td><%= link_to 'Show', sidepic %></td>
+    <td><%= link_to 'Edit', edit_sidepic_path(sidepic) %></td>
+    <td><%= link_to 'Destroy', sidepic, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sidepic', new_sidepic_path %>

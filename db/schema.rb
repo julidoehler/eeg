@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100524211112) do
+ActiveRecord::Schema.define(:version => 20100530193125) do
+
+  create_table "elements", :force => true do |t|
+    t.integer  "content_type"
+    t.text     "content"
+    t.integer  "parent_id_id"
+    t.string   "parent_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "galleries", :force => true do |t|
     t.string   "title"
@@ -45,6 +54,21 @@ ActiveRecord::Schema.define(:version => 20100524211112) do
     t.datetime "updated_at"
   end
 
+  create_table "projects", :force => true do |t|
+    t.date     "date_from"
+    t.date     "date_to"
+    t.string   "title"
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sidepics", :force => true do |t|
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "slugs", :force => true do |t|
     t.string   "name"
     t.integer  "sluggable_id"
@@ -56,5 +80,19 @@ ActiveRecord::Schema.define(:version => 20100524211112) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
 end

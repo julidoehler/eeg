@@ -3,7 +3,10 @@
 
 <table>
   <tr>
+    <th>Id</th>
+    <th>Data</th>
     <th>Description</th>
+    <th>Tags</th>
   </tr>
 
 <% @pictures.each do |picture| %>
@@ -11,6 +14,11 @@
     <td><%=h picture.id %></td>
     <td><%= image_tag picture.data.url(:thumb) %></td>
     <td><%=h picture.description %></td>
+    <td>
+      <% picture.tag_list.each do |t| %>
+        <%=h t + " "%>
+      <% end%>
+    </td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
     <td><%= link_to 'Destroy', picture, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,0 +1,27 @@
+<p>
+  <b>Date from:</b>
+  <%=h @project.date_from %>
+</p>
+
+<p>
+  <b>Date to:</b>
+  <%=h @project.date_to %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @project.title %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%=h @project.info %>
+</p>
+<p>
+  <b>Tags:</b>
+  <% @projects.tag_list.each do |t| %>
+    <%=h t + " "%>
+  <% end%>
+</p>
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
