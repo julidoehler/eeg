@@ -1,5 +1,5 @@
-<h1>Listing projects</h1>
-
+<div class="yellow">
+  <%= link_to 'New project', new_project_path %>
 <table>
   <tr>
     <th>Date from</th>
@@ -16,7 +16,7 @@
     <td><%=h project.title %></td>
     <td><%=h project.info %></td>
     <td>
-      <% projects.tag_list.each do |t| %>
+      <% project.tag_list.each do |t| %>
         <%=h t + " "%>
       <% end%>
     </td>
@@ -26,7 +26,4 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New project', new_project_path %>
+</div>

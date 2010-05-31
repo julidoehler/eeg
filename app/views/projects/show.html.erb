@@ -1,3 +1,4 @@
+<div class="yellow">
 <p>
   <b>Date from:</b>
   <%=h @project.date_from %>
@@ -19,9 +20,10 @@
 </p>
 <p>
   <b>Tags:</b>
-  <% @projects.tag_list.each do |t| %>
+  <% @project.tag_list.each do |t| %>
     <%=h t + " "%>
   <% end%>
 </p>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</div>
