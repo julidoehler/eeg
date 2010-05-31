@@ -13,6 +13,13 @@ ActionController::Routing::Routes.draw do |map|
   
   map.news 'news', :controller => 'posts', :action => 'index'
   map.news 'news/:id', :controller => 'posts', :action => 'show'
+  
+  map.schedule 'schedule', :controller => 'pages', :action => 'schedule'
+  map.profile 'profile', :controller => 'pages', :action => 'profile'
+  map.imprint 'imprint', :controller => 'pages', :action => 'imprint'
+  map.contact 'contact', :controller => 'pages', :action => 'contact'
+  map.directions 'directions', :controller => 'pages', :action => 'directions'
+  map.archive 'archive', :controller => 'pages', :action => 'archive'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
