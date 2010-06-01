@@ -49,7 +49,9 @@ class ElementsController < ApplicationController
 
     respond_to do |format|
       if @element.save
-        @element.update_attribute('content',@element.data.path)
+        if @element.content_type == 'file'
+          @element.update_attribute('content',@element.data.url)
+        end
         flash[:notice] = 'Element was successfully created.'
         format.html { redirect_to(@element) }
         format.xml  { render :xml => @element, :status => :created, :location => @element }
