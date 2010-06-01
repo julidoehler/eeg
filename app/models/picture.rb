@@ -2,6 +2,7 @@ class Picture < ActiveRecord::Base
   acts_as_taggable
   belongs_to :gallery
   
+  validates_presence_of :gallery_id
   validate :existence_of_gallery_id
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg', 'image/png', 'image/gif']

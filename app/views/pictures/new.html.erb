@@ -3,8 +3,8 @@
 <% form_for @picture, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :gallery %><br />
-    <%= f.text_field :gallery_id %>
+    <%= f.label :gallery_id %><br />
+    <%= f.select :gallery_id, Gallery.all.collect {|p| [ p.title, p.id ] }, :include_blank => true %>
   </p>
   <p>
     <%= f.label :description %><br />
