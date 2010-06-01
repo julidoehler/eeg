@@ -1,18 +1,23 @@
+<%= javascript_include_tag :defaults %>
+
 <h1>New element</h1>
 
-<% form_for(@element) do |f| %>
+<% form_for @element, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+  <p>Specify a content type to upload:</p>
+  <%= link_to_remote('text', :update => "dynamic_form",
+    :url => { :action => "text_form"}) %>
+  <%= link_to_remote('video', :update => "dynamic_form",
+    :url => { :action => "video_form"}) %>
+  <%= link_to_remote('file', :update => "dynamic_form",
+    :url => { :action => "file_form"}) %>
+  <%= link_to_remote('gallery', :update => "dynamic_form",
+    :url => { :action => "gallery_form"}) %>
+    <div id="dynamic_form"></div>
   <p>
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :tag_list %>
+    <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list, :size => 80 %>
   </p>
   <p>

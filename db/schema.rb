@@ -9,15 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100530193125) do
+ActiveRecord::Schema.define(:version => 20100531193125) do
 
   create_table "elements", :force => true do |t|
-    t.integer  "content_type"
+    t.string   "title"
+    t.string   "content_type"
     t.text     "content"
-    t.integer  "parent_id_id"
+    t.integer  "parent_id"
     t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
   end
 
   create_table "galleries", :force => true do |t|
