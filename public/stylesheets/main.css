@@ -25,6 +25,8 @@
 
 div.news_box_text h1 a {
 	text-decoration:none;
+	font-size: 16px;
+	font-weight: bold;
 	color: #000000;
 }
 /* IDs */
@@ -34,7 +36,7 @@ div.news_box_text h1 a {
 
 #sub_head ul {
   list-style-type: none;
-  margin-left:55px;
+  margin-left:79px;
 }
 
 #sub_head ul li {
@@ -44,8 +46,8 @@ div.news_box_text h1 a {
 #sub_head ul li a {
   text-decoration:none;
   color:#000000;
+  font-size:11px;
   font-weight:bold;
-  font-size:80%;
 }
 
 #head {
@@ -72,12 +74,13 @@ div.news_box_text h1 a {
 #nav ul li a {
 	text-decoration:none;
 	color:#000000;
+	font-size: 14px;
 	font-weight:bold;
 	margin:3px;
 }
 
 #nav ul li:first-child {
-  padding-left:50px;
+  padding-left:76px;
 }
 
 #page {
@@ -110,9 +113,8 @@ body {
 }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 pre {
