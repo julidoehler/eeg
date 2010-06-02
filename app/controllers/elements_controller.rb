@@ -91,6 +91,7 @@ class ElementsController < ApplicationController
     end
   end
   
+  #send a file
   def get
     @element = Element.find(params[:id])
     send_file @element.data.path

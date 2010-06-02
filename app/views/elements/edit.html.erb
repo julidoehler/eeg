@@ -1,15 +1,17 @@
 <h1>Editing element</h1>
 
-<% form_for(@element) do |f| %>
+<% form_for @element, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
+  
   <p>
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
+  	<%= f.label :title %><br />
+    <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+	<%= render :partial => "text_form" if @element.content_type == 'text' %>
+	<%= render :partial => "video_form" if @element.content_type == 'video' %>
+	<%= render :partial => "file_form" if @element.content_type == 'file' %>
+	<%= render :partial => "gallery_form", :locals => {:sel => @element.content.to_i} if @element.content_type == 'gallery' %>
   </p>
   <p>
     <%= f.label :tag_list %>

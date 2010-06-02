@@ -8,13 +8,13 @@
   <%= f.text_field :title %>
   <p>Specify a content type to upload:</p>
   <%= link_to_remote('text', :update => "dynamic_form",
-    :url => { :action => "text_form"}) %>
+    :url => {:action => '_text_form'}) %>
   <%= link_to_remote('video', :update => "dynamic_form",
-    :url => { :action => "video_form"}) %>
+    :url => {:action => '_video_form'}) %>
   <%= link_to_remote('file', :update => "dynamic_form",
-    :url => { :action => "file_form"}) %>
+    :url => {:action => '_file_form'}) %>
   <%= link_to_remote('gallery', :update => "dynamic_form",
-    :url => { :action => "gallery_form"}) %>
+    :url => {:action => '_gallery_form'}) %>
     <div id="dynamic_form"></div>
   <p>
     <%= f.label :tag_list %><br />

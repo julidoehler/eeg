@@ -1,0 +1,5 @@
+<%= hidden_field(:element, :content_type, :value => 'gallery') %>
+  <p>
+  	<% sel = '' if sel.nil? %>
+  	<%= select("element", "content", Gallery.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true, :selected => sel }) %>
+  </p>
