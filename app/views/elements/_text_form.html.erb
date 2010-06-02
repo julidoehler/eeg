@@ -1,5 +1,7 @@
-<%= hidden_field(:element, :content_type, :value => 'text') %>
+<% fields_for @element do |f| %>
+<%= f.hidden_field :content_type, :value => 'text' %>
 <p>
-  <%= label(:element, :content) %><br />
-  <%= text_area(:element, :content) %>
+  <%= f.label :content %><br />
+  <%= f.text_area :content %>
 </p>
+<% end %>

@@ -1,5 +1,7 @@
-<%= hidden_field(:element, :content_type, :value => 'video') %>
+<% fields_for @element do |f| %>
+<%= f.hidden_field :content_type, :value => 'video' %>
 <p>
-  <%= label(:element, :content, 'Videolink') %><br />
-  <%= text_field(:element, :content) %>
+  <%= f.label 'Videolink' %><br />
+  <%= f.text_field :content %>
 </p>
+<% end %>

@@ -1,4 +1,6 @@
-<%= hidden_field(:element, :content_type, :value => 'file') %>
-  <p>
-  <%= file_field(:element, :content) %>
-  </p>
+<% fields_for @element do |f| %>
+<%= f.hidden_field :content_type, :value => 'file' %>
+<p>
+  <%= f.file_field :content %>
+</p>
+<% end %>
