@@ -8,11 +8,12 @@
     <%= f.text_field :title %>
   </p>
   <p>
-	<%= render :partial => "text_form" if @element.content_type == 'text' %>
-	<%= render :partial => "video_form" if @element.content_type == 'video' %>
-	<%= render :partial => "file_form" if @element.content_type == 'file' %>
-	<%= render :partial => "gallery_form", :locals => {:sel => @element.content.to_i} if @element.content_type == 'gallery' %>
+	<%= add_form "text" %>
+	<%= add_form "video" %>
+	<%= add_form "file" %>
+	<%= add_form "gallery" %>
   </p>
+  <div id="dynamic_form"></div>
   <p>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, :size => 80 %>
