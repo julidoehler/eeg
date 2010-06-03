@@ -41,17 +41,9 @@ class ElementsController < ApplicationController
   # POST /elements.xml
   def create
     @element = Element.new(params[:element])
-    #if its a file change the content to the url of the file instead of the uploaded data
-    if @element.content_type == 'file'
-      @element.data = @element.content
-      @element.content = "kommt gleich :)"
-    end
 
     respond_to do |format|
       if @element.save
-        if @element.content_type == 'file'
-          @element.update_attribute('content',@element.data.url)
-        end
         flash[:notice] = 'Element was successfully created.'
         format.html { redirect_to(@element) }
         format.xml  { render :xml => @element, :status => :created, :location => @element }
@@ -89,11 +81,5 @@ class ElementsController < ApplicationController
       format.html { redirect_to(elements_url) }
       format.xml  { head :ok }
     end
-  end
-  
-  #send a file
-  def get
-    @element = Element.find(params[:id])
-    send_file @element.data.path
   end
 end

@@ -14,7 +14,7 @@
   <tr>
     <td><%=h element.title %></td>
     <td><%=h element.content_type %></td>
-    <td><%=h element.content %> <%= link_to "Download", element.content if element.content_type == 'file' %></td>
+    <td><%=h element.content %> <%= link_to "Download", element.data.url if element.content_type == 'file' %></td>
     <td><%=h element.parent_type %></td>
     <td><%=h element.parent_id %></td>
     <td>
