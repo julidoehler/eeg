@@ -14,24 +14,47 @@
 
 .news_box {
   clear:left;
+  margin-bottom:2px;
 }
 
-.news_box_picture {
+.news_box img {
   float:left;
 }
 
-.news_box_text {
+.fixed_height {
+  height:110px;
 }
 
-div.news_box_text h1 a {
-	text-decoration:none;
+.news_box_text {
+  margin-left:165px;
+}
+
+.news_box_text p, h1{
+  margin-left:15px;
+}
+
+.news_box_text_date {
+  font-size: 16px;
+}
+
+div.news_box_text h1 {
 	font-size: 16px;
 	font-weight: bold;
 	color: #000000;
 }
+
+div.news_box_text h1 a {
+  text-decoration:none;
+  color: #000000;
+}
+
+.admin_panel {
+  position:absolute;
+  margin-left:550px;
+}
 /* IDs */
 #sub_head {
-  margin-top:30px;
+  margin-top:25px;
 }
 
 #sub_head ul {
@@ -54,7 +77,7 @@ div.news_box_text h1 a {
 }
 
 #head img {
-  margin:20px 0px 20px 0px;
+  margin:28px 0px 10px 0px;
 }
 
 #nav {
@@ -91,7 +114,7 @@ div.news_box_text h1 a {
 }
 
 #content_left {
-	width:600px;
+	width:665px;
 	margin:80px 0px 0px 80px;
 	clear:all;
 }

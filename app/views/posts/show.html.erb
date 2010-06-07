@@ -1,59 +1,22 @@
-<div class="yellow">
-<p>
-  <b>Date from:</b>
-  <%=h @post.date_from %>
-</p>
-
-<p>
-  <b>Time from:</b>
-  <%=h @post.time_from unless @post.time_from.nil? %>
-</p>
-
-<p>
-  <b>Date to:</b>
-  <%=h @post.date_to %>
-</p>
-
-<p>
-  <b>Time to:</b>
-  <%=h @post.time_to unless @post.time_to.nil? %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%=h @post.title %>
-</p>
-
-<p>
-  <b>Short text:</b>
-  <%=h @post.short_text %>
-</p>
-
-<p>
-  <b>Published:</b>
-  <%=h @post.published %>
-</p>
-
-<p>
-  <b>Post to twitter:</b>
-  <%=h @post.post_to_twitter %>
-</p>
-
-<p>
-  <b>Post to facebook:</b>
-  <%=h @post.post_to_facebook %>
-</p>
-
-<p>
-  <b>Post to myspace:</b>
-  <%=h @post.post_to_myspace %>
-</p>
-<p>
-  <b>Tags:</b>
-  <% @post.tag_list.each do |t| %>
-    <%=h t + " "%>
-  <% end%>
-</p>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="news_box">
+  <%= image_tag Picture.find(@post.picture_id).data.url(:thumb) %>
+  <div class="news_box_text yellow">
+    <p class="news_box_text_date">
+        <%=h @post.date_from.strftime("%d.%m.%Y") unless @post.date_from.nil? %>
+        <%=h @post.time_from.strftime("%H.%M Uhr") unless @post.time_from.nil? %>
+        <%= '-' unless @post.date_to.nil? %> 
+        <%=h @post.date_to.strftime("%d.%m.%Y") unless @post.date_to.nil? %>
+        <%=h @post.time_to.strftime("%H.%M Uhr") unless @post.time_to.nil? %>
+    </p>
+    <h1><%=h @post.title.upcase %></h1>
+    <p><%=h @post.short_text %></p>
+    <p><br/>
+      <b>Tags:</b><br/>
+      <%= @post.tag_list %>
+    </p>
+    <p>
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back', posts_path %>
+    </p>
+  </div>
 </div>
