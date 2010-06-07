@@ -36,7 +36,6 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
-    #@post.elements = Element.find(:all, :conditions => {:parent_id => params[:id]})
   end
 
   # POST /posts
@@ -85,6 +84,8 @@ class PostsController < ApplicationController
     params[:post].delete("has_time_from")
     params[:post].delete("has_time_to")
     
+    params[:post][:existing_element_attributes] ||= {}
+    
     @post = Post.find(params[:id])
     
     #only update the picture if there is new data for it
@@ -92,7 +93,7 @@ class PostsController < ApplicationController
       @picture = Picture.find(@post.picture_id)
       @picture.update_attributes(params[:picture])
     end
-
+    
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'

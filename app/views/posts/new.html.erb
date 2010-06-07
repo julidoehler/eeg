@@ -3,85 +3,9 @@
 <h1>New post</h1>
 
 <% form_for @post, :html => { :multipart => true } do  |f| %>
- 
-<%= error_messages_for 'post', 'picture' %>
-
-  <table>
-    <tr>
-      <td><%= f.label :date_from %></td>
-      <td><%= check_box("post","has_time_from", {}, true, false) %>
-    <%= f.label :time_from %></td>
-    </tr>
-    <tr>
-      <td><%= f.date_select :date_from %></td>
-      <td>
-        <div id="time_from">
-          <%= f.time_select :time_from %>
-        </div>
-        <%= javascript_tag "Element.hide('time_from')" %>
-        <%= observe_field("post_has_time_from", :url => {:action => :toggle, :element => "time_from"}, :with => "value") %>
-      </td>
-    </tr>
-    <tr>
-      <td><%= check_box("post","has_date_to", {}, true, false) %><%= f.label :date_to %></td>
-      <td><div id="time_to_label"><%= check_box("post","has_time_to", {}, true, false) %><%= f.label :time_to %></div></td>
-    </tr>
-    <tr>
-      <td>
-        <div id="date_to">
-          <%= f.date_select :date_to %>
-        </div>
-        <%= observe_field("post_has_date_to", 
-            :url => {:action => :toggle, :element => "date_to"}, :with => "value") %>
-        <%= javascript_tag "Element.hide('date_to')" %>
-        <%= observe_field("post_has_date_to", 
-            :url => {:action => :toggle, :element => "time_to_label"}, :with => "value") %>
-        <%= javascript_tag "Element.hide('time_to_label')" %>
-        <%= observe_field("post_has_date_to", 
-            :url => {:action => :toggle, :element => "time_to_label2"}, :with => "value") %>
-      </td>
-      <td>
-        <div id="time_to_label2">
-        <div id="time_to">
-          <%= f.time_select :time_to %>
-        </div>
-        <%= observe_field("post_has_time_to", 
-            :url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
-        <%= javascript_tag "Element.hide('time_to')" %>
-        </div>
-      </td>
-    </tr>
-  </table>
+  <%= render :partial => 'formfields', :locals => { :f => f } %>
   <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :short_text %><br />
-    <%= f.text_area :short_text, :cols => 60, :rows => 10 %>
-  </p>
-  <p>
-    <% fields_for :picture do |picture_form| %>
-        Picture: <%= picture_form.file_field :data %>
-        <%= picture_form.hidden_field :gallery_id, :value => "1" %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.check_box :published %><%= f.label :published %>
-    <%= f.check_box :post_to_twitter %><%= f.label :post_to_twitter %>
-    <%= f.check_box :post_to_facebook %><%= f.label :post_to_facebook %>
-    <%= f.check_box :post_to_myspace %><%= f.label :post_to_myspace %>
-  </p>
-  <p>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list, :size => 50 %>
-  </p>
-  <div id="elements">
-    <%= render :partial => 'element', :collection => @post.elements %>
-  </div>
-  <p><%= add_element_link "Add Content" %></p>
-  <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit "Create Post" %>
   </p>
 <% end %>
 
