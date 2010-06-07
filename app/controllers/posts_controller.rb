@@ -26,7 +26,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.build_picture
-    3.times {@post.elements.build}
 
     respond_to do |format|
       format.html # new.html.erb

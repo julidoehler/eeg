@@ -76,16 +76,10 @@
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, :size => 50 %>
   </p>
-  <p>
-    <% for element in @post.elements %>
-      <% fields_for "post[element_attributes][]", element do |element_form| %>
-        <%= element_form.hidden_field :parent_type, :value => 'post' %>
-        <%= element_form.hidden_field :content_type, :value => 'text' %>
-        Element Title <%= element_form.text_field :title %><br/>
-        Element Content <%= element_form.text_field :content %><br/>
-      <% end%>
-    <% end %>
-  </p>
+  <div id="elements">
+    <%= render :partial => 'element', :collection => @post.elements %>
+  </div>
+  <p><%= add_element_link "Add Content" %></p>
   <p>
     <%= f.submit 'Create' %>
   </p>
