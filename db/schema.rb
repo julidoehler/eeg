@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20100531193125) do
     t.string   "title"
     t.string   "content_type"
     t.text     "content"
-    t.integer  "parent_id"
+    t.integer  "post_id"
     t.string   "parent_type"
     t.datetime "created_at"
     t.datetime "updated_at"

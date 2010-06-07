@@ -4,7 +4,7 @@ class CreateElements < ActiveRecord::Migration
       t.string :title
       t.string :content_type
       t.text :content
-      t.integer :parent_id
+      t.integer :post_id
       t.string :parent_type
       t.timestamps
     end

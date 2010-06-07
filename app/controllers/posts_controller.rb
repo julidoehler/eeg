@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.build_picture
+    3.times {@post.elements.build}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    #@post.elements = Element.find(:all, :conditions => {:parent_id => params[:id]})
   end
 
   # POST /posts
@@ -57,6 +59,9 @@ class PostsController < ApplicationController
     @picture = @post.create_picture(params[:picture])
     #set the picture_id of the post to the picture id
     @post.picture_id = @picture.id
+    
+    puts params[:post]['element_attributes'].inspect
+    puts @post.id
 
     respond_to do |format|
       if @post.save
