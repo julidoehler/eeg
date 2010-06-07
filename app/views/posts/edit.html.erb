@@ -2,7 +2,7 @@
 
 <h1>Editing post</h1>
 
-<% form_for :post, :url => post_path(@post), :html => { :multipart => true, :method => 'put' } do  |f| %>
+<% form_for @post, :html => { :multipart => true } do |f| %>
   <%= render :partial => 'formfields', :locals => { :f => f } %>
   <p>
     <%= f.submit 'Update' %>

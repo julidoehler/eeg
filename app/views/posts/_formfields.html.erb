@@ -70,6 +70,10 @@
     <%= f.text_field :tag_list, :size => 50 %>
   </p>
   <div id="elements">
-    <%= render :partial => 'element', :collection => @post.elements %>
+    <%= render :partial => 'element', :collection => @post.elements, :locals => {:content_type => ''} %>
   </div>
-  <p><%= add_element_link "Add Content" %></p>
+  <h2>Add Content to this Post</h2>
+  <p><%= add_element_link "Add text", "text" %></p>
+  <p><%= add_element_link "Add a video", "video" %></p>
+  <p><%= add_element_link "Add a file", "file" %></p>
+  <p><%= add_element_link "Add a gallery", "gallery" %></p>
