@@ -60,9 +60,6 @@ class PostsController < ApplicationController
     #set the picture_id of the post to the picture id
     @post.picture_id = @picture.id
     
-    puts params[:post]['element_attributes'].inspect
-    puts @post.id
-
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'

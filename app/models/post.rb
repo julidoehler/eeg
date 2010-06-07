@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
   belongs_to :picture
-  has_many :elements
+  has_many :elements, :foreign_key => 'parent_id'
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
   validates_presence_of :title
@@ -19,9 +19,7 @@ class Post < ActiveRecord::Base
       elements.build(attributes)
     end  
   end  
-  
-  after_create {|post| post.id = 100} 
-  
+    
   def has_time_from
   end
   def has_time_to
