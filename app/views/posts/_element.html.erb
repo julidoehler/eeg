@@ -1,5 +1,4 @@
 <div class="element">
-  <div class="admin">
   <% @element = element %>
   <% content_type = element.content_type if content_type.blank? %>
   <%= error_messages_for :element %>
@@ -15,5 +14,4 @@
   <%= element_form.select :content, Gallery.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true} if content_type == 'gallery' %>
   <%= link_to_function "Remove", "$(this).up('.element').remove()" %>
   <% end %>
-  </div>
 </div>

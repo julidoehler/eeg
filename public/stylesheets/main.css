@@ -23,6 +23,12 @@
   line-height:250%;
 }
 
+.element {
+  border:1px dotted black;
+  padding:10px;
+  margin:10px;
+}
+
 .news_box {
   clear:left;
   margin-bottom:2px;
