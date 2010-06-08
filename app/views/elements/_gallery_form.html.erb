@@ -1,0 +1,7 @@
+<% @element.content = @element.content.to_i %>
+<% fields_for @element do |f| %>
+<%= f.hidden_field :content_type, :value => 'gallery' %>
+<p>
+  <%= f.select :content, Gallery.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true} %>
+</p>
+<% end %>

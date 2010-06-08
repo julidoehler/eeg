@@ -11,7 +11,7 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :post_to_twitter
       t.boolean :post_to_facebook
       t.boolean :post_to_myspace
-      t.integer :picture_id
+      t.references :picture
 
       t.timestamps
     end

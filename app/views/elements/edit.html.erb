@@ -1,17 +1,20 @@
 <div class="admin">
 <h1>Editing element</h1>
 
-<% form_for(@element) do |f| %>
+<% form_for @element, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
+  
   <p>
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
+  	<%= f.label :title %><br />
+    <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+	<%= add_form "text" %>
+	<%= add_form "video" %>
+	<%= add_form "file" %>
+	<%= add_form "gallery" %>
   </p>
+  <div id="dynamic_form"></div>
   <p>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, :size => 80 %>

@@ -3,15 +3,21 @@
 
 <table>
   <tr>
+    <th>Title</th>
     <th>Type</th>
     <th>Content</th>
+    <th>Parent Type</th>
+    <th>Parent Id</th>
     <th>Tags</th>
   </tr>
 
 <% @elements.each do |element| %>
   <tr>
+    <td><%=h element.title %></td>
     <td><%=h element.content_type %></td>
-    <td><%=h element.content %></td>
+    <td><%=h element.content %> <%= link_to "Download", element.data.url if element.content_type == 'file' %></td>
+    <td><%=h element.parent_type %></td>
+    <td><%=h element.parent_id %></td>
     <td>
       <% element.tag_list.each do |t| %>
         <%=h t + " "%>

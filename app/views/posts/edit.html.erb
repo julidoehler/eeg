@@ -2,87 +2,8 @@
 <div class="admin">
 <h1>Editing post</h1>
 
-<% form_for @post, :html => { :multipart => true } do  |f| %>
-  <%= error_messages_for 'post', 'picture' %>
-
-  <p>
-    <%= f.label :date_from %><br />
-    <%= f.date_select :date_from %>
-  </p>
-  <p>
-  	<%= if @post.time_from.nil?
-			check_box("post","has_time_from", {}, true, false)
-		else
-			check_box("post","has_time_from", {:checked => "checked"}, true, false)
-		end %>
-    <%= f.label :time_from %>
-    <div id="time_from">
-    	<%= f.time_select :time_from %>
-	</div>
-	<%= javascript_tag "Element.hide('time_from')" if @post.time_from.nil? %>
-	<%= observe_field("post_has_time_from",
-			:url => {:action => :toggle, :element => "time_from"}, :with => "value") %>
-  </p>
-  <p>
-  	<%= if @post.date_to.nil?
-			check_box("post","has_date_to", {}, true, false)
-		else
-			check_box("post","has_date_to", {:checked => "checked"}, true, false)
-		end %>
-	<%= f.label :date_to %>
-	<div id="date_to">
-    	<%= f.date_select :date_to %>
-	<%= observe_field("post_has_date_to", 
-			:url => {:action => :toggle, :element => "date_to"}, :with => "value") %><br />
-  	<%= if @post.time_to.nil?
-			check_box("post","has_time_to", {}, true, false)
-		else
-			check_box("post","has_time_to", {:checked => "checked"}, true, false)
-		end %>
-    <%= f.label :time_to %>
-	<div id="time_to">
-    	<%= f.time_select :time_to %>
-	</div>
-	<%= javascript_tag "Element.hide('time_to')" if @post.time_to.nil? %>
-	<%= observe_field("post_has_time_to", 
-			:url => {:action => :toggle, :element => "time_to"}, :with => "value") %>
-   </div>
-   <%= javascript_tag "Element.hide('date_to')" if @post.date_to.nil? %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :short_text %><br />
-    <%= f.text_area :short_text %>
-  </p>
-  <p>
-    <% fields_for :picture do |picture_form| %>
-        Picture: <%= picture_form.file_field :data %>
-        <%= picture_form.hidden_field :gallery_id, :value => "1" %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </p>
-  <p>
-    <%= f.label :post_to_twitter %><br />
-    <%= f.check_box :post_to_twitter %>
-  </p>
-  <p>
-    <%= f.label :post_to_facebook %><br />
-    <%= f.check_box :post_to_facebook %>
-  </p>
-  <p>
-    <%= f.label :post_to_myspace %><br />
-    <%= f.check_box :post_to_myspace %>
-  </p>
-  <p>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list, :size => 80 %>
-  </p>
+<% form_for @post, :html => { :multipart => true } do |f| %>
+  <%= render :partial => 'formfields', :locals => { :f => f } %>
   <p>
     <%= f.submit 'Update' %>
   </p>

@@ -1,19 +1,20 @@
+<%= javascript_include_tag :defaults %>
+
 <div class="admin">
 <h1>New element</h1>
 
-<% form_for(@element) do |f| %>
+<% form_for @element, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+  <p>Specify a content type to upload:</p>
+  <%= add_form_link "text" %>
+  <%= add_form_link "video" %>
+  <%= add_form_link "file" %>
+  <%= add_form_link "gallery" %>
+  <div id="dynamic_form"></div>
   <p>
-    <%= f.label :content_type %><br />
-    <%= f.text_field :content_type %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :tag_list %>
+    <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list, :size => 80 %>
   </p>
   <p>
