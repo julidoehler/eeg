@@ -4,6 +4,7 @@
 
 <% form_for @post, :html => { :multipart => true } do |f| %>
   <%= render :partial => 'formfields', :locals => { :f => f } %>
+  <h2>Submit</h2>
   <p>
     <%= f.submit 'Update' %>
   </p>
