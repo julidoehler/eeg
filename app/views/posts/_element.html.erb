@@ -1,11 +1,17 @@
 <div class="element">
   <% @element = element %>
+  <% content_type = element.content_type if content_type.blank? %>
   <%= error_messages_for :element %>
   <% fields_for_element(element) do |element_form| %>
-  <%= element_form.hidden_field :parent_type, :value => 'post' if element.new_record? %>
-  <%= element_form.hidden_field :content_type, :value => content_type if element.new_record? %>
-  Element Title <%= element_form.text_field :title %>
-  Element Content <%= element_form.text_field :content %>
+  <%= element_form.hidden_field :parent_type, :value => 'post' %>
+  <%= element_form.hidden_field :content_type, :value => content_type %>
+  <p>Title</p><%= element_form.text_field :title %>
+  <p>Content</p>
+  <%= element_form.text_area :content if content_type == 'text' %>
+  <%= element_form.text_field :content if content_type == 'video' %>
+  <%= element_form.file_field :data if content_type == 'file' %>
+  <% @element.content = @element.content.to_i if content_type == 'gallery' %>
+  <%= element_form.select :content, Gallery.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true} if content_type == 'gallery' %>
   <%= link_to_function "Remove", "$(this).up('.element').remove()" %>
   <% end %>
 </div>
