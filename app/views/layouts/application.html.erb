@@ -7,6 +7,11 @@
   		<%= stylesheet_link_tag 'main' %>
 	</head>
 	<body>
+	  <% if signed_in? %>
+  	  <div id="user_panel">
+  	    <p>You are logged in as ben! <%= link_to "Logout", logout_path %></p>
+  	  </div>
+  	<% end %>
 	  <div id="page">
 	    <div id="sub_head" class="green">
 	      <ul>

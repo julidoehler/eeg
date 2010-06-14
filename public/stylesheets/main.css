@@ -157,6 +157,12 @@ div.news_box_text h1 a {
   font-weight:bold;
 }
 
+#user_panel {
+  background-color: white;
+  padding:10px;
+  margin:0px 76px;
+}
+
 /* TAGS */
 * {
 	margin:0px;
