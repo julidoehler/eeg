@@ -65,6 +65,11 @@ div.news_box_text h1 a {
   color: #000000;
 }
 
+.content_box {
+  clear:left;
+  margin-bottom:2px;
+}
+
 .admin_panel {
   position:absolute;
   margin-left:550px;

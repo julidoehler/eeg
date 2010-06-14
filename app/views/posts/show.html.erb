@@ -20,3 +20,10 @@
     </p>
   </div>
 </div>
+<% @post.elements.each do |e| %>
+  <div class="content_box yellow">
+    <%= render_element(e) %>
+  </div>
+<% end%>
+
+  
