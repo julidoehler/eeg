@@ -33,13 +33,13 @@ module Clearance
           :only       => [:new, :create]
       end
 
-      map.sign_up  'sign_up',
+      map.sign_up  'signup',
         :controller => 'clearance/users',
         :action     => 'new'
-      map.sign_in  'sign_in',
+      map.sign_in  'login',
         :controller => 'clearance/sessions',
         :action     => 'new'
-      map.sign_out 'sign_out',
+      map.sign_out 'logout',
         :controller => 'clearance/sessions',
         :action     => 'destroy',
         :method     => :delete
