@@ -1,6 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
   
+  map.signup  'signup', :controller => 'clearance/users',    :action => 'new'
+  map.login  'login', :controller => 'clearance/sessions', :action => 'new'
+  map.logout 'logout',
+    :controller => 'clearance/sessions',
+    :action     => 'destroy',
+    :method     => :delete
+  
   map.resources :elements
 
   map.resources :sidepics
