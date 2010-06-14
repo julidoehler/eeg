@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  Clearance::Routes.draw(map)
+  
   map.resources :elements
 
   map.resources :sidepics
@@ -14,7 +16,9 @@ ActionController::Routing::Routes.draw do |map|
   #some tests
   map.kontakt 'kontakt', :controller => 'pages', :action => 'contact'
   map.tag 'tag/:id', :controller => 'pages', :action => 'search'
-
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
