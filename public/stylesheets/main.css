@@ -146,6 +146,17 @@ div.news_box_text h1 a {
   color:#ffffff;
   clear:left;
 }
+
+#flash {
+  background-color: green;
+  color: white;
+  margin:10px;
+}
+#flash p {
+  padding:10px;
+  font-weight:bold;
+}
+
 /* TAGS */
 * {
 	margin:0px;

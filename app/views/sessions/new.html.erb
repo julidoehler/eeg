@@ -1,21 +1,18 @@
-<h2>Sign in</h2>
-
-<% semantic_form_for :session, :url => session_path do |form| %>
-  <% form.inputs do %>
-    <%= form.input :email %>
-    <%= form.input :password, :as => :password %>
+<div class="admin">
+  <h2>Sign in</h2>
+  
+  <% form_for :session, :url => session_path do |form| %>
+    <p>
+      <b>Email:</b><br />
+      <%= form.text_field :email %>
+    </p>
+    <p>
+      <b>Password:</b><br />
+      <%= form.password_field :password %>
+    </p>
+    <%= form.submit "Sign in" %>
   <% end %>
-  <% form.buttons do %>
-    <%= form.commit_button "Sign in" %>
-  <% end %>
-<% end %>
-
-<ul>
-  <li>
-    <%= link_to "Sign up", sign_up_path %>
-  </li>
-  <li>
+  <p><br />
     <%= link_to "Forgot password?", new_password_path %>
-  </li>
-</ul>
-
+  </p>
+</div>

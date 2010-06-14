@@ -38,7 +38,11 @@
         </ul>
       </div>
       <div id="content_left">
-        <p style="color: green"><%= flash[:notice] %></p>
+        <div id="flash">
+          <% flash.each do |key, value| -%>
+            <div id="flash_<%= key %>"><p><%=h value %></p></div>
+          <% end -%>
+        </div>
         <%= yield %>
       </div>
       <div id="foot">Kontakt</div>
