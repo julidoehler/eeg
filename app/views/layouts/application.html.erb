@@ -31,10 +31,12 @@
           <li class="green"><%= link_to "PROJEKTE", projects_path %></li>
           <li class="green"><%= link_to "NETZWERK", root_path %></li>
           <li class="green"><%= link_to "PROFIL", profile_path %></li>
-          <li class="admin_control"><%= link_to "Pictures", pictures_path %></li>
-          <li class="admin_control"><%= link_to "Galleries", galleries_path %></li>
-          <li class="admin_control"><%= link_to "Sidebar", sidepics_path %></li>
-          <li class="admin_control"><%= link_to "Contents", elements_path %></li>
+          <% if signed_in? %>
+            <li class="admin_control"><%= link_to "Pictures", pictures_path %></li>
+            <li class="admin_control"><%= link_to "Galleries", galleries_path %></li>
+            <li class="admin_control"><%= link_to "Sidebar", sidepics_path %></li>
+            <li class="admin_control"><%= link_to "Contents", elements_path %></li>
+          <% end %>
         </ul>
       </div>
       <div id="content_left">
