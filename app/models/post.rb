@@ -4,7 +4,8 @@ class Post < ActiveRecord::Base
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
-  validates_presence_of :title
+  validates_presence_of :title, :short_text
+  validates_length_of :short_text, :maximum => 200
   validates_associated :picture, :on => :create
   validates_associated :elements
   
