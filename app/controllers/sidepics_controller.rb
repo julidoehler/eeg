@@ -25,6 +25,7 @@ class SidepicsController < ApplicationController
   # GET /sidepics/new.xml
   def new
     @sidepic = Sidepic.new
+    @sidepic.build_picture
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +42,10 @@ class SidepicsController < ApplicationController
   # POST /sidepics.xml
   def create
     @sidepic = Sidepic.new(params[:sidepic])
+    #additionally create a picture
+    @picture = @sidepic.create_picture(params[:picture])
+    #set the picture_id of the post to the picture id
+    @sidepic.picture_id = @picture.id
 
     respond_to do |format|
       if @sidepic.save
@@ -58,6 +63,12 @@ class SidepicsController < ApplicationController
   # PUT /sidepics/1.xml
   def update
     @sidepic = Sidepic.find(params[:id])
+    
+    #only update the picture if there is new data for it
+    if params[:picture].has_key?("data")
+      @picture = Picture.find(@sidepic.picture_id)
+      @picture.update_attributes(params[:picture])
+    end
 
     respond_to do |format|
       if @sidepic.update_attributes(params[:sidepic])

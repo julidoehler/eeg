@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
-  belongs_to :picture
+  belongs_to :picture, :dependent => :destroy
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   

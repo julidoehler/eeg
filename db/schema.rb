@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20100531193125) do
 
   create_table "sidepics", :force => true do |t|
     t.string   "link"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
