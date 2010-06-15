@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :posts
   
   #some tests
+  map.programm 'programm', :controller => 'pages', :action => 'schedule'
   map.kontakt 'kontakt', :controller => 'pages', :action => 'contact'
   map.tag 'tag/:id', :controller => 'pages', :action => 'search'
 
