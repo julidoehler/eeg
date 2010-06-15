@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @search = params[:id]
   end
   def schedule
+    @dates = Post.find(:all, :select => "date_from, title") + projects = Project .find(:all, :select => "date_from, title")
+    @dates.sort! { |a,b| a.date_from <=> b.date_from }
   end
   def profile
   end
