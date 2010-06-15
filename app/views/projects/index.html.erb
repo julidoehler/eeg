@@ -16,7 +16,7 @@
     <td><%=h project.title %></td>
     <td><%=h project.info %></td>
     <td>
-      <% projects.tag_list.each do |t| %>
+      <% project.tag_list.each do |t| %>
         <%=h t + " "%>
       <% end%>
     </td>
