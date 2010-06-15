@@ -9,13 +9,7 @@ class Post < ActiveRecord::Base
   validates_associated :elements
   
   after_update :save_elements
-    
-  def picture_attributes=(picture_attributes)
-    picture_attributes.each do |attributes|
-      pictures.build(attributes)
-    end
-  end
-    
+  
   def new_element_attributes=(element_attributes)
     element_attributes.each do |attributes|
       elements.build(attributes)
