@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.time :time_to, :default => nil
       t.string :title
       t.text :short_text
+      t.text :long_text
       t.boolean :published
       t.boolean :post_to_twitter
       t.boolean :post_to_facebook

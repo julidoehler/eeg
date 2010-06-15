@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20100531193125) do
     t.time     "time_to"
     t.string   "title"
     t.text     "short_text"
+    t.text     "long_text"
     t.boolean  "published"
     t.boolean  "post_to_twitter"
     t.boolean  "post_to_facebook"

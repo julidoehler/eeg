@@ -57,6 +57,10 @@
     <%= observe_field("post_short_text",:frequency => 0.5, :function => "$('charcount').innerHTML = 'Characters: ' +value.length") %>
   </p>
   <p>
+    <%= f.label :long_text %><br />
+    <%= f.text_area :long_text, :cols => 60, :rows => 10 %>
+  </p>
+  <p>
     <% fields_for :picture do |picture_form| %>
         Picture: <%= picture_form.file_field :data %>
         <%= picture_form.hidden_field :gallery_id, :value => "1" %>
