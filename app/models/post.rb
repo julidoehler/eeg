@@ -1,21 +1,16 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
-  belongs_to :picture
+  belongs_to :picture, :dependent => :destroy
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
-  validates_presence_of :title
+  validates_presence_of :title, :short_text
+  validates_length_of :short_text, :maximum => 200
   validates_associated :picture, :on => :create
   validates_associated :elements
   
   after_update :save_elements
-    
-  def picture_attributes=(picture_attributes)
-    picture_attributes.each do |attributes|
-      pictures.build(attributes)
-    end
-  end
-    
+  
   def new_element_attributes=(element_attributes)
     element_attributes.each do |attributes|
       elements.build(attributes)
