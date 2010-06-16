@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   
   skip_before_filter :authenticate, :only => [:index, :show]
-  
+    
   # GET /posts
   # GET /posts.xml
   def index
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => "default_single" } # show.html.erb
       format.xml  { render :xml => @post }
     end
   end

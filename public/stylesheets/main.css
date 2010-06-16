@@ -7,6 +7,14 @@
 	background-image: url(../images/bg_yellow.png);
 }
 
+.single_fixed_height {
+  height:398px;
+}
+
+.single {
+  float:left;
+}
+
 .admin_control {
   background-color: #ffffff;
   color: #000000;
@@ -43,6 +51,7 @@
 }
 
 .news_box_text {
+  width:500px;
   margin-left:165px;
 }
 
@@ -64,9 +73,21 @@ div.news_box_text h1 a {
 	color: #000000;
 }
 
-.content_box {
-  clear:left;
+.news_box_single {
+  width:665px;
+  float:left;
   margin-bottom:2px;
+}
+
+.news_box_single img {
+  float:left;
+}
+
+.news_box_content_element {
+  width:330px;
+  height:212px;
+  float:left;
+  margin:0px 0px 2px 2px;
 }
 
 .admin_panel {
@@ -173,12 +194,6 @@ div.news_box_text h1 a {
   background-repeat:repeat-x;
   position:absolute;
   width:100%;
-}
-
-#content_left {
-	width:665px;
-	margin:80px 0px 0px 80px;
-	clear:all;
 }
 
 #foot {
