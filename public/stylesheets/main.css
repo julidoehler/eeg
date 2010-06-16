@@ -57,12 +57,11 @@
 div.news_box_text h1 {
 	font-size: 16px;
 	font-weight: bold;
-	color: #000000;
 }
 
 div.news_box_text h1 a {
   text-decoration:none;
-  color: #000000;
+	color: #000000;
 }
 
 .content_box {
@@ -74,6 +73,21 @@ div.news_box_text h1 a {
   position:absolute;
   margin-left:550px;
 }
+.schedule_box {
+	margin-top:2px;
+	font-size: 16px;
+}
+
+.schedule_box_date {
+	font-size: 16px;
+	margin-left:15px;
+}
+
+.schedule_box_title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
 /* IDs */
 #sub_head {
   margin-top:25px;
@@ -171,7 +185,7 @@ div.news_box_text h1 a {
 body {
 	background-color: #fff;
 	background-image: url(../images/bg.jpg);
-	color: #333;
+	color: #000000;
 }
 
 body, p, ol, ul, td {

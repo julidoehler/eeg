@@ -1,13 +1,8 @@
-Programm
-<table>
-  <tr>
-    <th>date from</th>
-    <th>title</th>
-  </tr>
+<div class="yellow">
+	<h1>PROGRAMM</h1>
+</div>
 <% @dates.each do |date| %>
-  <tr>
-  <td><%=h date.date_from.strftime("%d.%m.%Y") %></td>
-  <td><%=h date.title %></td>
-  </tr>
+  <div class="schedule_box yellow">
+  	<p><span class="schedule_box_date"><%=h date.date_from.strftime("%d.%m.%Y") %></span> <span class="schedule_box_title"><%=h date.title %></span></p>
+  </div>
 <% end %>
-</table>

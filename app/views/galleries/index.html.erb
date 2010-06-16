@@ -1,5 +1,9 @@
+<% if signed_in? %>
+	<div class="admin">
+		<%= link_to 'New gallery', new_gallery_path %>
+	</div>
+<% end %>
 <div class="yellow">
-<div class="admin"><%= link_to 'New gallery', new_gallery_path %></div>
 <table>
   <tr>
     <th>Title</th>
