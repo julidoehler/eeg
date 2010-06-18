@@ -39,7 +39,6 @@
 
 .news_box {
   clear:left;
-  margin-bottom:2px;
 }
 
 .news_box img {
@@ -53,6 +52,7 @@
 .news_box_text {
   width:500px;
   margin-left:165px;
+  margin-bottom: 2px;
 }
 
 .news_box_text p, h1{
@@ -79,14 +79,22 @@ div.news_box_text h1 a {
   margin-bottom:2px;
 }
 
-.news_box_single img {
+.news_box_single_img {
   float:left;
 }
 
+.news_box_content_elements_left {
+    width:330px;
+    float:right;
+}
+
+.news_box_content_elements_right {
+    width:330px;
+    float:left;
+}
+
 .news_box_content_element {
-  width:330px;
-  height:212px;
-  float:left;
+  padding:5px;
   margin:0px 0px 2px 2px;
 }
 
