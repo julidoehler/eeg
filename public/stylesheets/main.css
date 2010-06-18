@@ -92,15 +92,9 @@ div.news_box_text h1 a {
 	font-weight: bold;
 }
 
-.c_element_middle {
+.c_element {
+  width:330px;
   padding:5px;
-  width:330px;
-  margin-bottom:2px;
-}
-
-.c_element_right {
-  width:330px;
-    padding:5px;
   margin-bottom:2px;
   margin-left:2px;
 }
