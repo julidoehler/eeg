@@ -1,12 +1,14 @@
-<div class="news_box_single">
-  <%= image_tag Picture.find(@post.picture_id).data.url(:thumb), :class => 'news_box_single_img' %>
   <% if signed_in? %>
     <div class="admin_panel">
       <%= link_to 'Edit', edit_post_path(@post), :class => 'admin_control' %>
       <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
     </div>
   <% end %>
-  <div class="news_box_text single_fixed_height yellow">
+<div id="c1">
+  <%= image_tag Picture.find(@post.picture_id).data.url(:medium), :class => 'news_box_single_img' %>
+</div>
+<div id="c1">
+  <div class="c_element_middle single_fixed_height yellow">
     <p class="news_box_text_date">
         <%=h @post.date_from.strftime("%d.%m.%Y") unless @post.date_from.nil? %>
         <%=h @post.time_from.strftime("%H.%M Uhr") unless @post.time_from.nil? %>
@@ -16,41 +18,38 @@
     </p>
     <h1><%=h @post.title.upcase %></h1>
     <p><%=h @post.short_text %></p>
-	<p><%=h @post.long_text %></p>
-  </div>
-  <div class="news_box_text yellow">
+    <p><%=h @post.long_text %></p>
+  </div>  
+  <div class="c_element_middle yellow">
         <p><br/>
       <b>Tags:</b><br/>
       <%= @post.tag_list %>
     </p>
-  </div>
-  <div class="news_box_content_elements_left">
-    <% @post.elements.each_index do |i| %>
-      <% if i >= 3 and i.odd? %>
-        <div class="news_box_content_element yellow">
-          <%= render_element(@post.elements[i]) %>
-        </div>
-      <% end %>
+  </div> 
+  <% @post.elements.each_index do |i| %>
+    <% if i >= 3 and i.odd? %>
+      <div class="c_element_middle yellow">
+        <%= render_element(@post.elements[i]) %>
+      </div>
     <% end %>
+  <% end %> 
+</div>
+<div id="c1">
+  <div class="c_element_right yellow">
+    <p><%= link_to 'Back', posts_path %></p>
   </div>
-</div>
-<div class="news_box_content_elements_right">
-  <div class="news_box_content_element yellow">
-  <p><%= link_to 'Back', posts_path %></p>
-</div>
-<% @post.elements.each_index do |i| %>
-  <% if i < 3 %>
-    <div class="news_box_content_element yellow">
-      <%= render_element(@post.elements[i]) %>
-    </div>
+  <% @post.elements.each_index do |i| %>
+    <% if i < 3 %>
+      <div class="c_element_right yellow">
+        <%= render_element(@post.elements[i]) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-<% @post.elements.each_index do |i| %>
-  <% if i >= 3 and i.even? %>
-    <div class="news_box_content_element yellow">
-      <%= render_element(@post.elements[i]) %>
-    </div>
+  <% @post.elements.each_index do |i| %>
+    <% if i >= 3 and i.even? %>
+      <div class="c_element_right yellow">
+        <%= render_element(@post.elements[i]) %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 </div>
-
