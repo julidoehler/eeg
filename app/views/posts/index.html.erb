@@ -4,24 +4,26 @@
   </div>
 <% end %>
 <% @posts.each do |post| %>
-<div class="news_box">
-  <% if signed_in? %>
-    <div class="admin_panel">
-      <%= link_to 'Edit', edit_post_path(post), :class => 'admin_control' %>
-      <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %><br />
-    </div>
-  <% end %>
-	<%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:border =>0), news_path(post) %>
-	<div class="news_box_text yellow fixed_height">
-	  <p class="news_box_text_date">
-		  <%=h post.date_from.strftime("%d.%m.%Y") unless post.date_from.nil? %>
-		  <%=h post.time_from.strftime("%H.%M Uhr") unless post.time_from.nil? %>
-		  <%= '-' unless post.date_to.nil? %> 
-		  <%=h post.date_to.strftime("%d.%m.%Y") unless post.date_to.nil? %>
-		  <%=h post.time_to.strftime("%H.%M Uhr") unless post.time_to.nil? %>
-		</p>
-		<h1><%= link_to post.title.upcase, news_path(post) %></h1>
-		<p><%=h post.short_text %> <%= link_to '&raquo;', news_path(post) %></p>	
-	</div>
-</div>
+ <div class="r">
+    <% if signed_in? %>
+      <div class="admin_panel">
+        <%= link_to 'Edit', edit_post_path(post), :class => 'admin_control' %>
+        <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %><br />
+      </div>
+    <% end %>
+      <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), news_path(post) %>
+    <div class="c_element_index yellow">
+      <div class="pad">
+    	  <p class="date">
+    		  <%=h post.date_from.strftime("%d.%m.%Y") unless post.date_from.nil? %>
+    		  <%=h post.time_from.strftime("%H.%M Uhr") unless post.time_from.nil? %>
+    		  <%= '-' unless post.date_to.nil? %> 
+    		  <%=h post.date_to.strftime("%d.%m.%Y") unless post.date_to.nil? %>
+    		  <%=h post.time_to.strftime("%H.%M Uhr") unless post.time_to.nil? %>
+    		</p>
+    		<h1><%= link_to post.title.upcase, news_path(post) %></h1>
+    		<p><%=h post.short_text %> <%= link_to '&raquo;', news_path(post) %></p>
+  		</div>
+		</div>
+  </div>
 <% end %>
