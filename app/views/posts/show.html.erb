@@ -15,16 +15,16 @@
     <div id="tweetmemebutton" style="float:right; margin-left:10px;">
       <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
     </div>
-    <p class="date">
+    <span class="date">
         <%=h @post.date_from.strftime("%d.%m.%Y") unless @post.date_from.nil? %>
         <%=h @post.time_from.strftime("%H.%M Uhr") unless @post.time_from.nil? %>
         <%= '-' unless @post.date_to.nil? %> 
         <%=h @post.date_to.strftime("%d.%m.%Y") unless @post.date_to.nil? %>
         <%=h @post.time_to.strftime("%H.%M Uhr") unless @post.time_to.nil? %>
-    </p>
+    </span>
     <h1><%=h @post.title.upcase %></h1>
     <p><%=h @post.short_text %></p>
-    <p><%=h @post.long_text %></p>
+    <%= _ @post.long_text %>
   </div>  
   <div class="c_element yellow">
         <p><br/>

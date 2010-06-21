@@ -30,4 +30,8 @@ module ApplicationHelper
         page.insert_html :bottom, :elements, :partial => 'layouts/element', :object => Element.new, :locals => {:content_type => content_type}
     end
   end
+  
+  def _(text)
+    RedCloth.new(text).to_html
+  end
 end
