@@ -1,6 +1,6 @@
 <% if signed_in? %>
   <div class="admin_panel">
-    <%= link_to 'Edit', edit_project_path(@post), :class => 'admin_control' %>
+    <%= link_to 'Edit', edit_project_path(@project), :class => 'admin_control' %>
     <%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
   </div>
 <% end %>
