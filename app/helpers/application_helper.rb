@@ -34,4 +34,16 @@ module ApplicationHelper
   def _(text)
     RedCloth.new(text).to_html
   end
+  
+  def add_tweetmeme
+    render :inline => '<div id="tweetmemebutton" style="float:right; margin-left:10px;">
+      <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+    </div>'
+  end
+  
+  def add_fcbk(url,scheme)
+    render :inline => '<iframe src="http://www.facebook.com/plugins/like.php?href='+url+'&layout=standard&show-faces=true&width=320&action=like&colorscheme='+scheme+'" scrolling="no" frameborder="0"
+allowTransparency="true" style="border:none; overflow:hidden;
+width:320px; height:30px"></iframe>'
+  end
 end

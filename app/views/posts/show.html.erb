@@ -12,9 +12,7 @@
 </div>
 <div class="c">
   <div class="c_element fixed_height color2">
-    <div id="tweetmemebutton" style="float:right; margin-left:10px;">
-      <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-    </div>
+    <%= add_tweetmeme %>
     <span class="date">
         <%=h @post.date_from.strftime("%d.%m.%Y") unless @post.date_from.nil? %>
         <%=h @post.time_from.strftime("%H.%M Uhr") unless @post.time_from.nil? %>
@@ -42,12 +40,10 @@
 </div>
 <div class="c">
   <div class="c_element color2">
-    <p><%= link_to 'Back', posts_path %></p>
+    <p><%= link_to 'Zurück', posts_path %></p>
   </div>
   <div class="c_element color2">
-        <iframe src="http://www.facebook.com/plugins/like.php?href=<%= request.url %>&layout=standard&show-faces=true&width=320&action=like&colorscheme=light" scrolling="no" frameborder="0"
-allowTransparency="true" style="border:none; overflow:hidden;
-width:320px; height:30px"></iframe>
+      <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>
     <% if i < 3 %>
