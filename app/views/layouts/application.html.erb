@@ -1,4 +1,70 @@
-<%= render "layouts/html_head" %>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>EEG</title>
       <%= stylesheet_link_tag 'main' %>
-      <%= stylesheet_link_tag 'index' %>
-<%= render "layouts/page" %>
+      <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+    <% if signed_in? %>
+      <div id="user_panel">
+        <p>You are logged in! <%= link_to "Logout", sign_out_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reset Password", new_password_path %></p>
+      </div>
+    <% end %>
+    <div id="page">
+      <div id="sub_head" class="green">
+        <ul>
+          <li><%= link_to "Impressum", imprint_path %></li>
+          <li><%= link_to "Kontakt", contact_path %></li>
+          <li><%= link_to "Anfahrt", directions_path %></li>
+          <li><%= link_to "Archiv", archive_path %></li>
+          <li><%= link_to "RSS", root_path %></li>
+          <li><%= link_to "Facebook", root_path %></li>
+          <li><%= link_to "MySpace", root_path %></li>
+          <li><%= link_to "Twitter", root_path %></li>
+          <li><%= link_to "Vimeo", root_path %></li>
+        </ul>
+      </div>
+      <div id="head" class="green">
+        <%= image_tag "logo.png" %>
+      </div>
+      <div id="nav">
+        <div class="nav">
+        <ul>
+          <li class="green"><%= link_to "START", news_path %></li>
+          <li class="green"><%= link_to "PROGRAMM", schedule_path %></li>
+          <li id="project_link" class="green"><%= link_to "PROJEKTE", projects_path %></li>
+          <li class="green"><%= link_to "NETZWERK", root_path %></li>
+          <li class="green"><%= link_to "PROFIL", profile_path %></li>
+          <% if signed_in? %>
+            <li class="admin_control"><%= link_to "Pictures", pictures_path %></li>
+            <li class="admin_control"><%= link_to "Galleries", galleries_path %></li>
+            <li class="admin_control"><%= link_to "Sidebar", sidepics_path %></li>
+            <li class="admin_control"><%= link_to "Contents", elements_path %></li>
+          <% end %>
+        </ul>
+        </div>
+        <% if controller_name == 'projects' %>
+           <div class="subnav">
+             <ul>
+              <li class="yellow"><a href="">KÜNSTLER</a></li>
+              <li class="yellow"><a href="">MITARBEITER</a></li>
+              <li class="yellow"><a href="">FREIE MITARBEITER</a></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div id="content">
+        <div id="flash">
+          <% flash.each do |key, value| -%>
+            <div id="flash_<%= key %>"><p><%=h value %></p></div>
+          <% end -%>
+        </div>
+        <%= yield %>
+      </div>
+      <div id="foot">Kontakt</div>
+    </div>
+  </body>
+</html>
