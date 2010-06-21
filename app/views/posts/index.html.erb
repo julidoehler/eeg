@@ -12,7 +12,7 @@
       </div>
     <% end %>
       <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), news_path(post) %>
-    <div class="c_element_index yellow">
+    <div class="c_element_index color2">
       <div class="pad">
     	  <p class="date">
     		  <%=h post.date_from.strftime("%d.%m.%Y") unless post.date_from.nil? %>

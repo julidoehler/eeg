@@ -92,12 +92,6 @@ h1 a {
   display:inline;
 }
 
-#sub_head ul li a {
-  text-decoration:none;
-  color:#000000;
-  font-size:11px;
-  font-weight:bold;
-}
 
 #head {
 }
@@ -121,14 +115,6 @@ h1 a {
 	margin:2px 2px 0px 0px;
 }
 
-.nav ul li a {
-	text-decoration:none;
-	color:#000000;
-	font-size: 14px;
-	font-weight:bold;
-	margin:3px;
-}
-
 .nav ul li:first-child {
   padding-left:76px;
 }
@@ -142,14 +128,6 @@ h1 a {
   display:inline;
   float:left;
   margin:2px 2px 0px 0px;
-}
-
-.subnav ul li a {
-  text-decoration:none;
-  color:#000000;
-  font-size: 12px;
-  font-weight:bold;
-  margin:3px;
 }
 
 .subnav ul li:first-child {

@@ -11,7 +11,7 @@
   <%= image_tag Picture.find(@post.picture_id).data.url(:medium) %>
 </div>
 <div class="c">
-  <div class="c_element fixed_height yellow">
+  <div class="c_element fixed_height color2">
     <div id="tweetmemebutton" style="float:right; margin-left:10px;">
       <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
     </div>
@@ -26,7 +26,7 @@
     <p><%=h @post.short_text %></p>
     <%= _ @post.long_text %>
   </div>  
-  <div class="c_element yellow">
+  <div class="c_element color2">
         <p><br/>
       <b>Tags:</b><br/>
       <%= @post.tag_list %>
@@ -34,31 +34,31 @@
   </div> 
   <% @post.elements.each_index do |i| %>
     <% if i >= 3 and i.odd? %>
-      <div class="c_element yellow">
+      <div class="c_element color2">
         <%= render_element(@post.elements[i]) %>
       </div>
     <% end %>
   <% end %>
 </div>
 <div class="c">
-  <div class="c_element yellow">
+  <div class="c_element color2">
     <p><%= link_to 'Back', posts_path %></p>
   </div>
-  <div class="c_element yellow">
+  <div class="c_element color2">
         <iframe src="http://www.facebook.com/plugins/like.php?href=<%= request.url %>&layout=standard&show-faces=true&width=320&action=like&colorscheme=light" scrolling="no" frameborder="0"
 allowTransparency="true" style="border:none; overflow:hidden;
 width:320px; height:30px"></iframe>
   </div>
   <% @post.elements.each_index do |i| %>
     <% if i < 3 %>
-      <div class="c_element yellow">
+      <div class="c_element color2">
         <%= render_element(@post.elements[i]) %>
       </div>
     <% end %>
   <% end %>
   <% @post.elements.each_index do |i| %>
     <% if i >= 3 and i.even? %>
-      <div class="c_element yellow">
+      <div class="c_element color2">
         <%= render_element(@post.elements[i]) %>
       </div>
     <% end %>
