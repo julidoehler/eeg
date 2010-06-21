@@ -49,9 +49,9 @@
         <% if controller_name == 'projects' %>
            <div class="subnav">
              <ul>
-              <li class="yellow"><a href="">KÜNSTLER</a></li>
-              <li class="yellow"><a href="">MITARBEITER</a></li>
-              <li class="yellow"><a href="">FREIE MITARBEITER</a></li>
+              <% Project.find(:all).each do |p| %>
+                <li class="yellow"><%= link_to p.title.upcase, project_path(p) %></li>
+              <% end %>
             </ul>
           </div>
         <% end %>
