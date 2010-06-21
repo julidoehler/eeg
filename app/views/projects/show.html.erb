@@ -23,10 +23,31 @@
       <b>Tags:</b><br/>
       <%= @project.tag_list %>
     </p>
-  </div> 
+  </div>
+  <% @project.elements.each_index do |i| %>
+    <% if i >= 3 and i.odd? %>
+      <div class="c_element yellow">
+        <%= render_element(@project.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %> 
 </div>
 <div class="c">
   <div class="c_element yellow">
     <p><%= link_to 'Back', projects_path %></p>
   </div>
+  <% @project.elements.each_index do |i| %>
+    <% if i < 3 %>
+      <div class="c_element yellow">
+        <%= render_element(@project.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
+  <% @project.elements.each_index do |i| %>
+    <% if i >= 3 and i.even? %>
+      <div class="c_element yellow">
+        <%= render_element(@project.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
