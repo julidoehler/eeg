@@ -44,7 +44,7 @@ class SidepicsController < ApplicationController
     @sidepic = Sidepic.new(params[:sidepic])
     #additionally create a picture
     @picture = @sidepic.create_picture(params[:picture])
-    #set the picture_id of the post to the picture id
+    #set the picture_id of the sidepic to the picture id
     @sidepic.picture_id = @picture.id
 
     respond_to do |format|

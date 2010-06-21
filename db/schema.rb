@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.date     "date_to"
     t.string   "title"
     t.text     "info"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

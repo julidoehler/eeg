@@ -28,6 +28,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    @project.build_picture
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,10 @@ class ProjectsController < ApplicationController
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    #additionally create a picture
+    @picture = @project.create_picture(params[:picture])
+    #set the picture_id of the project to the picture id
+    @project.picture_id = @picture.id
 
     respond_to do |format|
       if @project.save
@@ -61,6 +66,12 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+
+    #only update the picture if there is new data for it
+    if params[:picture].has_key?("data")
+      @picture = Picture.find(@project.picture_id)
+      @picture.update_attributes(params[:picture])
+    end
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

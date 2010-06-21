@@ -1,8 +1,8 @@
 <div class="admin">
 <h1>Editing project</h1>
 
-<% form_for(@project) do |f| %>
-  <%= f.error_messages %>
+<% form_for @project, :html => { :multipart => true } do |f| %>
+  <%= error_messages_for :project, :picture %>
 
   <p>
     <%= f.label :date_from %><br />
@@ -19,6 +19,12 @@
   <p>
     <%= f.label :info %><br />
     <%= f.text_area :info %>
+  </p>
+  <p>
+    <% fields_for :picture do |picture_form| %>
+        Picture: <%= picture_form.file_field :data %>
+        <%= picture_form.hidden_field :gallery_id, :value => "3" %>
+    <% end %>
   </p>
   <p>
     <%= f.label :tag_list %>
