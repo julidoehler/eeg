@@ -63,6 +63,8 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    
+    params[:project][:existing_element_attributes] ||= {}
 
     #only update the picture if there is new data for it
     if params[:picture].has_key?("data")

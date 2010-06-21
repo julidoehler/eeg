@@ -1,4 +1,6 @@
+require 'element_methods'
 class Post < ActiveRecord::Base
+  include Element_methods
   acts_as_taggable
   belongs_to :picture, :dependent => :destroy
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy
@@ -10,29 +12,6 @@ class Post < ActiveRecord::Base
   validates_associated :elements
   
   after_update :save_elements
-  
-  def new_element_attributes=(element_attributes)
-    element_attributes.each do |attributes|
-      elements.build(attributes)
-    end
-  end
-  
-  def existing_element_attributes=(element_attributes)
-    elements.reject(&:new_record?).each do |element|
-      attributes = element_attributes[element.id.to_s]
-      if attributes
-        element.attributes = attributes
-      else
-        elements.delete(element)
-      end
-    end
-  end
-  
-  def save_elements
-    elements.each do |element|
-      element.save(false)
-    end
-  end
     
   def has_time_from
   end

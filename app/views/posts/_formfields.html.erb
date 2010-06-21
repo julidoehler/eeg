@@ -78,7 +78,7 @@
   </p>
   <h2>Content of this post</h2>
   <div id="elements">
-    <%= render :partial => 'element', :collection => @post.elements, :locals => {:content_type => ''} %>
+    <%= render :partial => 'layouts/element', :collection => @post.elements, :locals => {:content_type => ''} %>
   </div>
   <p>
     <%= add_element_link "Add text", "text" %> |
