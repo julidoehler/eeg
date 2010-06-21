@@ -1,0 +1,37 @@
+<%= error_messages_for :project, :picture %>
+  <p>
+    <%= f.label :date_from %><br />
+    <%= f.date_select :date_from %>
+  </p>
+  <p>
+    <%= f.label :date_to %><br />
+    <%= f.date_select :date_to %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </p>
+  <p>
+    <% fields_for :picture do |picture_form| %>
+        Picture: <%= picture_form.file_field :data %>
+        <%= picture_form.hidden_field :gallery_id, :value => "3" %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, :size => 80 %>
+  </p>
+  <h2>Content of this project</h2>
+  <div id="elements">
+    <%= render :partial => 'layouts/element', :collection => @project.elements, :locals => {:content_type => ''} %>
+  </div>
+  <p>
+    <%= add_element_link "Add text", "text" %> |
+    <%= add_element_link "Add a video", "video" %> |
+    <%= add_element_link "Add a file", "file" %> |
+    <%= add_element_link "Add a gallery", "gallery" %>
+  </p>
