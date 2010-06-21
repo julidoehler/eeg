@@ -1,29 +1,32 @@
-<div class="yellow">
-<p>
-  <b>Date from:</b>
-  <%=h @project.date_from %>
-</p>
+<% if signed_in? %>
+  <div class="admin_panel">
+    <%= link_to 'Edit', edit_project_path(@post), :class => 'admin_control' %>
+    <%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+  </div>
+<% end %>
 
-<p>
-  <b>Date to:</b>
-  <%=h @project.date_to %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%=h @project.title %>
-</p>
-
-<p>
-  <b>Info:</b>
-  <%=h @project.info %>
-</p>
-<p>
-  <b>Tags:</b>
-  <% @project.tag_list.each do |t| %>
-    <%=h t + " "%>
-  <% end%>
-</p>
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<div class="c">
+  <%= image_tag Picture.find(@project.picture_id).data.url(:medium) %>
+</div>
+<div class="c">
+  <div class="c_element fixed_height yellow">
+    <p class="date">
+        <%=h @project.date_from.strftime("%d.%m.%Y") unless @project.date_from.nil? %>
+        <%= '-' unless @project.date_to.nil? %> 
+        <%=h @project.date_to.strftime("%d.%m.%Y") unless @project.date_to.nil? %>
+    </p>
+    <h1><%=h @project.title.upcase %></h1>
+    <p><%=h @project.info %></p>
+  </div>  
+  <div class="c_element yellow">
+        <p><br/>
+      <b>Tags:</b><br/>
+      <%= @project.tag_list %>
+    </p>
+  </div> 
+</div>
+<div class="c">
+  <div class="c_element yellow">
+    <p><%= link_to 'Back', projects_path %></p>
+  </div>
 </div>

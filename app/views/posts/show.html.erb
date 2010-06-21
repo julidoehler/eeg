@@ -1,9 +1,10 @@
-  <% if signed_in? %>
-    <div class="admin_panel">
-      <%= link_to 'Edit', edit_post_path(@post), :class => 'admin_control' %>
-      <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
-    </div>
-  <% end %>
+<% if signed_in? %>
+  <div class="admin_panel">
+    <%= link_to 'Edit', edit_post_path(@post), :class => 'admin_control' %>
+    <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+  </div>
+<% end %>
+
 <div class="c">
   <%= image_tag Picture.find(@post.picture_id).data.url(:medium) %>
 </div>

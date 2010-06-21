@@ -19,7 +19,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      format.html { render :layout => "default_single" } # show.html.erb
+      format.html # show.html.erb
       format.xml  { render :xml => @post }
     end
   end
