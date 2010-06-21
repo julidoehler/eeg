@@ -17,7 +17,7 @@
         <%=h @project.date_to.strftime("%d.%m.%Y") unless @project.date_to.nil? %>
     </p>
     <h1><%=h @project.title.upcase %></h1>
-    <p><%=h @project.info %></p>
+    <p><%= _ @project.info %></p>
   </div>  
   <div class="c_element color2">
         <p><br/>
