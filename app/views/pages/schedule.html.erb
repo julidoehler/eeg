@@ -3,6 +3,8 @@
 </div>
 <% @dates.each do |date| %>
   <div class="schedule_box color2">
-  	<p><span class="schedule_box_date"><%=h date.date_from.strftime("%d.%m.%Y") %></span> <span class="schedule_box_title"><%=h date.title %></span></p>
+  	<p>
+  	  <span class="schedule_box_date"><%=h date.date_from.strftime("%d.%m.%Y") %></span>
+  	  <span class="schedule_box_title"><%=h link_to date.title.upcase, url_for(date) %></span></p>
   </div>
 <% end %>
