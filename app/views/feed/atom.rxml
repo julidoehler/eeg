@@ -1,0 +1,24 @@
+xml.instruct!
+
+xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
+
+  xml.title   "EEG"
+  xml.link    "rel" => "self", "href" => url_for(:only_path => false, :controller => 'feed', :action => 'atom')
+  xml.link    "rel" => "alternate", "href" => url_for(:only_path => false, :controller => 'posts')
+  xml.id      url_for(:only_path => false, :controller => 'posts')
+  xml.updated @posts.first.updated_at.strftime "%Y-%m-%dT%H:%M:%SZ" if @posts.any?
+  xml.author  "essential existence gallery"
+
+  @posts.each do |post|
+    xml.entry do
+      xml.title   post.title
+      xml.link    "rel" => "alternate", "href" => url_for(:only_path => false, :controller => 'posts', :action => 'show', :id => post.id)
+      xml.id      url_for(:only_path => false, :controller => 'posts', :action => 'show', :id => post.id)
+      xml.updated post.updated_at.strftime "%Y-%m-%dT%H:%M:%SZ"
+      xml.author  "essential existence gallery"
+      xml.summary post.short_text
+      xml.content _ post.long_text
+    end
+  end
+
+end

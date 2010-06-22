@@ -7,6 +7,8 @@
       <%= stylesheet_link_tag 'main' %>
       <%= javascript_include_tag :defaults %>
       <%= include_stylesheet %>
+      <link rel="alternate" type="application/rss+xml" title="Essential Existence Gallery RSS Feed" href="feed/rss" />
+      <link rel="alternate" type="application/atom+xml" title="Essential Existence Gallery Atom Feed" href="feed/atom" />
   </head>
   <body>
     <% if signed_in? %>
