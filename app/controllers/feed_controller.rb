@@ -1,4 +1,7 @@
 class FeedController < ApplicationController
+  
+  skip_before_filter :authenticate
+  
   def rss
     @posts = Post.find(:all)
     render :layout => false
