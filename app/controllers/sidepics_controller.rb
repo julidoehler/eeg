@@ -25,7 +25,6 @@ class SidepicsController < ApplicationController
   # GET /sidepics/new.xml
   def new
     @sidepic = Sidepic.new
-    @sidepic.build_picture
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,8 +41,8 @@ class SidepicsController < ApplicationController
   # POST /sidepics.xml
   def create
     @sidepic = Sidepic.new(params[:sidepic])
-    #additionally create a picture
-    @picture = @sidepic.create_picture(params[:picture])
+    #additionally build a picture
+    @picture = @sidepic.build_picture(params[:picture])
     #set the picture_id of the sidepic to the picture id
     @sidepic.picture_id = @picture.id
 
