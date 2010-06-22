@@ -1,4 +1,7 @@
 class MembersController < ApplicationController
+  
+  skip_before_filter :authenticate, :only => [:index, :show]
+  
   # GET /members
   # GET /members.xml
   def index
