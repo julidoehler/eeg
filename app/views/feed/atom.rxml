@@ -17,7 +17,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.updated post.updated_at.strftime "%Y-%m-%dT%H:%M:%SZ"
       xml.author  "essential existence gallery"
       xml.summary post.short_text
-      xml.content post.long_text
+      xml.content _ post.long_text
     end
   end
 

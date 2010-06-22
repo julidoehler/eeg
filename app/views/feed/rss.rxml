@@ -12,7 +12,7 @@ xml.rss "version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/" do
       xml.item do
         xml.title       post.title
         xml.link        url_for :only_path => false, :controller => 'posts', :action => 'show', :id => post.id
-        xml.description post.short_text + "<br />" + post.long_text
+        xml.description post.short_text + "<br />" + _(post.long_text)
         xml.pubDate     CGI.rfc1123_date post.updated_at
         xml.guid        url_for :only_path => false, :controller => 'posts', :action => 'show', :id => post.id
         xml.author      "Essential Existence Gallery"
