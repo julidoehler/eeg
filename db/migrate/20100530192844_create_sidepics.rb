@@ -2,7 +2,7 @@ class CreateSidepics < ActiveRecord::Migration
   def self.up
     create_table :sidepics do |t|
       t.string :link
-
+      t.references :picture
       t.timestamps
     end
   end

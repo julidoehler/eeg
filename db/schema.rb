@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100614120639) do
+ActiveRecord::Schema.define(:version => 20100602184047) do
 
   create_table "elements", :force => true do |t|
     t.string   "title"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.datetime "updated_at"
   end
 
+  create_table "members", :force => true do |t|
+    t.string   "lastname"
+    t.string   "firstname"
+    t.text     "information"
+    t.integer  "picture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pictures", :force => true do |t|
     t.text     "description"
     t.integer  "gallery_id"
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.time     "time_to"
     t.string   "title"
     t.text     "short_text"
+    t.text     "long_text"
     t.boolean  "published"
     t.boolean  "post_to_twitter"
     t.boolean  "post_to_facebook"
@@ -64,12 +74,14 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.date     "date_to"
     t.string   "title"
     t.text     "info"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sidepics", :force => true do |t|
     t.string   "link"
+    t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

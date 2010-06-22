@@ -1,11 +1,17 @@
 <h1>Editing sidepic</h1>
 
-<% form_for(@sidepic) do |f| %>
-  <%= f.error_messages %>
+<% form_for @sidepic, :html => { :multipart => true } do |f| %>
+  <%= error_messages_for :sidepic, :picture %>
 
   <p>
     <%= f.label :link %><br />
     <%= f.text_field :link %>
+  </p>
+  <p>
+    <% fields_for :picture do |picture_form| %>
+        Picture: <%= picture_form.file_field :data %>
+        <%= picture_form.hidden_field :gallery_id, :value => "2" %>
+    <% end %>
   </p>
   <p>
     <%= f.submit 'Update' %>

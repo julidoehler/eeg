@@ -1,0 +1,13 @@
+Programm
+<table>
+  <tr>
+    <th>date from</th>
+    <th>title</th>
+  </tr>
+<% @dates.each do |date| %>
+  <tr>
+  <td><%=h date.date_from.strftime("%d.%m.%Y") %></td>
+  <td><%=h date.title %></td>
+  </tr>
+<% end %>
+</table>
