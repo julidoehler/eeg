@@ -10,7 +10,6 @@
 </div>
 <div class="c">
   <div class="c_element fixed_height color2">
-    <%= add_tweetmeme %>
     <p class="date">
         <%=h @project.date_from.strftime("%d.%m.%Y") unless @project.date_from.nil? %>
         <%= '-' unless @project.date_to.nil? %> 
@@ -38,7 +37,9 @@
     <p><%= link_to 'Zurück', projects_path %></p>
   </div>
   <div class="c_element color2">
-      <%= add_fcbk(request.url,'dark') %>
+    <%= add_tweet %>
+    <%= add_buzz %> 
+    <%= add_fcbk(request.url,'dark') %>
   </div>
   <% @project.elements.each_index do |i| %>
     <% if i < 3 %>

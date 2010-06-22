@@ -43,7 +43,7 @@
   </div>
   <div class="c_element color2">
     <%= add_tweet %>
-    <%= add_buzz(Picture.find(@post.picture_id).data.url(:thumb)) %> 
+    <%= add_buzz %> 
     <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>

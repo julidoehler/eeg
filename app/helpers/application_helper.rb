@@ -51,7 +51,7 @@ module ApplicationHelper
     <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script></div>'
   end
   
-  def add_buzz(img)
+  def add_buzz
     puts request.inspect
     render :inline => '<div>
     <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-locale="de"></a>
