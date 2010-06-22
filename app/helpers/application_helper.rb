@@ -2,10 +2,14 @@
 module ApplicationHelper
   
   def include_stylesheet
-    case controller_name
-      when 'projects': stylesheet_link_tag('red')
-      when 'members': stylesheet_link_tag('blue')
-      else stylesheet_link_tag('default')
+    if controller_name == 'projects'
+      stylesheet_link_tag('red')
+    elsif controller_name == 'members'
+      stylesheet_link_tag('blue')
+    elsif controller_name == 'pages' and action_name == 'profile'
+      stylesheet_link_tag('yellow')
+    else 
+      stylesheet_link_tag('default')
     end
   end
   

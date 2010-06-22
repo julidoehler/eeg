@@ -1,8 +1,8 @@
-<div class="schedule_box yellow">
+<div class="schedule_box color2">
 	<h1>PROGRAMM</h1>
 </div>
 <% @dates.each do |date| %>
-  <div class="schedule_box yellow">
+  <div class="schedule_box color2">
   	<p><span class="schedule_box_date"><%=h date.date_from.strftime("%d.%m.%Y") %></span> <span class="schedule_box_title"><%=h date.title %></span></p>
   </div>
 <% end %>

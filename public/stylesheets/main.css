@@ -1,12 +1,4 @@
 /* CLASSES */
-.green {
-	background-image: url(../images/bg_green.png);
-}
-
-.yellow {
-	background-image: url(../images/bg_yellow.png);
-}
-
 .c {
   float:left;
   overflow:hidden;

@@ -1,0 +1,18 @@
+/* CLASSES */
+.color1 {
+  background-image: url(../images/bg_yellow.png);
+}
+
+.color2 {
+  background-image: url(../images/bg_black.png);
+}
+
+body {
+  background-color: #000;
+  background-image: url(../images/bg.jpg);
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
