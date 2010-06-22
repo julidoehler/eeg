@@ -23,7 +23,8 @@
           <li><%= link_to "Kontakt", contact_path %></li>
           <li><%= link_to "Anfahrt", directions_path %></li>
           <li><%= link_to "Archiv", archive_path %></li>
-          <li><%= link_to "RSS", root_path %></li>
+          <li><%= link_to "RSS", url_for(:controller => 'feed', :action => 'rss') %></li>
+          <li><%= link_to "Atom", url_for(:controller => 'feed', :action => 'atom') %></li>
           <li><%= link_to "Facebook", root_path %></li>
           <li><%= link_to "MySpace", root_path %></li>
           <li><%= link_to "Twitter", root_path %></li>
