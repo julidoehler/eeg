@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   
   #some tests
   map.programm 'programm', :controller => 'pages', :action => 'schedule'
-  map.kontakt 'kontakt', :controller => 'pages', :action => 'contact'
+  map.contact 'contact', :controller => 'pages', :action => 'contact'
   map.tag 'tag/:id', :controller => 'pages', :action => 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.

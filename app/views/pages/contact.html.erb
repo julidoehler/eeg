@@ -1,1 +1,10 @@
-Hier kommt das Kontaktfeld
+<div id="flash"><%= params[:flash] %></div>
+<% unless params[:flash] == "Mail has been sent!" %>
+<% form_for :mail, :url => {:action => "contact_send_mail" } do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  Email: <%= f.text_field :email %><br />
+  Message : <%= f.text_area :message %><br />
+  <%= f.submit "Send Message" %>
+<% end %>
+<%end%>
