@@ -75,9 +75,17 @@ h1 a {
   padding:5px;
 }
 
+.width_330 {
+  width: 330px;
+}
+
 .c_element ul {
   padding: 10px 20px;
   list-style-type: circle;
+}
+
+.project_show_pic {
+  margin-left: 2px;
 }
 
 #sub_head ul li a {
@@ -126,7 +134,7 @@ h1 a {
 }
 
 #nav {
-  height: 100px;
+  height: 66px;
 }
 
 .nav ul {

@@ -3,31 +3,29 @@
     <%= link_to 'New project', new_project_path %>
   </div>
 <% end %>
-<div class="color2">
-<table>
-  <tr>
-    <th>Date from</th>
-    <th>Date to</th>
-    <th>Title</th>
-    <th>Info</th>
-    <th>Tags</th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%=h project.date_from %></td>
-    <td><%=h project.date_to %></td>
-    <td><%=h project.title %></td>
-    <td><%=h project.info %></td>
-    <td>
-      <% project.tag_list.each do |t| %>
-        <%=h t + " "%>
-      <% end%>
-    </td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<div class="c width_330">
+  <% @projects.each_index do |i| %>
+    <% if i.even? %>
+      <% if signed_in? %>
+        <div class="admin_panel" style="margin-left:220px;">
+          <%= link_to 'Edit', edit_project_path(@projects[i]), :class => 'admin_control' %>
+          <%= link_to 'Destroy', @projects[i], :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+      <%= link_to image_tag(Picture.find(@projects[i].picture_id).data.url(:medium)), @projects[i] %>
+    <% end %>
+  <% end %> 
+</div>
+<div class="c width_330">
+  <% @projects.each_index do |i| %>
+    <% if i.odd? %>
+      <% if signed_in? %>
+        <div class="admin_panel" style="margin-left:220px;">
+          <%= link_to 'Edit', edit_project_path(@projects[i]), :class => 'admin_control' %>
+          <%= link_to 'Destroy', @projects[i], :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+      <%= link_to image_tag(Picture.find(@projects[i].picture_id).data.url(:medium), :class => 'project_show_pic'), @projects[i] %>
+    <% end %>
+  <% end %> 
 </div>
