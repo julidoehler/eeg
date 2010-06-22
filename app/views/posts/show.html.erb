@@ -12,7 +12,6 @@
 </div>
 <div class="c">
   <div class="c_element fixed_height color2">
-    <%= add_tweetmeme %>
     <span class="date">
         <%=h @post.date_from.strftime("%d.%m.%Y") unless @post.date_from.nil? %>
         <%=h @post.time_from.strftime("%H.%M Uhr") unless @post.time_from.nil? %>
@@ -43,7 +42,9 @@
     <p><%= link_to 'Zurück', posts_path %></p>
   </div>
   <div class="c_element color2">
-      <%= add_fcbk(request.url,'light') %>
+    <%= add_tweet %>
+    <%= add_buzz(Picture.find(@post.picture_id).data.url(:thumb)) %> 
+    <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>
     <% if i < 3 %>

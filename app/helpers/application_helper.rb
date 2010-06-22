@@ -35,15 +35,23 @@ module ApplicationHelper
     RedCloth.new(text).to_html
   end
   
-  def add_tweetmeme
-    render :inline => '<div id="tweetmemebutton" style="float:right; margin-left:10px;">
-      <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-    </div>'
+  def add_tweet
+    render :inline => '<div><script type="text/javascript">
+    tweetmeme_style = \'compact\';
+    </script>
+    <script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script></div>'
+  end
+  
+  def add_buzz(img)
+    puts request.inspect
+    render :inline => '<div>
+    <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-locale="de"></a>
+<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script></div>'
   end
   
   def add_fcbk(url,scheme)
-    render :inline => '<iframe src="http://www.facebook.com/plugins/like.php?href='+url+'&layout=standard&show-faces=true&width=320&action=like&colorscheme='+scheme+'" scrolling="no" frameborder="0"
+    render :inline => '<div style="margin-top:8px;"><iframe src="http://www.facebook.com/plugins/like.php?href='+url+'&layout=standard&show-faces=true&width=320&action=like&colorscheme='+scheme+'" scrolling="no" frameborder="0"
 allowTransparency="true" style="border:none; overflow:hidden;
-width:320px; height:30px"></iframe>'
+width:320px; height:30px"></iframe></div>'
   end
 end
