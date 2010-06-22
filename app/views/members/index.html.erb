@@ -1,0 +1,26 @@
+<h1>Listing members</h1>
+
+<table>
+  <tr>
+    <th>Lastname</th>
+    <th>Firstname</th>
+    <th>Information</th>
+	<th>Picture</th>
+  </tr>
+
+<% @members.each do |member| %>
+  <tr>
+    <td><%=h member.lastname %></td>
+    <td><%=h member.firstname %></td>
+    <td><%=h member.information %></td>
+	<td><%= image_tag Picture.find(member.picture_id).data.url(:thumb) %></td>
+    <td><%= link_to 'Show', member %></td>
+    <td><%= link_to 'Edit', edit_member_path(member) %></td>
+    <td><%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New member', new_member_path %>
