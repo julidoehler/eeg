@@ -6,7 +6,7 @@
     <title><%= (html_title = yield :html_title) ? html_title + " @ Essential Existence Gallery" : 'Essential Existence Gallery http://www.eexistence.de/' %></title>
       <%= stylesheet_link_tag 'main' %>
       <%= javascript_include_tag :defaults %>
-      <%= controller_name == 'projects' ? stylesheet_link_tag('red') : stylesheet_link_tag('default') %>
+      <%= include_stylesheet %>
   </head>
   <body>
     <% if signed_in? %>

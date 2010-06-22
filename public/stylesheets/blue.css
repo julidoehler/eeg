@@ -1,0 +1,40 @@
+/* CLASSES */
+.color1 {
+  background-image: url(../images/bg_blue.png);
+}
+
+.color2 {
+  background-image: url(../images/bg_black.png);
+}
+
+body {
+  background-color: #000;
+  background-image: url(../images/bg.jpg);
+  color: #ffffff;
+}
+
+#sub_head ul li a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.nav ul li a {
+  text-decoration:none;
+  font-size: 14px;
+  font-weight:bold;
+  margin:3px;
+}
+
+.subnav ul li a {
+  text-decoration:none;
+  color:#ffffff;
+  font-size: 12px;
+  font-weight:bold;
+  margin:3px;
+}
+
+a {
+  color: #ffffff;
+}

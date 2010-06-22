@@ -1,5 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  
+  def include_stylesheet
+    case controller_name
+      when 'projects': stylesheet_link_tag('red')
+      when 'members': stylesheet_link_tag('blue')
+      else stylesheet_link_tag('default')
+    end
+  end
+  
   def render_element(e)
     render :partial => "layouts/" + e.content_type, :locals => {:e => e}
   end
