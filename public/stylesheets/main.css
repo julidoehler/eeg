@@ -37,6 +37,7 @@ h1 a {
 
 .c_element p {
   padding-bottom:10px;
+  padding-top:5px;
 }
 
 .schedule_box {
@@ -76,6 +77,11 @@ h1 a {
 
 .pad {
   padding:5px;
+}
+
+.c_element ul {
+  padding: 10px 20px;
+  list-style-type: circle;
 }
 
 /* IDs */
