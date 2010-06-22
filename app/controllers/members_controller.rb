@@ -25,7 +25,7 @@ class MembersController < ApplicationController
   # GET /members/new.xml
   def new
     @member = Member.new
-    @member.build_picture
+
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @member }
@@ -41,10 +41,9 @@ class MembersController < ApplicationController
   # POST /members.xml
   def create
 
-
     @member = Member.new(params[:member])
-    #additionally create a picture
-    @picture = @member.create_picture(params[:picture])
+    #additionally build a picture
+    @picture = @member.build_picture(params[:picture])
     #set the picture_id of the post to the picture id
     @member.picture_id = @picture.id
 
