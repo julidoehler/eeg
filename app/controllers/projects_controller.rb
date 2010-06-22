@@ -28,7 +28,6 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
-    @project.build_picture
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,8 +44,8 @@ class ProjectsController < ApplicationController
   # POST /projects.xml
   def create
     @project = Project.new(params[:project])
-    #additionally create a picture
-    @picture = @project.create_picture(params[:picture])
+    #additionally build a picture
+    @picture = @project.build_picture(params[:picture])
     #set the picture_id of the project to the picture id
     @project.picture_id = @picture.id
 

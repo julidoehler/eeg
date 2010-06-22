@@ -28,7 +28,6 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-    @post.build_picture
 
     respond_to do |format|
       format.html # new.html.erb
@@ -56,8 +55,8 @@ class PostsController < ApplicationController
     params[:post].delete("has_time_to")
     
     @post = Post.new(params[:post])
-    #additionally create a picture
-    @picture = @post.create_picture(params[:picture])
+    #additionally build a picture (but not save it until the post is saved!) (this is the distinction between build and create)
+    @picture = @post.build_picture(params[:picture])
     #set the picture_id of the post to the picture id
     @post.picture_id = @picture.id
     
