@@ -1,3 +1,11 @@
 <div class="yellow">
-  Hier kommt das Kontaktfeld
+<% unless flash[:notice] == "Your mail has been sent!" %>
+<% form_for :mail, @mail, :url => {:action => "contact_send_mail" } do |f| %>
+  
+  Name: <%= f.text_field :name %><br />
+  Email: <%= f.text_field :email %><br />
+  Message : <%= f.text_area :message %><br />
+  <%= f.submit "Send Message" %>
+<% end %>
+<%end%>
 </div>

@@ -13,7 +13,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pictures
 
-  map.resources :posts
+  map.resources :posts do |post|
+    post.resources :elements, :as => 'content'
+  end
   
   map.news 'news', :controller => 'posts', :action => 'index'
   map.news 'news/:id', :controller => 'posts', :action => 'show'
