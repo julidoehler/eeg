@@ -13,13 +13,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pictures
 
-  map.resources :posts do |post|
+  map.resources :posts, :as => 'news' do |post|
     post.resources :elements, :as => 'content'
   end
-  
-  map.news 'news', :controller => 'posts', :action => 'index'
-  map.news 'news/:id', :controller => 'posts', :action => 'show'
-  
+    
   map.schedule 'schedule', :controller => 'pages', :action => 'schedule'
   map.profile 'profile', :controller => 'pages', :action => 'profile'
   map.imprint 'imprint', :controller => 'pages', :action => 'imprint'

@@ -13,17 +13,17 @@ module ApplicationHelper
     end
   end
   
-  def render_element(e)
-    render :partial => "layouts/" + e.content_type, :locals => {:e => e}
+  def render_element(p,e)
+    render :partial => "layouts/" + e.content_type, :locals => {:p => p, :e => e}
   end
   
-  def render_video(c)
-    if c['youtube.com']
-      render :partial => "layouts/video_youtube", :locals => {:video => c[Regexp.new('v=(.{11})'),1]}
-    elsif c['vimeo.com'] 
-      render :partial => "layouts/video_vimeo", :locals => {:video => c[Regexp.new('[0-9]+')]}
+  def render_video(p,e)
+    if e.content['youtube.com']
+      render :partial => "layouts/video_youtube", :locals => {:p => p, :e => e}
+    elsif e.content['vimeo.com'] 
+      render :partial => "layouts/video_vimeo", :locals => {:p => p, :e => e}
     else
-      render :partial => "layouts/video_link", :locals => {:video => c}
+      render :partial => "layouts/video_link", :locals => {:video => e.content}
     end
   end
   

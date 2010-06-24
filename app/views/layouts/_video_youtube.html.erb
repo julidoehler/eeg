@@ -1,12 +1,19 @@
-<object width="560" height="340">
-  <param name="movie" value="http://www.youtube.com/v/<%= video %>&fs=1&"></param>
+
+<div style="background:url(http://img.youtube.com/vi/<%= e.content[Regexp.new('v=(.{11})'),1] %>/1.jpg);text-align:center;height:186px;">
+  <%= link_to image_tag("play.png"), [p,e] %>
+</div>
+<!--
+  
+  
+  <object width="560" height="340">
+  <param name="movie" value="http://www.youtube.com/v/video&fs=1&"></param>
   <param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param>
   <embed 
-  src="http://www.youtube.com/v/<%= video %>&fs=1&"
+  src="http://www.youtube.com/v/video&fs=1&"
   type="application/x-shockwave-flash"
   allowscriptaccess="always"
   allowfullscreen="true"
   width="560"
   height="340">
   </embed>
-</object>
+</object>-->

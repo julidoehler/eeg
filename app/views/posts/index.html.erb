@@ -11,7 +11,7 @@
         <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
       </div>
     <% end %>
-      <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), news_path(post) %>
+      <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), post %>
     <div class="c_element_index color2">
       <div class="pad">
     	  <p class="date">
@@ -21,8 +21,8 @@
     		  <%=h post.date_to.strftime("%d.%m.%Y") unless post.date_to.nil? %>
     		  <%=h post.time_to.strftime("%H.%M Uhr") unless post.time_to.nil? %>
     		</p>
-    		<h1><%= link_to post.title.upcase, news_path(post) %></h1>
-    		<p><%=h post.short_text %> <%= link_to '&raquo;', news_path(post) %></p>
+    		<h1><%= link_to post.title.upcase, post %></h1>
+    		<p><%=h post.short_text %> <%= link_to '&raquo;', post %></p>
   		</div>
 		</div>
   </div>
