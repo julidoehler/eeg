@@ -11,9 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pictures
 
-  map.resources :posts do |post|
-    post.resources :elements, :as => 'content'
-  end
+  map.resources :posts
   
   #some tests
   map.programm 'programm', :controller => 'pages', :action => 'schedule'

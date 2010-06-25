@@ -7,7 +7,7 @@ module Element_methods
   
   def existing_element_attributes=(element_attributes)
     elements.reject(&:new_record?).each do |element|
-      attributes = element_attributes[element.id.to_s]
+      attributes = element_attributes[element.friendly_id.to_s]
       if attributes
         element.attributes = attributes
       else
