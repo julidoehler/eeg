@@ -43,7 +43,7 @@ module ApplicationHelper
   
   def render_gallery(p,e)
     gallery = Gallery.find(e.content)
-    render :partial => "layouts/gallery_link", :locals => {:thumb1 => gallery.pictures.first.data.url(:thumb), :thumb2 => gallery.pictures.second.data.url(:thumb), :p => p, :e => e}
+    render :partial => "layouts/gallery_link", :locals => {:thumb1 => gallery.pictures.first, :thumb2 => gallery.pictures.second, :p => p, :e => e}
   end
   
   def fields_for_element(element, &block)
