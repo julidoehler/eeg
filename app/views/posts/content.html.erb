@@ -2,8 +2,8 @@
 
 <% if signed_in? %>
   <div class="admin_panel">
-    <%= link_to 'Edit', edit_post_path(@post), :class => 'admin_control' %>
-    <%= link_to 'Destroy', @post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+    <%= link_to 'Edit', edit_element_path(@element), :class => 'admin_control' %>
+    <%= link_to 'Destroy', @element, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
   </div>
 <% end %>
 
@@ -11,20 +11,22 @@
   <div class="c_element_show color2">
     <h1><%=h @element.title.upcase %></h1>
     <%= render_element_show(@element) %>
-  </div>  
-  <div class="c_element color2" style="float:right;">
-        <p><br/>
-      <b>Tags:</b><br/>
-      <%= @post.tag_list %>
-    </p>
-  </div> 
-  <% @post.elements.each_index do |i| %>
-    <% if i >= 3 and i.odd? and @post.elements[i].id != @element.id %>
-      <div class="c_element color2">
-        <%= render_element(@post,@post.elements[i]) %>
-      </div>
+  </div>
+  <div style="float:right;">
+    <div class="c_element color2">
+          <p><br/>
+        <b>Tags:</b><br/>
+        <%= @post.tag_list %>
+      </p>
+    </div> 
+    <% @post.elements.each_index do |i| %>
+      <% if i >= 2 and i.even? and @post.elements[i].id != @element.id %>
+        <div class="c_element color2">
+          <%= render_element(@post,@post.elements[i]) %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 <div class="c">
   <div class="c_element color2">
@@ -36,14 +38,14 @@
     <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>
-    <% if i < 3 and @post.elements[i].id != @element.id %>
+    <% if i < 2 and @post.elements[i].id != @element.id %>
       <div class="c_element color2">
         <%= render_element(@post,@post.elements[i]) %>
       </div>
     <% end %>
   <% end %>
   <% @post.elements.each_index do |i| %>
-    <% if i >= 3 and i.even? and @post.elements[i].id != @element.id %>
+    <% if i >= 2 and i.odd? and @post.elements[i].id != @element.id %>
       <div class="c_element color2">
         <%= render_element(@post,@post.elements[i]) %>
       </div>

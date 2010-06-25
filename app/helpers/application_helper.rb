@@ -41,9 +41,9 @@ module ApplicationHelper
     end
   end
   
-  def render_gallery(c)
-    gallery = Gallery.find(c)
-    render :partial => "layouts/gallery_link", :locals => {:p => gallery.pictures.first, :l => gallery}
+  def render_gallery(p,e)
+    gallery = Gallery.find(e.content)
+    render :partial => "layouts/gallery_link", :locals => {:thumb1 => gallery.pictures.first.data.url(:thumb), :thumb2 => gallery.pictures.second.data.url(:thumb), :p => p, :e => e}
   end
   
   def fields_for_element(element, &block)
@@ -60,6 +60,11 @@ module ApplicationHelper
   
   def _(text)
     RedCloth.new(text).to_html
+  end
+  
+  def get_vimeo_thumb(v)
+    vimeo_xml = Hpricot(open('http://vimeo.com/api/v2/video/' + v[Regexp.new('[0-9]+')] + '.xml'), :xhmtl_strict)
+    vimeo_xml.at("thumbnail_small").inner_html
   end
   
   def add_tweet

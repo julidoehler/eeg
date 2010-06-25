@@ -44,3 +44,7 @@ Rails::Initializer.run do |config|
 end
 
 require 'RedCloth'
+
+#for vimeo thumbnail
+require 'hpricot'
+require 'open-uri'

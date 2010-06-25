@@ -1,2 +1,2 @@
 <h2><%=h e.title %></h2>
-<p><%=h e.content %></p>
+<p><%=h truncate(e.content, :length => 500) %> <%= link_to "[Weiterlesen]", content_url(p,e) %></p>

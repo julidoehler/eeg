@@ -30,7 +30,7 @@
     </p>
   </div> 
   <% @post.elements.each_index do |i| %>
-    <% if i >= 3 and i.odd? %>
+    <% if i >= 2 and i.even? %>
       <div class="c_element color2">
         <%= render_element(@post,@post.elements[i]) %>
       </div>
@@ -47,14 +47,14 @@
     <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>
-    <% if i < 3 %>
+    <% if i < 2 %>
       <div class="c_element color2">
         <%= render_element(@post,@post.elements[i]) %>
       </div>
     <% end %>
   <% end %>
   <% @post.elements.each_index do |i| %>
-    <% if i >= 3 and i.even? %>
+    <% if i >= 2 and i.odd? %>
       <div class="c_element color2">
         <%= render_element(@post,@post.elements[i]) %>
       </div>
