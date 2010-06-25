@@ -1,11 +1,15 @@
 module Element_methods 
   def new_element_attributes=(element_attributes)
+    puts "############## new element attributes here!"
     element_attributes.each do |attributes|
       elements.build(attributes)
     end
   end
   
   def existing_element_attributes=(element_attributes)
+    puts "###########"
+    puts element_attributes.class
+    puts "###########"
     elements.reject(&:new_record?).each do |element|
       attributes = element_attributes[element.id.to_s]
       if attributes

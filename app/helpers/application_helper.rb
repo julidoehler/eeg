@@ -13,6 +13,20 @@ module ApplicationHelper
     end
   end
   
+  def render_element_show(e)
+    render :partial => "layouts/" + e.content_type + "_show", :locals => {:e => e}
+  end
+  
+  def render_video_show(e)
+    if e.content['youtube.com']
+      render :partial => "layouts/video_youtube_show", :locals => {:e => e}
+    elsif e.content['vimeo.com'] 
+      render :partial => "layouts/video_vimeo_show", :locals => {:e => e}
+    else
+      render :partial => "layouts/video_link", :locals => {:video => e.content}
+    end
+  end
+  
   def render_element(p,e)
     render :partial => "layouts/" + e.content_type, :locals => {:p => p, :e => e}
   end
@@ -56,7 +70,6 @@ module ApplicationHelper
   end
   
   def add_buzz
-    puts request.inspect
     render :inline => '<div>
     <a title="Post to Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count" data-locale="de"></a>
 <script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script></div>'

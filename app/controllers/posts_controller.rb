@@ -23,6 +23,11 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @post }
     end
   end
+  
+  def content
+    @post = Post.find(params[:id])
+    @element = Element.find(params[:element_id])
+  end
 
   # GET /posts/new
   # GET /posts/new.xml
