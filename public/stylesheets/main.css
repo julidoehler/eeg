@@ -177,6 +177,7 @@ h1 a {
   background-image: url(../images/gekritzel.png);
   background-repeat:repeat-x;
   position:absolute;
+  min-width:1090px;
   width:100%;
 }
 
