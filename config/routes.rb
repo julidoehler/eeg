@@ -13,11 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :pictures
   
-  
-  
-  map.resources :posts, :as => 'news' #do |post|
-   # post.resources :elements, :as => 'content'
-  #end
+  map.resources :posts, :as => 'news'
   
   map.content 'news/:id/content/:element_id', :controller => 'posts', :action => 'content'
     
