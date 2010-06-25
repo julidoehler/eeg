@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  skip_before_filter :authenticate, :only => [:index, :show]
+  skip_before_filter :authenticate, :only => [:index, :show, :content]
     
   # GET /posts
   # GET /posts.xml
