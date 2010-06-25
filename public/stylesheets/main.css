@@ -57,7 +57,7 @@ h1 a {
 }
 
 .c_element {
-  width:330px;
+  width:320px;
   padding:5px;
   margin-bottom:2px;
   margin-left:2px;
@@ -68,6 +68,12 @@ h1 a {
   height:110px;
   float:left;
   margin-left:2px;
+  margin-bottom:2px;
+}
+
+.c_element_show {
+  width: 652px;
+  padding:5px;
   margin-bottom:2px;
 }
 

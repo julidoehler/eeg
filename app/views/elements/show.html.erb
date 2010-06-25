@@ -1,18 +1,20 @@
-<div class="yellow">
-<p>
-  <b>Type:</b>
-  <%=h @element.content_type %>
-</p>
-<p>
-  <b>Content:</b>
-  <%=h @element.content %>
-</p>
-<p>
-  <b>Tags:</b>
-  <% @element.tag_list.each do |t| %>
-    <%=h t + " "%>
-  <% end%>
-</p>
-<%= link_to 'Edit', edit_element_path(@element) %> |
-<%= link_to 'Back', elements_path %>
+<div class="c">
+  <div class="c_element_show color2">
+  <p>
+    <b>Type:</b>
+    <%=h @element.content_type %>
+  </p>
+  <p>
+    <b>Content:</b>
+    <%=h @element.content %>
+  </p>
+  <p>
+    <b>Tags:</b>
+    <% @element.tag_list.each do |t| %>
+      <%=h t + " "%>
+    <% end%>
+  </p>
+  <%= link_to 'Edit', edit_element_path(@element) %> |
+  <%= link_to 'Back', elements_path %>
+  </div>
 </div>

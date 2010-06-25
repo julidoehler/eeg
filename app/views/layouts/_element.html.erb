@@ -12,6 +12,6 @@
   <%= element_form.file_field :data if content_type == 'file' %>
   <% @element.content = @element.content.to_i if content_type == 'gallery' %>
   <%= element_form.select :content, Gallery.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true} if content_type == 'gallery' %>
-  <%= link_to_function "Remove", "$(this).up('.element').remove()" %>
+  <%= link_to_function "Remove", "$(this).up('.admin_element').remove()" %>
   <% end %>
 </div>
