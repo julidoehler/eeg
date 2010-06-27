@@ -63,6 +63,12 @@ h1 a {
   margin-left:2px;
 }
 
+.c_element_no_left {
+  width:320px;
+  padding:5px;
+  margin-bottom:2px;
+}
+
 .c_element_index {
   width:505px;
   height:110px;
