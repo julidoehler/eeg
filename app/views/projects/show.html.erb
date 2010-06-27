@@ -37,9 +37,9 @@
     <p><%= link_to 'Zurück', projects_path %></p>
   </div>
   <div class="c_element color2">
+    <%= add_fcbk(request.url,'dark') %>
     <%= add_tweet %>
     <%= add_buzz %> 
-    <%= add_fcbk(request.url,'dark') %>
   </div>
   <% @project.elements.each_index do |i| %>
     <% if i < 3 %>

@@ -35,7 +35,7 @@ h1 a {
 .schedule_box {
 	margin-top:2px;
 	font-size: 16px;
-	width:672px;
+	width:602px;
 }
 
 .schedule_box h1 {
@@ -57,28 +57,28 @@ h1 a {
 }
 
 .c_element {
-  width:320px;
+  width:290px;
   padding:5px;
   margin-bottom:2px;
   margin-left:2px;
 }
 
 .c_element_no_left {
-  width:320px;
+  width:290px;
   padding:5px;
   margin-bottom:2px;
 }
 
 .c_element_index {
-  width:505px;
-  height:110px;
+  width:450px;
+  height:100px;
   float:left;
   margin-left:2px;
   margin-bottom:2px;
 }
 
 .c_element_show {
-  width: 652px;
+  width: 592px;
   padding:5px;
   margin-bottom:2px;
 }
@@ -130,7 +130,7 @@ h1 a {
 
 #sub_head ul {
   list-style-type: none;
-  margin-left:79px;
+  margin-left:54px;
 }
 
 #sub_head ul li {
@@ -161,7 +161,7 @@ h1 a {
 }
 
 .nav ul li:first-child {
-  padding-left:76px;
+  padding-left:51px;
 }
 
 .subnav ul {
@@ -176,19 +176,19 @@ h1 a {
 }
 
 .subnav ul li:first-child {
-  padding-left:76px;
+  padding-left:51px;
 }
 
 #page {
   background-image: url(../images/gekritzel.png);
   background-repeat:repeat-x;
   position:absolute;
-  min-width:1090px;
+  min-width:960px;
   width:100%;
 }
 
 #content {
-  margin:0px 0px 0px 80px;
+  margin:0px 0px 0px 55px;
 }
 
 #foot {
@@ -201,7 +201,7 @@ h1 a {
   background-color: green;
   color: white;
   margin:10px;
-  width:660px;
+  width:580px;
 }
 #flash p {
   padding:10px;
@@ -211,7 +211,7 @@ h1 a {
 #user_panel {
   background-color: white;
   padding:10px;
-  margin:0px 76px;
+  margin:0px 51px;
 }
 
 /* ADMIN */
@@ -222,11 +222,11 @@ h1 a {
 }
 
 .admin {
-  width:650px;
+  width:592px;
   background-color: #ffffff;
   color: #000000;
   padding:5px;
-  margin:2px;
+  margin-bottom:2px;
 }
 
 .admin p, .admin a  {
@@ -247,7 +247,7 @@ h1 a {
 
 .admin_panel {
   position:absolute;
-  margin-left:550px;
+  margin-left:500px;
 }
 
 .admin_element {

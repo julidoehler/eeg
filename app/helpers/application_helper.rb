@@ -81,8 +81,8 @@ module ApplicationHelper
   end
   
   def add_fcbk(url,scheme)
-    render :inline => '<div style="margin-top:8px;"><iframe src="http://www.facebook.com/plugins/like.php?href='+url+'&layout=standard&show-faces=true&width=320&action=like&colorscheme='+scheme+'" scrolling="no" frameborder="0"
+    render :inline => '<div><iframe src="http://www.facebook.com/plugins/like.php?href='+url+'&layout=button_count&show-faces=true&width=100&action=like&colorscheme='+scheme+'" scrolling="no" frameborder="0"
 allowTransparency="true" style="border:none; overflow:hidden;
-width:320px; height:30px"></iframe></div>'
+width:100px; height:30px"></iframe></div>'
   end
 end

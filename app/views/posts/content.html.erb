@@ -33,9 +33,9 @@
     <p><%= link_to 'Zurück', @post %></p>
   </div>
   <div class="c_element color2">
+    <%= add_fcbk(request.url,'light') %>
     <%= add_tweet %>
     <%= add_buzz %> 
-    <%= add_fcbk(request.url,'light') %>
   </div>
   <% @post.elements.each_index do |i| %>
     <% if i < 2 and @post.elements[i].id != @element.id %>
