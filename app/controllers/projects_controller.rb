@@ -24,6 +24,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def content
+    @project = Project.find(params[:id])
+    @element = Element.find(params[:element_id])
+  end
+
   # GET /projects/new
   # GET /projects/new.xml
   def new

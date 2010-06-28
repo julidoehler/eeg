@@ -46,6 +46,14 @@ module ApplicationHelper
     render :partial => "layouts/gallery_link", :locals => {:thumb1 => gallery.pictures.first, :thumb2 => gallery.pictures.second, :p => p, :e => e}
   end
   
+  def make_url(p,e)
+    if controller_name == 'posts'
+      post_content_url(p,e)
+    elsif controller_name == 'projects'
+      project_content_url(p,e)
+    end
+  end
+  
   def fields_for_element(element, &block)
     prefix = element.new_record? ? 'new' : 'existing'
     model = controller_name.singularize

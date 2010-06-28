@@ -1,4 +1,4 @@
-<% content_for :html_title, @post.title.upcase %>
+<% content_for :html_title, @project.title.upcase %>
 
 <% if signed_in? %>
   <div class="admin_panel">
@@ -19,10 +19,10 @@
         <%= @element.tag_list %>
       </p>
     </div> 
-    <% @post.elements.each_index do |i| %>
-      <% if i >= 2 and i.even? and @post.elements[i].id != @element.id %>
+    <% @project.elements.each_index do |i| %>
+      <% if i >= 2 and i.even? and @project.elements[i].id != @element.id %>
         <div class="c_element color2">
-          <%= render_element(@post,@post.elements[i]) %>
+          <%= render_element(@project,@project.elements[i]) %>
         </div>
       <% end %>
     <% end %>
@@ -30,24 +30,24 @@
 </div>
 <div class="c">
   <div class="c_element color2">
-    <p><%= link_to 'Zurück', @post %></p>
+    <p><%= link_to 'Zurück', @project %></p>
   </div>
   <div class="c_element color2">
-    <%= add_fcbk(request.url,'light') %>
+    <%= add_fcbk(request.url,'dark') %>
     <%= add_tweet %>
     <%= add_buzz %> 
   </div>
-  <% @post.elements.each_index do |i| %>
-    <% if i < 2 and @post.elements[i].id != @element.id %>
+  <% @project.elements.each_index do |i| %>
+    <% if i < 2 and @project.elements[i].id != @element.id %>
       <div class="c_element color2">
-        <%= render_element(@post,@post.elements[i]) %>
+        <%= render_element(@project,@project.elements[i]) %>
       </div>
     <% end %>
   <% end %>
-  <% @post.elements.each_index do |i| %>
-    <% if i >= 2 and i.odd? and @post.elements[i].id != @element.id %>
+  <% @project.elements.each_index do |i| %>
+    <% if i >= 2 and i.odd? and @project.elements[i].id != @element.id %>
       <div class="c_element color2">
-        <%= render_element(@post,@post.elements[i]) %>
+        <%= render_element(@project,@project.elements[i]) %>
       </div>
     <% end %>
   <% end %>

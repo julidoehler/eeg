@@ -15,7 +15,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :posts, :as => 'news'
   
-  map.content 'news/:id/content/:element_id', :controller => 'posts', :action => 'content'
+  map.post_content 'news/:id/content/:element_id', :controller => 'posts', :action => 'content'
+  map.project_content 'project/:id/content/:element_id', :controller => 'projects', :action => 'content'
     
   map.schedule 'schedule', :controller => 'pages', :action => 'schedule'
   map.profile 'profile', :controller => 'pages', :action => 'profile'
