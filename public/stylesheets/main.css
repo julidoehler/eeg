@@ -230,6 +230,11 @@ h1 a {
   color:#ffffff;
 }
 
+#foot h3 {
+  font-size:100%;
+  margin-bottom:5px;
+}
+
 #foot:after{
     content: ".";
     display: block;
