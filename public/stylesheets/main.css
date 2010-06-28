@@ -24,7 +24,6 @@ h1 {
 
 h1 a {
   text-decoration:none;
-	color: #000000;
 }
 
 .c_element p {
@@ -133,6 +132,7 @@ h1 a {
   text-decoration: underline;
 }
 
+
 /* IDs */
 #sub_head {
   margin-top:25px;
@@ -199,12 +199,43 @@ h1 a {
 
 #content {
   margin:0px 0px 0px 55px;
+  clear:both;
+}
+
+#content:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 #foot {
-  background-color:#000000;
+  background-image: url(../images/bg_black.png);
   color:#ffffff;
   clear:left;
+  margin-top:76px;
+  padding:30px 50px;
+}
+
+.sitemap {
+  padding:0px 55px;
+}
+
+.sitemap a{
+  text-decoration:none;
+}
+
+#foot a {
+  color:#ffffff;
+}
+
+#foot:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 #flash {

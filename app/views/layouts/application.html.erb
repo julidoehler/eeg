@@ -70,25 +70,57 @@
         <% end %>
       </div>
       <div id="content">
-        <div id="flash">
           <% flash.each do |key, value| -%>
-            <div id="flash_<%= key %>"><p><%=h value %></p></div>
-          <% end -%>
-        </div>
+            <div id="flash_<%= key %>"><div id="flash"><p><%=h value %></p></div></div>
+          <% end -%>   
         <%= yield %>
       </div>
-      <div id="foot">
-        <!-- AddThis Button BEGIN -->
-        <div class="addthis_toolbox addthis_default_style">
-        <a href="http://www.addthis.com/bookmark.php?v=250&amp;username=eexistence" class="addthis_button_compact">Share</a>
-        <span class="addthis_separator">|</span>
-        <a class="addthis_button_facebook"></a>
-        <a class="addthis_button_myspace"></a>
-        <a class="addthis_button_google"></a>
-        <a class="addthis_button_twitter"></a>
+      <div id="foot" style="background-image: url(../images/bg_black.png);">
+        <div class="r">
+        <div class="c sitemap">
+          <h3>AKTUELL</h3>
+          <p><%= link_to "News", posts_path %></p>
+          <p><%= link_to "Programm", schedule_path %></p>
+          <p><%= link_to "Projekte", projects_path %></p>
         </div>
-        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=eexistence"></script>
-        <!-- AddThis Button END -->
+        <div class="c sitemap">
+          <h3>NETZWERK</h3>
+          <p>Künstler</p>
+          <p>Mitarbeiter</p>
+          <p>freie Mitarbeiter</p>
+        </div>
+        <div class="c sitemap">
+          <h3>ÜBER UNS</h3>
+          <p><%= link_to "Profil", profile_path %></p>
+          <p>Spenden</p>
+          <p><%= link_to "Archiv", archive_path %></p>
+        </div>
+        <div class="c sitemap">
+          <h3>KONTAKT</h3>
+          <p><%= link_to "Anfrage", contact_path %></p>
+          <p><%= link_to "Anfahrt", directions_path %></p>
+          <p><%= link_to "Impressum", imprint_path %></p>
+        </div>
+        <div class="c sitemap">
+          <h3>LINKS</h3>
+          <p><%= link_to "Facebook", "http://www.facebook.com/pages/essential-existence-gallery/115456341807802" %></p>
+          <p><%= link_to "MySpace", "http://www.myspace.com/2egallery" %></p>
+          <p><%= link_to "Twitter", "http://twitter.com/2egallery" %></p>
+          <p><%= link_to "Vimeo", "http://vimeo.com/eexistence" %></p>
+        </div>
+        </div>
+        <div class="r">
+          <div class="c" style="margin-top:30px;padding:0px 10px 0px 55px;">
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">
+              <img alt="Creative Commons License" style="border-width:0" src="http://creativecommons.org/images/public/somerights20.png" />
+            </a>
+          </div>
+          <div class="c" style="margin-top:30px;">
+            Alle Inhalte auf <span xmlns:dc="http://purl.org/dc/elements/1.1/" property="dc:title">http://www.eexistence.de</span> (solange nicht explizit anders gekennzeichnet) sind unter einer<br />
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License</a> lizensiert.<br/>
+            Um die Inhalte in anderer Form nutzen zu können, bitte kontaktiere uns über das <%= link_to "Kontaktformular", contact_path %>.
+          </div>
+        </div>
       </div>
     </div>
   </body>
