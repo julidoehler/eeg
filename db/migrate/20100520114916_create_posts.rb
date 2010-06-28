@@ -9,9 +9,9 @@ class CreatePosts < ActiveRecord::Migration
       t.text :short_text
       t.text :long_text
       t.boolean :published
-      t.boolean :post_to_twitter
-      t.boolean :post_to_facebook
-      t.boolean :post_to_myspace
+      t.integer :to_twitter_count, :null => false, :default => 0
+      t.integer :to_facebook_count, :null => false, :default => 0
+      t.integer :to_myspace_count, :null => false, :default => 0
       t.references :picture
 
       t.timestamps

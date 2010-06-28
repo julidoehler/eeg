@@ -40,17 +40,17 @@
 
 <p>
   <b>Post to twitter:</b>
-  <%=h @post.post_to_twitter %>
+  <%=h @post.to_twitter_count %>
 </p>
 
 <p>
   <b>Post to facebook:</b>
-  <%=h @post.post_to_facebook %>
+  <%=h @post.to_facebook_count %>
 </p>
 
 <p>
   <b>Post to myspace:</b>
-  <%=h @post.post_to_myspace %>
+  <%=h @post.to_myspace_count %>
 </p>
 <p>
   <b>Tags:</b>
@@ -65,6 +65,8 @@
   <% end%>
 </p>
 <p>
+  <div id="blubb"></div>
+  <%= link_to link_to_remote "Retweet this post", :update => "blubb", :url => { :action => 'to_web', :id => @post.id, :service => 'twitter' } %><br />
   <%= link_to 'Edit', edit_post_path(@post) %> |
   <%= link_to 'Back', posts_path %>
 </p>

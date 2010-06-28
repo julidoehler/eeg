@@ -28,9 +28,9 @@
     <td><%=h post.short_text %></td>
     <td><%= _ post.long_text %></td>
     <td><%=h post.published %></td>
-    <td><%=h post.post_to_twitter %></td>
-    <td><%=h post.post_to_facebook %></td>
-    <td><%=h post.post_to_myspace %></td>
+    <td><%=h post.to_twitter_count %></td>
+    <td><%=h post.to_facebook_count %></td>
+    <td><%=h post.to_myspace_count %></td>
     <td>
       <% post.tag_list.each do |t| %>
         <%=h t + " "%>
