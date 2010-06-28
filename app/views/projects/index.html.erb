@@ -3,7 +3,7 @@
     <%= link_to 'New project', new_project_path %>
   </div>
 <% end %>
-<div class="c width_330">
+<div class="c width_300">
   <% @projects.each_index do |i| %>
     <% if i.even? %>
       <% if signed_in? %>
@@ -16,7 +16,7 @@
     <% end %>
   <% end %> 
 </div>
-<div class="c width_330">
+<div class="c width_300">
   <% @projects.each_index do |i| %>
     <% if i.odd? %>
       <% if signed_in? %>
