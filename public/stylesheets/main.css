@@ -91,12 +91,7 @@ h1 a {
   width: 300px;
 }
 
-.c_element ul {
-  padding: 10px 20px;
-  list-style-type: circle;
-}
-
-.c_element_no_left ul {
+.c_element_show ul {
   padding: 10px 20px;
   list-style-type: circle;
 }
@@ -130,6 +125,12 @@ h1 a {
 
 .italic {
   font-style:italic;
+}
+
+.back_button {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* IDs */
