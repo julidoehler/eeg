@@ -1,11 +1,24 @@
-<div class="yellow">
+<div class="c_element_show color2">
 <% unless flash[:notice] == "Your mail has been sent!" %>
 <% form_for :mail, @mail, :url => {:action => "contact_send_mail" } do |f| %>
-  
-  Name: <%= f.text_field :name %><br />
-  Email: <%= f.text_field :email %><br />
-  Message : <%= f.text_area :message %><br />
-  <%= f.submit "Send Message" %>
+  <table>
+    <tr>
+      <td>Name: </td>
+      <td><%= f.text_field :name, :size => 35, :maxlength => 255 %></td>
+    </tr>
+    <tr>
+      <td>Email: </td>
+      <td><%= f.text_field :email, :size => 35, :maxlength => 255 %></td>
+    </tr>
+    <tr>
+      <td>Message: </td>
+      <td><%= f.text_area :message %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit "Send Message" %></td>
+    </tr>
+  </table>  
 <% end %>
 <%end%>
 </div>
