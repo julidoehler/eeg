@@ -27,4 +27,12 @@ config.action_view.cache_template_loading            = true
 # Enable threaded mode
 # config.threadsafe!
 
-config.action_mailer.default_url_options = { :host => 'matsch.eexistence.de' }
+config.action_mailer.default_url_options = { :host => 'eexistence.de' }
+
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.sendmail_settings = {
+        :location => '/usr/sbin/sendmail',
+        :arguments => '-i -t'
+}
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.default_charset = "utf-8"

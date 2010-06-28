@@ -17,3 +17,11 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 
 config.action_mailer.default_url_options = { :host => 'eexistence.de' }
+
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.sendmail_settings = {
+        :location => '/usr/sbin/sendmail',
+        :arguments => '-i -t'
+}
+ActionMailer::Base.perform_deliveries = true
+ActionMailer::Base.default_charset = "utf-8"
