@@ -13,7 +13,8 @@
   </p>
   <p>
     <%= f.label :position %><br />
-    <%= select( "position", "id", { "Künstler" => "1", "Mitarbeiter" => "2", "Freier Mitarbeiter" => "3"}) %>
+
+    <%= f.select :position, { "Künstler" => 1, "Mitarbeiter" => 2, "Freier Mitarbeiter" => 3} , :prompt => 'Select Position'%>
   </p>
   <p>
     <%= f.label :information %><br />
