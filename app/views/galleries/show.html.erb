@@ -3,7 +3,7 @@
 <p>
   <%=h @gallery.description %>
 </p>
-<p><%= current_id(@picture,@gallery) %> / <%= @gallery_size %></p>
+<p><%= link_to_prev(@gallery,current_id(@picture,@gallery)) %> <%= current_id(@picture,@gallery)+1 %> / <%= @gallery_size %> <%= link_to_next(@gallery,current_id(@picture,@gallery)) %></p>
 <%= image_tag @picture.data.url(:large) %>
 <p>
   <% @gallery.pictures.each_index do |i| %>

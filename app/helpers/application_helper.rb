@@ -103,9 +103,26 @@ width:100px; height:30px"></iframe></div>'
 </div>'
   end
   
+  #for galleries show view
   def current_id(p,g)
     g.pictures.each_index do |i|
-      return i+1 if g.pictures[i] == p
+      return i if g.pictures[i] == p
+    end
+  end
+  
+  def link_to_prev(g,c)
+    if c == 0
+      link_to "<", gallery_content_url(g,g.pictures.size)
+    else
+      link_to "<", gallery_content_url(g,c)
+    end
+  end
+  
+  def link_to_next(g,c)
+    if c+1 == g.pictures.size
+      link_to ">", gallery_content_url(g,1)
+    else
+      link_to ">", gallery_content_url(g,c+2)
     end
   end
 end
