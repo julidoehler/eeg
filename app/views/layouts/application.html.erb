@@ -22,7 +22,7 @@
           <li><%= link_to "Impressum", imprint_path %></li>
           <li><%= link_to "Kontakt", contact_path %></li>
           <li><%= link_to "Anfahrt", directions_path %></li>
-          <li><%= link_to "Archiv", archive_path %></li>
+          <!--<li><%= link_to "Archiv", archive_path %></li>-->
           <li><%= link_to "RSS", url_for(:controller => 'feed', :action => 'rss') %></li>
           <li><%= link_to "Atom", url_for(:controller => 'feed', :action => 'atom') %></li>
           <li><%= link_to "Facebook", "http://www.facebook.com/pages/essential-existence-gallery/115456341807802" %></li>
@@ -85,15 +85,15 @@
         </div>
         <div class="c sitemap">
           <h3>NETZWERK</h3>
-          <p>Künstler</p>
-          <p>Mitarbeiter</p>
-          <p>freie Mitarbeiter</p>
+          <p><%= link_to "Künstler", members_path(:anchor => 'artists') %></p>
+          <p><%= link_to "Mitarbeiter", members_path(:anchor => 'members') %></p>
+          <p><%= link_to "freie Mitarbeiter", members_path(:anchor => 'associates') %></p>
         </div>
         <div class="c sitemap">
           <h3>ÜBER UNS</h3>
           <p><%= link_to "Profil", profile_path %></p>
           <p>Spenden</p>
-          <p><%= link_to "Archiv", archive_path %></p>
+          <!-- <p><%= link_to "Archiv", archive_path %></p>-->
         </div>
         <div class="c sitemap">
           <h3>KONTAKT</h3>
