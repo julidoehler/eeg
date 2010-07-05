@@ -51,6 +51,8 @@ module ApplicationHelper
       post_content_url(p,e)
     elsif controller_name == 'projects'
       project_content_url(p,e)
+    elsif controller_name == 'members'
+      member_content_url(p,e)
     end
   end
   

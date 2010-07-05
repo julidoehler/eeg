@@ -1,29 +1,56 @@
-<p>
-  <b>Lastname:</b>
-  <%=h @member.lastname %>
-</p>
+<% content_for :html_title, @member.lastname.upcase %>
 
-<p>
-  <b>Firstname:</b>
-  <%=h @member.firstname %>
-</p>
+<% if signed_in? %>
+  <div class="admin_panel">
+    <%= link_to 'Edit', edit_member_path(@member), :class => 'admin_control' %>
+    <%= link_to 'Destroy', @member, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+  </div>
+<% end %>
 
-<p>
-  <b>Information:</b>
-  <%=h @member.information %>
-</p>
-
-<p>
-	<b>Position:</b>
-	<%= h @member.position %>
-</p>
-
-<p>
-<b>Elements:</b>
-  <% @member.elements.each do |e| %>
-    <%= render_element(e) %>
-  <% end%>
-</p>
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<div class="c">
+  <%= image_tag Picture.find(@member.picture_id).data.url(:medium) %>
+</div>
+<div class="c">
+  <div class="c_element fixed_height color2">
+    <h1><%=h @member.firstname.upcase %> <%=h @member.lastname.upcase %></h1>
+    <p><%= _ @member.information %></p>
+  </div>  
+  <div class="c_element color2">
+        <p><br/>
+      <b>Tags:</b><br/>
+      <%= @member.tag_list %>
+    </p>
+  </div>
+  <% @member.elements.each_index do |i| %>
+    <% if i >= 2 and i.even? %>
+      <div class="c_element color2">
+        <%= render_element(@member,@member.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %> 
+</div>
+<div class="c">
+  <div class="c_element color2">
+    <p><%= link_to 'Zurück', members_path, :class => "back_button" %></p>
+  </div>
+  <div class="c_element color2">
+    <%= add_fcbk(request.url,'dark') %>
+    <%= add_tweet %>
+    <%= add_buzz %>
+    <%= add_this %>
+  </div>
+  <% @member.elements.each_index do |i| %>
+    <% if i < 2 %>
+      <div class="c_element color2">
+        <%= render_element(@member,@member.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
+  <% @member.elements.each_index do |i| %>
+    <% if i >= 2 and i.odd? %>
+      <div class="c_element color2">
+        <%= render_element(@member,@member.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,55 @@
+<% content_for :html_title, @member.lastname.upcase %>
+
+<% if signed_in? %>
+  <div class="admin_panel">
+    <%= link_to 'Edit', edit_element_path(@element), :class => 'admin_control' %>
+    <%= link_to 'Destroy', @element, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+  </div>
+<% end %>
+
+<div class="c">
+  <div class="c_element_show color2">
+    <h1><%=h @element.title.upcase %></h1>
+    <%= render_element_show(@element) %>
+  </div>
+  <div style="float:right;">
+    <div class="c_element color2">
+          <p><br/>
+        <b>Tags:</b><br/>
+        <%= @element.tag_list %>
+      </p>
+    </div> 
+    <% @member.elements.each_index do |i| %>
+      <% if i >= 2 and i.even? and @member.elements[i].id != @element.id %>
+        <div class="c_element color2">
+          <%= render_element(@member,@member.elements[i]) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="c">
+  <div class="c_element color2">
+    <p><%= link_to 'Zurück', @member, :class => "back_button" %></p>
+  </div>
+  <div class="c_element color2">
+    <%= add_fcbk(request.url,'dark') %>
+    <%= add_tweet %>
+    <%= add_buzz %>
+    <%= add_this %>
+  </div>
+  <% @member.elements.each_index do |i| %>
+    <% if i < 2 and @member.elements[i].id != @element.id %>
+      <div class="c_element color2">
+        <%= render_element(@member,@member.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
+  <% @member.elements.each_index do |i| %>
+    <% if i >= 2 and i.odd? and @member.elements[i].id != @element.id %>
+      <div class="c_element color2">
+        <%= render_element(@member,@member.elements[i]) %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   
-  skip_before_filter :authenticate, :only => [:index, :show]
+  skip_before_filter :authenticate, :only => [:index, :show, :content]
   
   # GET /members
   # GET /members.xml
@@ -22,6 +22,11 @@ class MembersController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @member }
     end
+  end
+  
+  def content
+    @member = Member.find(params[:id])
+    @element = Element.find(params[:element_id])
   end
 
   # GET /members/new
