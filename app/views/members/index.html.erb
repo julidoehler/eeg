@@ -1,30 +1,71 @@
-<h1>Listing members</h1>
-
-<table>
-  <tr>
-    <th class="tablehead">Lastname</th>
-    <th class="tablehead">Firstname</th>
-	<th class="tablehead">Position</th>
-    <th class="tablehead">Information</th>
-	<th class="tablehead">Picture</th>
-  </tr>
-
-<% @members.each do |member| %>
-  <tr>
-    <td><%=h member.lastname %></td>
-    <td><%=h member.firstname %></td>
-	<td><%=h member.position %></td>
-
-
-    <td><%=h member.information %></td>
-	<td><%= image_tag Picture.find(member.picture_id).data.url(:thumb) %></td>
-    <td><%= link_to 'Show', member %></td>
-    <td><%= link_to 'Edit', edit_member_path(member) %></td>
-    <td><%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% if signed_in? %>
+  <div class="admin">
+    <%= link_to 'New member', new_member_path %>
+  </div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New member', new_member_path %>
+<div class="r">
+  <a name="artists" href="#artists"><h1 class="c_element_head color2">KÜNSTLER</h1></a>
+</div>
+<% @members.each do |member| %>
+  <% if member.position == 1 %>
+   <div class="r">
+      <% if signed_in? %>
+        <div class="admin_panel">
+          <%= link_to 'Edit', edit_member_path(member), :class => 'admin_control' %>
+          <%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+        <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
+      <div class="c_element_index color2">
+        <div class="pad">
+          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
+          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="r">
+  <a name="members" href="#members"><h1 class="c_element_head color2">MITARBEITER</h1></a>
+</div>
+<% @members.each do |member| %>
+  <% if member.position == 2 %>
+   <div class="r">
+      <% if signed_in? %>
+        <div class="admin_panel">
+          <%= link_to 'Edit', edit_member_path(member), :class => 'admin_control' %>
+          <%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+        <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
+      <div class="c_element_index color2">
+        <div class="pad">
+          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
+          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="r">
+  <a name="associates" href="#associates"><h1 class="c_element_head color2">FREIE MITARBEITER</h1></a>
+</div>
+<% @members.each do |member| %>
+  <% if member.position == 3 %>
+   <div class="r">
+      <% if signed_in? %>
+        <div class="admin_panel">
+          <%= link_to 'Edit', edit_member_path(member), :class => 'admin_control' %>
+          <%= link_to 'Destroy', member, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+        <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
+      <div class="c_element_index color2">
+        <div class="pad">
+          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
+          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -68,6 +68,12 @@ h1 a {
   margin-bottom:2px;
 }
 
+.c_element_head {
+  float:left;
+  padding:5px;
+  margin-bottom:2px;
+}
+
 .c_element_index {
   width:450px;
   height:100px;
