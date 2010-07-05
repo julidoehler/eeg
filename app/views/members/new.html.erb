@@ -1,6 +1,6 @@
 <h1>New member</h1>
 
-<% form_for :member, @member, :url => members_path, :html => { :multipart => true } do |f| %>
+<% form_for @member :html => { :multipart => true } do |f| %>
   <%= error_messages_for :member, :picture %>
 
   <p>
@@ -27,7 +27,18 @@
         <%= picture_form.hidden_field :gallery_id, :value => "4" %>
     <% end %>
   </p>
-
+  
+  <h2>Content of this member</h2>
+  <div id="elements">
+    <%= render :partial => 'layouts/element', :collection => @member.elements, :locals => {:content_type => ''} %>
+  </div>
+  <p>
+    <%= add_element_link "Add text", "text" %> |
+    <%= add_element_link "Add a video", "video" %> |
+    <%= add_element_link "Add a file", "file" %> |
+    <%= add_element_link "Add a gallery", "gallery" %>
+  </p>
+  
   <p>
     <%= f.submit 'Create' %>
   </p>

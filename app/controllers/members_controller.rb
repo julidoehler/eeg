@@ -65,6 +65,9 @@ class MembersController < ApplicationController
   # PUT /members/1.xml
   def update
     @member = Member.find(params[:id])
+    
+    params[:member][:existing_element_attributes] ||= {}
+    
     #only update the picture if there is new data for it
     if params[:picture].has_key?("data")
       @picture = Picture.find(@member.picture_id)

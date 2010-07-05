@@ -18,6 +18,12 @@
 	<%= h @member.position %>
 </p>
 
+<p>
+<b>Elements:</b>
+  <% @member.elements.each do |e| %>
+    <%= render_element(e) %>
+  <% end%>
+</p>
 
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
