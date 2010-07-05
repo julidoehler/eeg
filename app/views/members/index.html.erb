@@ -4,6 +4,7 @@
   <tr>
     <th>Lastname</th>
     <th>Firstname</th>
+	<th>Position</th>
     <th>Information</th>
 	<th>Picture</th>
   </tr>
@@ -12,6 +13,9 @@
   <tr>
     <td><%=h member.lastname %></td>
     <td><%=h member.firstname %></td>
+	<td><%=h member.position %></td>
+
+
     <td><%=h member.information %></td>
 	<td><%= image_tag Picture.find(member.picture_id).data.url(:thumb) %></td>
     <td><%= link_to 'Show', member %></td>

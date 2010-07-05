@@ -12,9 +12,14 @@
     <%= f.text_field :firstname %>
   </p>
   <p>
+    <%= f.label :position %><br />
+    <%= select( "position", "id", { "Künstler" => "1", "Mitarbeiter" => "2", "Freier Mitarbeiter" => "3"}) %>
+  </p>
+  <p>
     <%= f.label :information %><br />
     <%= f.text_area :information %>
   </p>
+
   <p>
     <% fields_for :picture do |picture_form| %>
         Picture: <%= picture_form.file_field :data %>

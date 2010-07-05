@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20100602184047) do
     t.string   "lastname"
     t.string   "firstname"
     t.text     "information"
+    t.integer  "position"
     t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"

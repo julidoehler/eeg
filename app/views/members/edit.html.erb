@@ -8,8 +8,8 @@
     <%= f.text_field :lastname %>
   </p>
   <p>
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
+    <%= f.label :postion %><br />
+    <%= select( "position", "id", { "Künstler" => "1", "Mitarbeiter" => "2", "Freier Mitarbeiter" => "3"}) %>
   </p>
   <p>
     <%= f.label :information %><br />
