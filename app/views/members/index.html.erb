@@ -2,16 +2,20 @@
 
 <table>
   <tr>
-    <th>Lastname</th>
-    <th>Firstname</th>
-    <th>Information</th>
-	<th>Picture</th>
+    <th class="tablehead">Lastname</th>
+    <th class="tablehead">Firstname</th>
+	<th class="tablehead">Position</th>
+    <th class="tablehead">Information</th>
+	<th class="tablehead">Picture</th>
   </tr>
 
 <% @members.each do |member| %>
   <tr>
     <td><%=h member.lastname %></td>
     <td><%=h member.firstname %></td>
+	<td><%=h member.position %></td>
+
+
     <td><%=h member.information %></td>
 	<td><%= image_tag Picture.find(member.picture_id).data.url(:thumb) %></td>
     <td><%= link_to 'Show', member %></td>

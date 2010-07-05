@@ -13,6 +13,32 @@ class Post < ActiveRecord::Base
   
   after_update :save_elements
     
+  def to_twitter
+  end
+  
+  def to_twitter=(to_tw)
+    if to_tw == "1"
+      httpauth = Twitter::HTTPAuth.new("eegtest", "benben")
+      base = Twitter::Base.new(httpauth)
+      pp base.update('hello world! yeah!')
+      self.to_twitter_count += 1 
+    end
+  end
+  
+  def to_facebook
+  end
+  
+  def to_facebook=(to_fb)
+    self.to_facebook_count += 1 if to_fb == "1"
+  end
+  
+  def to_myspace
+  end
+  
+  def to_myspace=(to_ms)
+    self.to_myspace_count += 1 if to_ms == "1"
+  end
+  
   def has_time_from
   end
   def has_time_to

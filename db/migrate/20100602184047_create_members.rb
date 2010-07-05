@@ -4,6 +4,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :lastname
       t.string :firstname
       t.text :information
+      t.integer :position
       t.references :picture
 
       t.timestamps

@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.string   "lastname"
     t.string   "firstname"
     t.text     "information"
+    t.integer  "position"
     t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,9 +62,9 @@ ActiveRecord::Schema.define(:version => 20100614120639) do
     t.text     "short_text"
     t.text     "long_text"
     t.boolean  "published"
-    t.boolean  "post_to_twitter"
-    t.boolean  "post_to_facebook"
-    t.boolean  "post_to_myspace"
+    t.integer  "to_twitter_count",  :default => 0, :null => false
+    t.integer  "to_facebook_count", :default => 0, :null => false
+    t.integer  "to_myspace_count",  :default => 0, :null => false
     t.integer  "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
