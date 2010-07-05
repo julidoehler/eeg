@@ -9,7 +9,7 @@ class Picture < ActiveRecord::Base
   validates_attachment_content_type :data, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_size :data, :less_than => 5.megabytes
 
-  has_attached_file :data, :styles => { :medium => "300", :thumb => "150x100#" },
+  has_attached_file :data, :styles => {:large => "592", :medium => "300", :thumb => "150x100#" },
                     :url  => "/system/pictures/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/system/pictures/:id/:style/:basename.:extension"
   

@@ -102,4 +102,10 @@ width:100px; height:30px"></iframe></div>'
 <!-- AddThis Button END -->
 </div>'
   end
+  
+  def current_id(p,g)
+    g.pictures.each_index do |i|
+      return i+1 if g.pictures[i] == p
+    end
+  end
 end

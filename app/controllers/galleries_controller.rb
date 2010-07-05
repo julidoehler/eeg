@@ -17,6 +17,11 @@ class GalleriesController < ApplicationController
   # GET /galleries/1.xml
   def show
     @gallery = Gallery.find(params[:id])
+    @gallery_size = @gallery.pictures.size
+    unless params[:picture_id].nil? 
+      @picture = @gallery.pictures.find(:all)[params[:picture_id].to_i-1] 
+    end
+    @picture ||= @gallery.pictures.first
 
     respond_to do |format|
       format.html # show.html.erb

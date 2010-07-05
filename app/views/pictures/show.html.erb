@@ -2,6 +2,7 @@
 <p>
   <b>Description:</b>
   <%= image_tag @picture.data.url %>
+  <%= image_tag @picture.data.url(:large) %>
   <%= image_tag @picture.data.url(:medium) %>
   <%= image_tag @picture.data.url(:thumb) %>
   

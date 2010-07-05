@@ -1,20 +1,18 @@
-<div class="yellow">
+<div class="c_element_show color2">
+<h1><%=h @gallery.title %></h1>
 <p>
-  <b>Title:</b>
-  <%=h @gallery.title %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%=h @gallery.description %>
 </p>
+<p><%= current_id(@picture,@gallery) %> / <%= @gallery_size %></p>
+<%= image_tag @picture.data.url(:large) %>
 <p>
-  <b>Pictures in the Gallery:</b>
-  <% @gallery.pictures.each do |p| %>
-  <%= image_tag p.data.url(:thumb) %>
+  <% @gallery.pictures.each_index do |i| %>
+  <div style="border:1px solid black;float:left;margin:5px;">
+  <%= link_to i+1, gallery_content_url(@gallery,i+1), :style => 'padding:5px 8px;display:block;'  %>
+  </div>
   <% end%>
-  
 </p>
+
 <p>
   <b>Tags:</b>
   <% @gallery.tag_list.each do |t| %>

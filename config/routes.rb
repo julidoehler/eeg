@@ -18,6 +18,8 @@ ActionController::Routing::Routes.draw do |map|
   map.post_content 'news/:id/content/:element_id', :controller => 'posts', :action => 'content'
   map.project_content 'projects/:id/content/:element_id', :controller => 'projects', :action => 'content'
   map.member_content 'members/:id/content/:element_id', :controller => 'members', :action => 'content'
+  
+  map.gallery_content 'galleries/:id/picture/:picture_id', :controller => 'galleries', :action => 'show'
     
   map.schedule 'schedule', :controller => 'pages', :action => 'schedule'
   map.profile 'profile', :controller => 'pages', :action => 'profile'
