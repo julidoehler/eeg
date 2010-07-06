@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
   
   def sidebar
-    sidepics = Sidepic.find(:all, :limit => 25).shuffle
+    sidepics = Sidepic.find(:all).shuffle[0,25]
     render :partial => "layouts/sidebar", :locals => {:pics => sidepics}
   end
   
