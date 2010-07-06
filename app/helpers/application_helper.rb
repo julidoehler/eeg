@@ -145,4 +145,9 @@ width:100px; height:30px"></iframe></div>'
       end
     end
   end
+  
+  def render_sidebar
+    pics = Sidepic.find(:all, :limit => 25)
+    render :partial => "layouts/sidebar", :locals => {:pics => pics}
+  end
 end

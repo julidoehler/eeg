@@ -70,10 +70,15 @@
         <% end %>
       </div>
       <div id="content">
+        <div class="c">
           <% flash.each do |key, value| -%>
             <div id="flash_<%= key %>"><div id="flash"><p><%=h value %></p></div></div>
           <% end -%>   
-        <%= yield %>
+          <%= yield %>
+        </div>
+        <div id="sidebar" class="c">
+          <%= render_sidebar %>
+        </div>
       </div>
       <div id="foot">
         <div class="r">
