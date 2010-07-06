@@ -1,32 +1,40 @@
-<% if signed_in? %>
-  <div class="admin">
-    <%= link_to 'New post', new_post_path %>
-  </div>
-<% end %>
-<% @posts.each do |post| %>
- <div class="r">
-    <% if signed_in? %>
-      <div class="admin_panel">
-        <%= link_to 'Edit', edit_post_path(post), :class => 'admin_control' %>
-        <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
-      </div>
-    <% end %>
-      <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), post %>
-    <div class="c_element_index color2">
-      <div class="pad">
-    	  <p class="date">
-    		  <%=h post.date_from.strftime("%d.%m.%Y") unless post.date_from.nil? %>
-    		  <%=h post.time_from.strftime("%H.%M Uhr") unless post.time_from.nil? %>
-    		  <%= '-' unless post.date_to.nil? %> 
-    		  <%=h post.date_to.strftime("%d.%m.%Y") unless post.date_to.nil? %>
-    		  <%=h post.time_to.strftime("%H.%M Uhr") unless post.time_to.nil? %>
-    		</p>
-    		<h1><%= link_to post.title.upcase, post %></h1>
-    		<p><%=h post.short_text %> <%= link_to '&raquo;', post %></p>
+  <% if signed_in? %>
+    <div class="admin">
+      <%= link_to 'New post', new_post_path %>
+    </div>
+  <% end %>
+  <% @posts.each do |post| %>
+   <div class="r">
+      <% if signed_in? %>
+        <div class="admin_panel">
+          <%= link_to 'Edit', edit_post_path(post), :class => 'admin_control' %>
+          <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+        <%= link_to image_tag(Picture.find(post.picture_id).data.url(:thumb),:class => 'c'), post %>
+      <div class="c_element_index color2">
+        <div class="pad">
+      	  <p class="date">
+      		  <%=h post.date_from.strftime("%d.%m.%Y") unless post.date_from.nil? %>
+      		  <%=h post.time_from.strftime("%H.%M Uhr") unless post.time_from.nil? %>
+      		  <%= '-' unless post.date_to.nil? %> 
+      		  <%=h post.date_to.strftime("%d.%m.%Y") unless post.date_to.nil? %>
+      		  <%=h post.time_to.strftime("%H.%M Uhr") unless post.time_to.nil? %>
+      		</p>
+      		<h1><%= link_to post.title.upcase, post %></h1>
+      		<p><%=h post.short_text %> <%= link_to '&raquo;', post %></p>
+    		</div>
   		</div>
-		</div>
+    </div>
+  <% end %>
+  <div class="r">
+    <div class="color2" style="float:left;width:602px;">
+      <%= will_paginate @posts, :page_links => false, :next_label => '', :style => 'float:left;margin:5px;' %>
+      <%= will_paginate @posts, :page_links => false, :previous_label => '', :style => 'float:right;margin:5px;' %>
+    </div>
   </div>
-<% end %>
-<div id="sidebar" style="width:2230px;">
-  <%= render :partial => "layouts/sidebar", :locals => {:pics => @sidepics} %>
 </div>
+<div class="c">
+  <div id="sidebar">
+    <%= render :partial => "layouts/sidebar", :locals => {:pics => @sidepics} %>
+  </div>

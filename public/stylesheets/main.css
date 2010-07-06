@@ -138,6 +138,10 @@ h1 a {
   text-decoration: underline;
 }
 
+.disabled {
+  visibility:hidden;
+}
+
 
 /* IDs */
 #sub_head {

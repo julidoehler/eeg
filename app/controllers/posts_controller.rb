@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    #@posts = Post.all
+    @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
     @sidepics = Sidepic.find(:all, :limit => 25)
     
     respond_to do |format|

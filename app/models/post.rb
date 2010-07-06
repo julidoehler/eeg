@@ -12,6 +12,10 @@ class Post < ActiveRecord::Base
   validates_associated :elements
   
   after_update :save_elements
+  
+  cattr_reader :per_page
+  @@per_page = 12
+
     
   def to_twitter
   end
