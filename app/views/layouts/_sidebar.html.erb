@@ -1,0 +1,5 @@
+<div class="c width_300">
+<% pics.each_index do |i| %>
+<%= image_tag Picture.find(pics[i].picture_id).data.url(:medium), :style => "display:block;" %><%= '</div><div class="c width_300">' if i % 4 == 0 and i != 0 %>
+<% end %>
+</div>
