@@ -1,0 +1,7 @@
+#page {
+  background-image: url(../images/gekritzel.png);
+  background-repeat:repeat-x;
+  position:absolute;
+  min-width:960px;
+  width:100%;
+}

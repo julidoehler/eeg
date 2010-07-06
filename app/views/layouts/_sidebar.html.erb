@@ -1,6 +1,6 @@
-<div class="c width_300">
+<div class="c width_300" style="margin-left:60px;">
   <div class="c_element_no_left color2">
-    <p><%= link_to_remote "SHUFFLE", {:update => 'sidebar', :url => {:controller => 'sidepics', :action => 'sidebar'}}, :class => 'back_button' %></p>
+    <p><%= link_to_remote "SHUFFLE", {:update => 'sidebar', :url => {:action => 'sidebar'}}, :class => 'back_button' %></p>
   </div>
 <% pics.each_index do |i| %>
 <%= link_to image_tag(Picture.find(pics[i].picture_id).data.url(:medium), :style => "display:block;"), pics[i].link %><%= '</div><div class="c width_300">' if (i+1) % 5 == 0 and i != 24 %>

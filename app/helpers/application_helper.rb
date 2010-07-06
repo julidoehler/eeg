@@ -13,6 +13,14 @@ module ApplicationHelper
     end
   end
   
+  def include_page_css
+    if controller_name == 'posts' and action_name == 'index'
+      stylesheet_link_tag('page_wide')
+    else
+      stylesheet_link_tag('page_default')
+    end 
+  end
+  
   def render_element_show(p,e)
     render :partial => "layouts/" + e.content_type + "_show", :locals => {:p => p, :e => e}
   end
@@ -144,10 +152,5 @@ width:100px; height:30px"></iframe></div>'
         link_to ">", make_url(args[0],args[1]) + "/" + (args[3]+2).to_s
       end
     end
-  end
-  
-  def render_sidebar
-    pics = Sidepic.find(:all, :limit => 25)
-    render :partial => "layouts/sidebar", :locals => {:pics => pics}
   end
 end

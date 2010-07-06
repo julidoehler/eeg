@@ -1,16 +1,22 @@
 class PostsController < ApplicationController
   
-  skip_before_filter :authenticate, :only => [:index, :show, :content]
+  skip_before_filter :authenticate, :only => [:index, :show, :content, :sidebar]
     
   # GET /posts
   # GET /posts.xml
   def index
     @posts = Post.all
-
+    @sidepics = Sidepic.find(:all, :limit => 25)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
     end
+  end
+  
+  def sidebar
+    sidepics = Sidepic.find(:all, :limit => 25).shuffle
+    render :partial => "layouts/sidebar", :locals => {:pics => sidepics}
   end
   
   def to_web
