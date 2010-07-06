@@ -1,1 +1,16 @@
-hier kommt das galerie template hin! :)
+<p>
+  <%=h @gallery.description %>
+</p>
+<div style="text-align:center;">
+  <p>
+    <%= link_to_prev(p,e,@gallery,current_id(@picture,@gallery)) %> 
+    <%= current_id(@picture,@gallery)+1 %> / <%= @gallery_size %>
+    <%= link_to_next(p,e,@gallery,current_id(@picture,@gallery)) %>
+  </p>
+</div>
+<%= image_tag @picture.data.url(:large) %>
+<p>
+  <% @gallery.pictures.each_index do |i| %> 
+  <%= i == current_id(@picture,@gallery) ? i+1 : link_to(i+1, post_content_gallery_url(p,e,i+1)) %>
+  <% end%>
+</p>

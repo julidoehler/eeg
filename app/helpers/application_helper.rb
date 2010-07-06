@@ -13,8 +13,8 @@ module ApplicationHelper
     end
   end
   
-  def render_element_show(e)
-    render :partial => "layouts/" + e.content_type + "_show", :locals => {:e => e}
+  def render_element_show(p,e)
+    render :partial => "layouts/" + e.content_type + "_show", :locals => {:p => p, :e => e}
   end
   
   def render_video_show(e)
@@ -110,19 +110,39 @@ width:100px; height:30px"></iframe></div>'
     end
   end
   
-  def link_to_prev(g,c)
-    if c == 0
-      link_to "<", gallery_content_url(g,g.pictures.size)
+  #p and e only set when called from a element show view
+  #def link_to_prev(p,e,g,c)
+  def link_to_prev(*args)
+    if args[2].nil? and args[3].nil?
+      if args[1] == 0
+        link_to "<", gallery_content_url(args[0],args[0].pictures.size)
+      else
+        link_to "<", gallery_content_url(args[0],args[1])
+      end
     else
-      link_to "<", gallery_content_url(g,c)
+      if args[3] == 0
+        link_to "<", make_url(args[0],args[1]) + "/" + args[2].pictures.size.to_s
+      else
+        link_to "<", make_url(args[0],args[1]) + "/" + args[3].to_s
+      end
     end
   end
   
-  def link_to_next(g,c)
-    if c+1 == g.pictures.size
-      link_to ">", gallery_content_url(g,1)
+  #def link_to_next(p,e,g,c) or
+  #def link_to_next(g,c)
+  def link_to_next(*args)
+    if args[2].nil? and args[3].nil?
+      if args[1]+1 == args[0].pictures.size
+        link_to ">", gallery_content_url(args[0],1)
+      else
+        link_to ">", gallery_content_url(args[0],args[1]+2)
+      end
     else
-      link_to ">", gallery_content_url(g,c+2)
+      if args[3]+1 == args[2].pictures.size
+        link_to ">", make_url(args[0],args[1]) + "/1"
+      else
+        link_to ">", make_url(args[0],args[1]) + "/" + (args[3]+2).to_s
+      end
     end
   end
 end

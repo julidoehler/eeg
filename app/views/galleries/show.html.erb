@@ -3,16 +3,19 @@
 <p>
   <%=h @gallery.description %>
 </p>
-<p><%= link_to_prev(@gallery,current_id(@picture,@gallery)) %> <%= current_id(@picture,@gallery)+1 %> / <%= @gallery_size %> <%= link_to_next(@gallery,current_id(@picture,@gallery)) %></p>
+<div style="text-align:center;">
+  <p>
+    <%= link_to_prev(@gallery,current_id(@picture,@gallery)) %> 
+    <%= current_id(@picture,@gallery)+1 %> / <%= @gallery_size %>
+    <%= link_to_next(@gallery,current_id(@picture,@gallery)) %>
+  </p>
+</div>
 <%= image_tag @picture.data.url(:large) %>
 <p>
-  <% @gallery.pictures.each_index do |i| %>
-  <div style="border:1px solid black;float:left;margin:5px;">
-  <%= link_to i+1, gallery_content_url(@gallery,i+1), :style => 'padding:5px 8px;display:block;'  %>
-  </div>
+  <% @gallery.pictures.each_index do |i| %> 
+  <%= i == current_id(@picture,@gallery) ? i+1 : link_to(i+1, gallery_content_url(@gallery,i+1)) %>
   <% end%>
 </p>
-
 <p>
   <b>Tags:</b>
   <% @gallery.tag_list.each do |t| %>
