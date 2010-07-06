@@ -1,4 +1,7 @@
 class SidepicsController < ApplicationController
+  
+  skip_before_filter :authenticate, :only => [:sidebar]
+  
   # GET /sidepics
   # GET /sidepics.xml
   def index
@@ -9,7 +12,12 @@ class SidepicsController < ApplicationController
       format.xml  { render :xml => @sidepics }
     end
   end
-
+  
+  def sidebar
+    pics = Sidepic.find(:all, :limit => 25).shuffle
+    render :partial => "layouts/sidebar", :locals => {:pics => pics}, :layout => false
+  end
+  
   # GET /sidepics/1
   # GET /sidepics/1.xml
   def show
