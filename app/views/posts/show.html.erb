@@ -66,7 +66,6 @@
 </p>
 <p>
   <div id="blubb"></div>
-  <%= link_to link_to_remote "Retweet this post", :update => "blubb", :url => { :action => 'to_web', :id => @post.id, :service => 'twitter' } %><br />
   <%= link_to 'Edit', edit_post_path(@post) %> |
   <%= link_to 'Back', posts_path %>
 </p>

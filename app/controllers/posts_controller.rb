@@ -9,13 +9,6 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @posts }
     end
   end
-  
-  def to_web
-    puts "service: " + params[:service]
-    @post = Post.find(params[:id])
-    @post.to_twitter="1"
-    render :text => "pushed to " + params[:service] +", yeah!"
-  end
     
   # GET /posts/1
   # GET /posts/1.xml

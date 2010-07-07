@@ -21,7 +21,6 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   gem "friendly_id"
   gem "RedCloth"
-  gem "twitter"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -44,5 +43,4 @@ Rails::Initializer.run do |config|
 end
 
 require 'RedCloth'
-require 'twitter'
 require 'pp'
