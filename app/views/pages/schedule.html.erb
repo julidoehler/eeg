@@ -1,11 +1,11 @@
-<div class="schedule_box color2">
-	<h1>PROGRAMM</h1>
-</div>
+<h1 class="c_element_head color2">PROGRAMM</h1>
+<div class="r">
 <% @dates.each do |date| %>
-  <div class="schedule_box color2">
+  <div class="c_element_show color2">
   	<p>
   	  <span class="schedule_box_date"><%=h date.date_from.strftime("%d.%m.%Y") %></span>
   	  <span class="schedule_box_title"><%= link_to date.title.upcase, url_for(date) %></span>
   	</p>
   </div>
 <% end %>
+</div>
