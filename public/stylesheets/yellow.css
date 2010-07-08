@@ -14,3 +14,7 @@ body {
 a {
   color: #ffffff;
 }
+
+#page {
+  background-image: url(../images/gu_profile.png);
+}
