@@ -35,4 +35,7 @@ class PagesController < ApplicationController
   
   def archive
   end
+  
+  def donation
+  end
 end
