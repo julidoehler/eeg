@@ -54,7 +54,7 @@
         <% if controller_name == 'projects' %>
            <div class="subnav">
             <ul>
-              <% Project.find(:all).each do |p| %>
+              <% Project.find(:all,:order => "date_from DESC",:limit => 5).each do |p| %>
                 <li class="color2"><%= link_to p.title.upcase, project_path(p) %></li>
               <% end %>
             </ul>

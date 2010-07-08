@@ -5,7 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
+    @projects = Project.all(:order => "date_from DESC")
+    @years = Project.all(:select => "date_from", :order => "date_from DESC").map! {|m| m.date_from.year}.uniq
 
     respond_to do |format|
       format.html # index.html.erb
