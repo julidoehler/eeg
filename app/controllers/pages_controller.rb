@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def contact_send_mail
     @mail ||= params[:mail]
     flash[:notice] = "Please fill in everything!"
-    unless @mail['name'].empty? and @mail['email'].empty? and @mail['message'].empty?
+    unless @mail['name'].empty? or @mail['email'].empty? or @mail['message'].empty?
       Mailer.deliver_contact_mail(@mail)
       flash[:notice] = "Your mail has been sent!"
     end

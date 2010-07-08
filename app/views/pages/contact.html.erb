@@ -1,9 +1,9 @@
 <h1 class="c_element_head color2">Kontakt</h1>
 <div class="r">
-<div class="c_element_show color2">
+<div class="c_element_show color2" style="min-height:425px;">
 <% unless flash[:notice] == "Your mail has been sent!" %>
 <% form_for :mail, @mail, :url => {:action => "contact_send_mail" } do |f| %>
-  <table>
+  <table style="margin-top:20px;margin-left:20px;">
     <tr>
       <td>Name: </td>
       <td><%= f.text_field :name, :size => 35, :maxlength => 255, :style => 'background-color:black;border:1px solid grey;color:white;' %></td>
@@ -20,8 +20,10 @@
       <td></td>
       <td><%= f.submit "Send Message" %></td>
     </tr>
-  </table>  
-<% end %>
+  </table>
 <%end%>
+<% else %>
+  <p>Danke für deine Mail! Wir werden uns bei dir melden.</p>
+<% end %>
 </div>
 </div>
