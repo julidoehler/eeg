@@ -7,4 +7,7 @@ class Background < ActiveRecord::Base
   has_attached_file :data,
                     :url  => "/system/backgrounds/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/system/backgrounds/:id/:style/:basename.:extension"
+  
+  def delete
+  end
 end

@@ -1,3 +1,5 @@
+<% content_for :background, @bg.data.url if @bg = Background.find(:first, :conditions => "parent_id = '0' AND parent_type = 'projects'") %>
+
 <% if signed_in? %>
   <div class="admin">
     <%= link_to 'New project', new_project_path %>

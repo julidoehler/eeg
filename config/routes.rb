@@ -31,6 +31,7 @@ ActionController::Routing::Routes.draw do |map|
   map.directions 'directions', :controller => 'pages', :action => 'directions'
   map.archive 'archive', :controller => 'pages', :action => 'archive'
   map.donation 'donation', :controller => 'pages', :action => 'donation'
+  map.background_edit 'background_edit', :controller => 'pages', :action => 'background_edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
