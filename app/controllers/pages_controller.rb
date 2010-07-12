@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   skip_before_filter :authenticate, :except => [:background_edit, :background_update, :update_background_for]
   
   def background_edit
+    @default = Background.new
     @members = Background.new
     @projects = Background.new
     @profile = Background.new
@@ -10,6 +11,7 @@ class PagesController < ApplicationController
   end
     
   def background_update
+    update_background_for(params[:default])
     update_background_for(params[:members])
     update_background_for(params[:projects])
     update_background_for(params[:profile])

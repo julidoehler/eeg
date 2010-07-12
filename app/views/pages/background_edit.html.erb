@@ -1,6 +1,15 @@
 <div class="admin">
   <h1>Edit backgrounds<h1>
   <% form_tag('pages/background_update', :multipart => true ) do %>
+  <h2>Standard Hintergrund</h2>
+  <p>
+    <% fields_for :default do |default_form| %>
+        <%= default_form.check_box 'delete' %>Delete Background
+        <br /><%= default_form.file_field :data %>
+        <%= default_form.hidden_field 'parent_id', :value => "0" %>
+        <%= default_form.hidden_field 'parent_type', :value => "default" %>
+    <% end %>
+  </p>
   <h2>Netzwerk Hintergrund</h2>
   <p>
     <% fields_for :members do |members_form| %>
