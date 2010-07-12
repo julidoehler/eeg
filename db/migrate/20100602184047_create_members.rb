@@ -1,9 +1,8 @@
 class CreateMembers < ActiveRecord::Migration
   def self.up
     create_table :members do |t|
-      t.string :lastname
-      t.string :firstname
-      t.text :information
+      t.string :name
+      t.text :info
       t.integer :position
       t.references :picture
 

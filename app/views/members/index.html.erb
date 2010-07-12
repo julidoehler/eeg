@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th class="tablehead">Lastname</th>
-    <th class="tablehead">Firstname</th>
+    <th class="tablehead">Name</th>
 	<th class="tablehead">Position</th>
     <th class="tablehead">Information</th>
 	<th class="tablehead">Picture</th>
@@ -11,12 +10,11 @@
 
 <% @members.each do |member| %>
   <tr>
-    <td><%=h member.lastname %></td>
-    <td><%=h member.firstname %></td>
+    <td><%=h member.name %></td>
 	<td><%=h member.position %></td>
 
 
-    <td><%=h member.information %></td>
+    <td><%=h member.info %></td>
 	<td><%= image_tag Picture.find(member.picture_id).data.url(:thumb) %></td>
     <td><%= link_to 'Show', member %></td>
     <td><%= link_to 'Edit', edit_member_path(member) %></td>

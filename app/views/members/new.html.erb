@@ -4,12 +4,8 @@
   <%= error_messages_for :member, :picture %>
 
   <p>
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </p>
-  <p>
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label :position %><br />
@@ -17,8 +13,8 @@
     <%= f.select :position, { "Künstler" => 1, "Mitarbeiter" => 2, "Freier Mitarbeiter" => 3} , :prompt => 'Select Position'%>
   </p>
   <p>
-    <%= f.label :information %><br />
-    <%= f.text_area :information %>
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
   </p>
 
   <p>

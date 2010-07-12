@@ -33,9 +33,8 @@ ActiveRecord::Schema.define(:version => 20100602184047) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "lastname"
-    t.string   "firstname"
-    t.text     "information"
+    t.string   "name"
+    t.text     "info"
     t.integer  "position"
     t.integer  "picture_id"
     t.datetime "created_at"
