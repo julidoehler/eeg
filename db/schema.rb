@@ -44,9 +44,8 @@ ActiveRecord::Schema.define(:version => 20100712074015) do
   end
 
   create_table "members", :force => true do |t|
-    t.string   "lastname"
-    t.string   "firstname"
-    t.text     "information"
+    t.string   "name"
+    t.text     "info"
     t.integer  "position"
     t.integer  "picture_id"
     t.datetime "created_at"
@@ -54,7 +53,9 @@ ActiveRecord::Schema.define(:version => 20100712074015) do
   end
 
   create_table "pictures", :force => true do |t|
-    t.text     "description"
+    t.string   "caption"
+    t.string   "author"
+    t.string   "licence"
     t.integer  "gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"

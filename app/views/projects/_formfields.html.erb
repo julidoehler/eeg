@@ -17,7 +17,8 @@
   </p>
   <p>
     <% fields_for :picture do |picture_form| %>
-        Picture:<br /><%= picture_form.file_field :data %>
+        Picture: <%= picture_form.file_field :data %><br />
+        Author: <%= picture_form.text_field :author %>
         <%= picture_form.hidden_field :gallery_id, :value => "3" %>
     <% end %>
   </p>

@@ -46,7 +46,6 @@ Rails::Initializer.run do |config|
 end
 
 require 'RedCloth'
-require 'twitter'
 require 'pp'
 #for vimeo thumbnail
 require 'hpricot'

@@ -8,6 +8,7 @@ class Picture < ActiveRecord::Base
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ['image/jpeg', 'image/pjpeg', 'image/jpg', 'image/png', 'image/gif']
   validates_attachment_size :data, :less_than => 5.megabytes
+  validates_format_of :author, :with => /^[A-Za-z0-9 üäöß\-]+$/i, :message => "only uppercase + lowercase letters and numbers"
 
   has_attached_file :data, :styles => {:large => "592", :medium => "300", :thumb => "150x100#" },
                     :url  => "/system/pictures/:id/:style/:basename.:extension",
