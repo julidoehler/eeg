@@ -11,7 +11,7 @@
       <link rel="alternate" type="application/rss+xml" title="Essential Existence Gallery RSS Feed" href="<%= url_for(:controller => 'feed', :action => 'rss') %>" />
       <link rel="alternate" type="application/atom+xml" title="Essential Existence Gallery Atom Feed" href="<%= url_for(:controller => 'feed', :action => 'atom') %>" />
   </head>
-  <body>
+  <body style="background-image: url(<%= (background = yield :background) ? background : '../images/bg.jpg' %>);">
     <% if signed_in? %>
       <div id="user_panel">
         <p>You are logged in! <%= link_to "Logout", sign_out_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reset Password", new_password_path %></p>

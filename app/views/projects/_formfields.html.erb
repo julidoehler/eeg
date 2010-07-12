@@ -17,8 +17,14 @@
   </p>
   <p>
     <% fields_for :picture do |picture_form| %>
-        Picture: <%= picture_form.file_field :data %>
+        Picture:<br /><%= picture_form.file_field :data %>
         <%= picture_form.hidden_field :gallery_id, :value => "3" %>
+    <% end %>
+  </p>
+  <p>
+    <% fields_for :background do |background_form| %>
+        Background:<br /><%= background_form.check_box :delete %>Delete Background
+        <br /><%= background_form.file_field :data %>      
     <% end %>
   </p>
   <p>
