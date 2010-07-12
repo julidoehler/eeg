@@ -1,3 +1,5 @@
+<% content_for :background, @member.background.data.url if @member.background %>
+
 <div class="admin">
 <h1>Editing member</h1>
 
@@ -18,11 +20,16 @@
   </p>
   <p>
     <% fields_for :picture do |picture_form| %>
-        Picture: <%= picture_form.file_field :data %>
+        Picture:<br /><%= picture_form.file_field :data %>
         <%= picture_form.hidden_field :gallery_id, :value => "4" %>
     <% end %>
   </p>
-  
+  <p>
+    <% fields_for :background do |background_form| %>
+        Background:<br /><%= background_form.check_box :delete %>Delete Background
+        <br /><%= background_form.file_field :data %>      
+    <% end %>
+  </p>  
   <h2>Content of this post</h2>
   <div id="elements">
     <%= render :partial => 'layouts/element', :collection => @member.elements, :locals => {:content_type => ''} %>

@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  skip_before_filter :authenticate, :only => [:index, :show]
+  skip_before_filter :authenticate, :only => [:index, :show, :content]
   
   # GET /projects
   # GET /projects.xml
@@ -85,7 +85,7 @@ class ProjectsController < ApplicationController
     end
     
     #only update the background if there is new data for it
-    @background = Background.find(:first, :conditions => [ "parent_id = ?", @project.id ])
+    @background = Background.find(:first, :conditions => "parent_id = '#{@project.id}' AND parent_type = 'project'")
     @background.destroy if params[:background]['delete'] == '1' unless @background.nil?
     
     if params[:background].has_key?("data") and params[:background]['delete'] == '0'

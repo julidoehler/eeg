@@ -5,6 +5,7 @@ class Member < ActiveRecord::Base
   belongs_to :picture, :dependent => :destroy
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy, :conditions => {:parent_type => 'member'}
   has_friendly_id :lastname, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
+  has_one :background, :foreign_key => 'parent_id', :dependent => :destroy, :conditions => {:parent_type => 'member'}
    
   validates_presence_of :lastname, :firstname, :information, :position
   validates_format_of :lastname, :firstname, :with => /^[A-Za-z]+$/i, :message => "only uppercase and lowercase letters"
