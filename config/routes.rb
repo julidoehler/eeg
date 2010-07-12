@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
 
+  map.resources :backgrounds
+  
   map.resources :members
   
   map.resources :elements
