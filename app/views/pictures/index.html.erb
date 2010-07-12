@@ -4,7 +4,9 @@
   <tr>
     <th>Id</th>
     <th>Data</th>
-    <th>Description</th>
+    <th>Caption</th>
+	<th>Author</th>
+	<th>Licence</th>
     <th>Tags</th>
   </tr>
 
@@ -12,7 +14,9 @@
   <tr>
     <td><%=h picture.id %></td>
     <td><%= image_tag picture.data.url(:thumb) %></td>
-    <td><%=h picture.description %></td>
+    <td><%=h picture.caption %></td>
+	<td><%=h picture.author %></td>
+	<td><%=h picture.licence %></td>
     <td>
       <% picture.tag_list.each do |t| %>
         <%=h t + " "%>

@@ -1,10 +1,19 @@
-<p>
-  <b>Description:</b>
+
+
   <%= image_tag @picture.data.url %>
   <%= image_tag @picture.data.url(:medium) %>
   <%= image_tag @picture.data.url(:thumb) %>
-  
-  <%=h @picture.description %>
+<p>
+  <b>Caption:</b>
+  <%=h @picture.caption %>
+</p>
+<p>
+  <b>Author:</b>
+  <%=h @picture.author %>
+</p>
+<p>
+  <b>Licence:</b>
+  <%=h @picture.licence %>
 </p>
 <p>
   <b>Tags:</b>

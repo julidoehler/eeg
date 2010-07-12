@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
    
   validates_presence_of :name, :info, :position
-  validates_format_of :name, :with => /^[A-Za-z0-9 üäöß\-]+$/i, :message => "only uppercase and lowercase letters"
+  validates_format_of :name, :with => /^[A-Za-z0-9 üäöß\-]+$/i, :message => "only uppercase + lowercase letters and numbers"
   validates_associated :picture, :on => :create
   validates_associated :elements
   
