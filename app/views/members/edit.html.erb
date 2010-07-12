@@ -1,38 +1,7 @@
 <h1>Editing member</h1>
 
 <% form_for @member, :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :postion %><br />
-    <%= f.select :position, { "Künstler" => 1, "Mitarbeiter" => 2, "Freier Mitarbeiter" => 3} ,{ :prompt => 'Select Position'}%>
-  </p>
-  <p>
-    <%= f.label :info %><br />
-    <%= f.text_area :info %>
-  </p>
-  <p>
-    <% fields_for :picture do |picture_form| %>
-        Picture: <%= picture_form.file_field :data %>
-        <%= picture_form.hidden_field :gallery_id, :value => "4" %>
-    <% end %>
-  </p>
-  
-  <h2>Content of this post</h2>
-  <div id="elements">
-    <%= render :partial => 'layouts/element', :collection => @member.elements, :locals => {:content_type => ''} %>
-  </div>
-  <p>
-    <%= add_element_link "Add text", "text" %> |
-    <%= add_element_link "Add a video", "video" %> |
-    <%= add_element_link "Add a file", "file" %> |
-    <%= add_element_link "Add a gallery", "gallery" %>
-  </p>
-  
+  <%= render :partial => 'formfields', :locals => { :f => f } %>
   <p>
     <%= f.submit 'Update' %>
   </p>
