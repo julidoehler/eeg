@@ -65,9 +65,9 @@
         <% if controller_name == 'members' %>
            <div class="subnav">
             <ul>
-              <li class="color2"><a href="#artists">KÜNSTLER</a></li>
-              <li class="color2"><a href="#members">MITARBEITER</a></li>
-              <li class="color2"><a href="#associates">FREIE MITARBEITER</a></li>
+              <li class="color2"><a href="<%= members_path %>#artists">KÜNSTLER</a></li>
+              <li class="color2"><a href="<%= members_path %>#members">MITARBEITER</a></li>
+              <li class="color2"><a href="<%= members_path %>#associates">FREIE MITARBEITER</a></li>
             </ul>
           </div>
         <% end %>
