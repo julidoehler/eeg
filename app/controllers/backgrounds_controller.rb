@@ -1,4 +1,7 @@
 class BackgroundsController < ApplicationController
+  
+  skip_before_filter :authenticate, :only => [:show]
+  
   # GET /backgrounds
   # GET /backgrounds.xml
   def index

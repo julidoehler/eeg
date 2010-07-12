@@ -9,7 +9,7 @@
 <% @backgrounds.each do |background| %>
   <tr>
     <td><%=h background.parent_id %></td>
-    <td><%=h background.picture_id %></td>
+    <td><%=h background.parent_type %></td>
     <td><%= link_to 'Show', background %></td>
     <td><%= link_to 'Edit', edit_background_path(background) %></td>
     <td><%= link_to 'Destroy', background, :confirm => 'Are you sure?', :method => :delete %></td>

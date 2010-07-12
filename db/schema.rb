@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100614120639) do
+ActiveRecord::Schema.define(:version => 20100712074015) do
+
+  create_table "backgrounds", :force => true do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "elements", :force => true do |t|
     t.string   "title"

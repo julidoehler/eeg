@@ -1,6 +1,6 @@
 <h1>Editing background</h1>
 
-<% form_for(@background) do |f| %>
+<% form_for @background, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -8,8 +8,12 @@
     <%= f.text_field :parent_id %>
   </p>
   <p>
-    <%= f.label :picture_id %><br />
-    <%= f.text_field :picture_id %>
+    <%= f.label :parent_type %><br />
+    <%= f.text_field :parent_type %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.file_field :data %>
   </p>
   <p>
     <%= f.submit 'Update' %>

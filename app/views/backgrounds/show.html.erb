@@ -5,9 +5,12 @@
 
 <p>
   <b>Picture:</b>
-  <%=h @background.picture_id %>
+  <%=h @background.parent_type %>
 </p>
-
 
 <%= link_to 'Edit', edit_background_path(@background) %> |
 <%= link_to 'Back', backgrounds_path %>
+
+<p>
+  <%= image_tag @background.data.url %>
+</p>
