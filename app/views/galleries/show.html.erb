@@ -3,6 +3,7 @@
 <p>
   <%=h @gallery.description %>
 </p>
+<% unless @gallery.pictures.empty? %>
 <div style="text-align:center;">
   <p>
     <%= link_to_prev(@gallery,current_id(@picture,@gallery)) %> 
@@ -16,6 +17,9 @@
   <%= i == current_id(@picture,@gallery) ? i+1 : link_to(i+1, gallery_content_url(@gallery,i+1)) %>
   <% end%>
 </p>
+<% else %>
+<p><%= 'In dieser Galerie sind keine Bilder vorhanden!' %></p>
+<% end %>
 <p>
   <b>Tags:</b>
   <% @gallery.tag_list.each do |t| %>
