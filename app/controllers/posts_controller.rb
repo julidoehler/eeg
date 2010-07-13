@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def content
     @post = Post.find(params[:id])
     @element = Element.find(params[:element_id])
-    if @element.content_type = "gallery"
+    if @element.content_type == "gallery"
       @gallery = Gallery.find(@element.content)
       @gallery_size = @gallery.pictures.size
       unless params[:picture_id].nil? 
