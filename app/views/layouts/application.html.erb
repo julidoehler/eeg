@@ -11,7 +11,7 @@
       <link rel="alternate" type="application/rss+xml" title="Essential Existence Gallery RSS Feed" href="<%= url_for(:controller => 'feed', :action => 'rss') %>" />
       <link rel="alternate" type="application/atom+xml" title="Essential Existence Gallery Atom Feed" href="<%= url_for(:controller => 'feed', :action => 'atom') %>" />
   </head>
-  <body>
+  <body style="background-image: url(<%= bg(yield :background) %>);">
     <% if signed_in? %>
       <div id="user_panel">
         <p>You are logged in! <%= link_to "Logout", sign_out_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to "Reset Password", new_password_path %></p>
@@ -30,6 +30,7 @@
           <li><%= link_to "MySpace", "http://www.myspace.com/2egallery" %></li>
           <li><%= link_to "Twitter", "http://twitter.com/2egallery" %></li>
           <li><%= link_to "Vimeo", "http://vimeo.com/eexistence" %></li>
+          <li style="background-color:black;margin-left:20px;padding:0px 3px;"><%= link_to "&hearts; Spenden", donation_path, :style => 'color:white;' %></li>
         </ul>
       </div>
       <div id="head" class="color1">
@@ -44,6 +45,7 @@
           <li class="color1"><%= link_to "NETZWERK", members_path %></li>
           <li class="color1"><%= link_to "PROFIL", profile_path %></li>
           <% if signed_in? %>
+            <li class="admin_control"><%= link_to "Backgrounds", background_edit_path %></li>
             <li class="admin_control"><%= link_to "Pictures", pictures_path %></li>
             <li class="admin_control"><%= link_to "Galleries", galleries_path %></li>
             <li class="admin_control"><%= link_to "Sidebar", sidepics_path %></li>
@@ -54,7 +56,7 @@
         <% if controller_name == 'projects' %>
            <div class="subnav">
             <ul>
-              <% Project.find(:all).each do |p| %>
+              <% Project.find(:all,:order => "date_from DESC",:limit => 5).each do |p| %>
                 <li class="color2"><%= link_to p.title.upcase, project_path(p) %></li>
               <% end %>
             </ul>
@@ -63,9 +65,9 @@
         <% if controller_name == 'members' %>
            <div class="subnav">
             <ul>
-              <li class="color2"><a href="#artists">KÜNSTLER</a></li>
-              <li class="color2"><a href="#members">MITARBEITER</a></li>
-              <li class="color2"><a href="#associates">FREIE MITARBEITER</a></li>
+              <li class="color2"><a href="<%= members_path %>#artists">KÜNSTLER</a></li>
+              <li class="color2"><a href="<%= members_path %>#members">MITARBEITER</a></li>
+              <li class="color2"><a href="<%= members_path %>#associates">FREIE MITARBEITER</a></li>
             </ul>
           </div>
         <% end %>
@@ -95,7 +97,7 @@
         <div class="c sitemap">
           <h3>ÜBER UNS</h3>
           <p><%= link_to "Profil", profile_path %></p>
-          <p>Spenden</p>
+          <p><%= link_to "Spenden", donation_path %></p>
           <!-- <p><%= link_to "Archiv", archive_path %></p>-->
         </div>
         <div class="c sitemap">

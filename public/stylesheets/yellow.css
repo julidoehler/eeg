@@ -8,11 +8,13 @@
 }
 
 body {
-  background-color: #000;
-  background-image: url(../images/bg.jpg);
   color: #ffffff;
 }
 
 a {
   color: #ffffff;
+}
+
+#page {
+  background-image: url(../images/gu_profile.png);
 }

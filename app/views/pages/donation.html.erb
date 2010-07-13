@@ -1,0 +1,8 @@
+<% content_for :background, @bg.data.url if @bg = Background.find(:first, :conditions => "parent_id = '0' AND parent_type = 'donation'") %>
+
+<h1 class="c_element_head color2">Spenden</h1>
+<div class="r">
+	<div class="c_element_show color2">
+	  <p>Hier kommt die Spende!</p>
+	</div>
+</div>

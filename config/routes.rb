@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   Clearance::Routes.draw(map)
 
+  map.resources :backgrounds
+  
   map.resources :members
   
   map.resources :elements
@@ -18,7 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   map.post_content 'news/:id/content/:element_id', :controller => 'posts', :action => 'content'
   map.post_content_gallery 'news/:id/content/:element_id/:picture_id', :controller => 'posts', :action => 'content'
   map.project_content 'projects/:id/content/:element_id', :controller => 'projects', :action => 'content'
+  map.project_content_gallery 'projects/:id/content/:element_id/:picture_id', :controller => 'projects', :action => 'content'
   map.member_content 'members/:id/content/:element_id', :controller => 'members', :action => 'content'
+  map.member_content_gallery 'members/:id/content/:element_id/:picture_id', :controller => 'members', :action => 'content'
   
   map.gallery_content 'galleries/:id/picture/:picture_id', :controller => 'galleries', :action => 'show'
     
@@ -28,6 +32,8 @@ ActionController::Routing::Routes.draw do |map|
   map.contact 'contact', :controller => 'pages', :action => 'contact'
   map.directions 'directions', :controller => 'pages', :action => 'directions'
   map.archive 'archive', :controller => 'pages', :action => 'archive'
+  map.donation 'donation', :controller => 'pages', :action => 'donation'
+  map.background_edit 'background_edit', :controller => 'pages', :action => 'background_edit'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

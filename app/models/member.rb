@@ -4,10 +4,11 @@ class Member < ActiveRecord::Base
   acts_as_taggable
   belongs_to :picture, :dependent => :destroy
   has_many :elements, :foreign_key => 'parent_id', :dependent => :destroy, :conditions => {:parent_type => 'member'}
-  has_friendly_id :lastname, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
+  has_friendly_id :name, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
+  has_one :background, :foreign_key => 'parent_id', :dependent => :destroy, :conditions => {:parent_type => 'member'}
    
-  validates_presence_of :lastname, :firstname, :information, :position
-  validates_format_of :lastname, :firstname, :with => /^[A-Za-z]+$/i, :message => "only uppercase and lowercase letters"
+  validates_presence_of :name, :info, :position
+  validates_format_of :name, :with => /^[A-Za-z0-9 üäöß\-]+$/i, :message => "only uppercase + lowercase letters and numbers"
   validates_associated :picture, :on => :create
   validates_associated :elements
   

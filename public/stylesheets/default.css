@@ -7,12 +7,10 @@
 	background-image: url(../images/bg_yellow.png);
 }
 
-body {
-  background-color: #fff;
-  background-image: url(../images/bg.jpg);
+a {
   color: #000000;
 }
 
-a {
-  color: #000000;
+#page {
+  background-image: url(../images/gu_start.png);
 }

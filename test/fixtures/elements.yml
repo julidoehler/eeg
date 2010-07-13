@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  type: 1
+  content_type: MyContent
   content: MyText
 
 two:
-  type: 1
+  content_type: MyContent
   content: MyText

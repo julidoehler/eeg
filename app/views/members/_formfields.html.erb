@@ -1,15 +1,11 @@
-<%= error_messages_for :project, :picture %>
+<%= error_messages_for :post, :picture %>
   <p>
-    <%= f.label :date_from %><br />
-    <%= f.date_select :date_from %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :date_to %><br />
-    <%= f.date_select :date_to %>
-  </p>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :postion %><br />
+    <%= f.select :position, { "Künstler" => 1, "Mitarbeiter" => 2, "Freier Mitarbeiter" => 3} ,{ :prompt => 'Select Position'}%>
   </p>
   <p>
     <%= f.label :info %><br />
@@ -19,7 +15,7 @@
     <% fields_for :picture do |picture_form| %>
         Picture: <%= picture_form.file_field :data %><br />
         Author: <%= picture_form.text_field :author %>
-        <%= picture_form.hidden_field :gallery_id, :value => "3" %>
+        <%= picture_form.hidden_field :gallery_id, :value => "4" %>
     <% end %>
   </p>
   <p>
@@ -28,13 +24,9 @@
         <br /><%= background_form.file_field :data %>      
     <% end %>
   </p>
-  <p>
-    <%= f.label :tag_list %>
-    <%= f.text_field :tag_list, :size => 80 %>
-  </p>
-  <h2>Content of this project</h2>
+  <h2>Content of this post</h2>
   <div id="elements">
-    <%= render :partial => 'layouts/element', :collection => @project.elements, :locals => {:content_type => ''} %>
+    <%= render :partial => 'layouts/element', :collection => @member.elements, :locals => {:content_type => ''} %>
   </div>
   <p>
     <%= add_element_link "Add text", "text" %> |

@@ -1,3 +1,4 @@
-<%= link_to image_tag(thumb1.data.url(:medium), :style => "width:290px;"), make_url(p,e) if thumb2.nil? %>
+<%= 'In dieser Galerie sind keine Bilder vorhanden!' if thumb1.nil? %>
+<%= link_to image_tag(thumb1.data.url(:medium), :style => "width:290px;"), make_url(p,e) if thumb2.nil? unless thumb1.nil? %>
 <%= link_to image_tag(thumb1.data.url(:thumb), :style => "float:left;width:145px;"), make_url(p,e) unless thumb2.nil? %>
 <%= link_to image_tag(thumb2.data.url(:thumb), :style => "width:145px;"), make_url(p,e) unless thumb2.nil? %>

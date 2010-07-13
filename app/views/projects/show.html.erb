@@ -1,4 +1,5 @@
 <% content_for :html_title, @project.title.upcase %>
+<% content_for :background, @project.background.data.url if @project.background %>
 
 <% if signed_in? %>
   <div class="admin_panel">

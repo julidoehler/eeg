@@ -1,7 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  description: MyText
+  caption: MyCaption
+  author: MyAuthor
+  licence: MyLicence
 
 two:
-  description: MyText
+  caption: MyCaption
+  author: MyAuthor
+  licence: MyLicence

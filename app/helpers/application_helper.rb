@@ -21,6 +21,16 @@ module ApplicationHelper
     end 
   end
   
+  def bg(bg)
+    if bg
+      bg
+    elsif bg = Background.find(:first, :conditions => "parent_id = '0' AND parent_type = 'default'")
+      bg.data.url
+    else
+      '/images/bg.jpg'
+    end
+  end
+  
   def render_element_show(p,e)
     render :partial => "layouts/" + e.content_type + "_show", :locals => {:p => p, :e => e}
   end

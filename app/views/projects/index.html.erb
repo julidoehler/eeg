@@ -1,27 +1,34 @@
+<% content_for :background, @bg.data.url if @bg = Background.find(:first, :conditions => "parent_id = '0' AND parent_type = 'projects'") %>
+
 <% if signed_in? %>
   <div class="admin">
     <%= link_to 'New project', new_project_path %>
   </div>
 <% end %>
-<% @projects.each do |project| %>
- <div class="r">
-    <% if signed_in? %>
-      <div class="admin_panel">
-        <%= link_to 'Edit', edit_project_path(project), :class => 'admin_control' %>
-        <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
-      </div>
-    <% end %>
-      <%= link_to image_tag(Picture.find(project.picture_id).data.url(:thumb),:class => 'c'), project %>
-    <div class="c_element_index color2">
-      <div class="pad">
-        <p class="date">
-          <%=h project.date_from.strftime("%d.%m.%Y") unless project.date_from.nil? %>
-          <%= '-' unless project.date_to.nil? %> 
-          <%=h project.date_to.strftime("%d.%m.%Y") unless project.date_to.nil? %>
-        </p>
-        <h1><%= link_to project.title.upcase, project %></h1>
-        <p><%= _ truncate(project.info, :length => 200) %> <%= link_to '&raquo;', project %></p>
+<% @years.each do |year| %>
+  <div class="r">
+    <h1 class="c_element_head color2"><%= year %></h1>
+  </div>
+  <% @projects.map { |m| m if m.date_from.year == year}.compact.each do |project| %>
+    <div class="r">
+      <% if signed_in? %>
+        <div class="admin_panel">
+          <%= link_to 'Edit', edit_project_path(project), :class => 'admin_control' %>
+          <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
+        </div>
+      <% end %>
+        <%= link_to image_tag(Picture.find(project.picture_id).data.url(:thumb),:class => 'c'), project %>
+      <div class="c_element_index color2">
+        <div class="pad">
+          <p class="date">
+            <%=h project.date_from.strftime("%d.%m.%Y") unless project.date_from.nil? %>
+            <%= '-' unless project.date_to.nil? %> 
+            <%=h project.date_to.strftime("%d.%m.%Y") unless project.date_to.nil? %>
+          </p>
+          <h1><%= link_to project.title.upcase, project %></h1>
+          <p><%= _ truncate(project.info, :length => 200) %> <%= link_to '&raquo;', project %></p>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %> 
 <% end %>

@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
   
-  skip_before_filter :authenticate, :only => [:index, :show]
+  skip_before_filter :authenticate, :only => [:index, :show, :content]
   
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
+    @projects = Project.all(:order => "date_from DESC")
+    @years = Project.all(:select => "date_from", :order => "date_from DESC").map! {|m| m.date_from.year}.uniq
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,6 +28,14 @@ class ProjectsController < ApplicationController
   def content
     @project = Project.find(params[:id])
     @element = Element.find(params[:element_id])
+    if @element.content_type = "gallery"
+      @gallery = Gallery.find(@element.content)
+      @gallery_size = @gallery.pictures.size
+      unless params[:picture_id].nil? 
+        @picture = @gallery.pictures.find(:all)[params[:picture_id].to_i-1] 
+      end
+      @picture ||= @gallery.pictures.first
+    end
   end
 
   # GET /projects/new
@@ -56,6 +65,10 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        params[:background].delete("delete")
+        @background = @project.build_background(params[:background])
+        @background.parent_id = @project.id
+        @background.save
         flash[:notice] = 'Project was successfully created.'
         format.html { redirect_to(@project) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
@@ -77,6 +90,19 @@ class ProjectsController < ApplicationController
     if params[:picture].has_key?("data")
       @picture = Picture.find(@project.picture_id)
       @picture.update_attributes(params[:picture])
+    end
+    
+    #only update the background if there is new data for it
+    @background = Background.find(:first, :conditions => "parent_id = '#{@project.id}' AND parent_type = 'project'")
+    @background.destroy if params[:background]['delete'] == '1' unless @background.nil?
+    
+    if params[:background].has_key?("data") and params[:background]['delete'] == '0'
+      params[:background].delete("delete")
+      if @background
+        @background.update_attributes(params[:background])
+      else
+        @project.create_background(params[:background])
+      end
     end
 
     respond_to do |format|

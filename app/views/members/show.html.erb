@@ -1,4 +1,5 @@
-<% content_for :html_title, @member.lastname.upcase %>
+<% content_for :html_title, @member.name.upcase %>
+<% content_for :background, @member.background.data.url if @member.background %>
 
 <% if signed_in? %>
   <div class="admin_panel">
@@ -12,8 +13,8 @@
 </div>
 <div class="c">
   <div class="c_element fixed_height color2">
-    <h1><%=h @member.firstname.upcase %> <%=h @member.lastname.upcase %></h1>
-    <p><%= _ @member.information %></p>
+    <h1><%=h @member.name.upcase %></h1>
+    <p><%= _ @member.info %></p>
   </div>  
   <div class="c_element color2">
         <p><br/>

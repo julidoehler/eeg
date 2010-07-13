@@ -1,3 +1,5 @@
+<% content_for :background, @bg.data.url if @bg = Background.find(:first, :conditions => "parent_id = '0' AND parent_type = 'members'") %>
+
 <% if signed_in? %>
   <div class="admin">
     <%= link_to 'New member', new_member_path %>
@@ -18,8 +20,8 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
-          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+          <h1><%= link_to member.name, member %></h1>
+          <p><%= _ truncate(member.info, :length => 200) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
     </div>
@@ -40,8 +42,8 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
-          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+          <h1><%= link_to member.name, member %></h1>
+          <p><%= _ truncate(member.info, :length => 200) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
     </div>
@@ -62,8 +64,8 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.firstname + " " + member.lastname, member %></h1>
-          <p><%= _ truncate(member.information, :length => 200) %> <%= link_to '&raquo;', member %></p>
+          <h1><%= link_to member.name, member %></h1>
+          <p><%= _ truncate(member.info, :length => 200) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
     </div>

@@ -27,6 +27,14 @@ class MembersController < ApplicationController
   def content
     @member = Member.find(params[:id])
     @element = Element.find(params[:element_id])
+    if @element.content_type = "gallery"
+      @gallery = Gallery.find(@element.content)
+      @gallery_size = @gallery.pictures.size
+      unless params[:picture_id].nil? 
+        @picture = @gallery.pictures.find(:all)[params[:picture_id].to_i-1] 
+      end
+      @picture ||= @gallery.pictures.first
+    end    
   end
 
   # GET /members/new
@@ -57,6 +65,10 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        params[:background].delete("delete")
+        @background = @member.build_background(params[:background])
+        @background.parent_id = @member.id
+        @background.save
         format.html { redirect_to(@member, :notice => 'Member was successfully created.') }
         format.xml  { render :xml => @member, :status => :created, :location => @member }
       else
@@ -77,6 +89,19 @@ class MembersController < ApplicationController
     if params[:picture].has_key?("data")
       @picture = Picture.find(@member.picture_id)
       @picture.update_attributes(params[:picture])
+    end
+
+    #only update the background if there is new data for it
+    @background = Background.find(:first, :conditions => "parent_id = '#{@member.id}' AND parent_type = 'member'")
+    @background.destroy if params[:background]['delete'] == '1' unless @background.nil?
+    
+    if params[:background].has_key?("data") and params[:background]['delete'] == '0'
+      params[:background].delete("delete")
+      if @background
+        @background.update_attributes(params[:background])
+      else
+        @member.create_background(params[:background])
+      end
     end
 
     respond_to do |format|
