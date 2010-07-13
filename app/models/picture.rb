@@ -13,6 +13,9 @@ class Picture < ActiveRecord::Base
                     :url  => "/system/pictures/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/system/pictures/:id/:style/:basename.:extension"
   
+  cattr_reader :per_page
+  @@per_page = 20
+  
   #validates if there is a gallery with the given id
   def existence_of_gallery_id
     errors.add(:gallery_id, "doesn't exist! Please add one first!") unless Gallery.exists?(gallery_id)

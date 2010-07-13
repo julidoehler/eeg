@@ -1,4 +1,10 @@
 <div class="admin">
+	<%= link_to 'New picture', new_picture_path %>
+</div>
+<div class="admin">
+	<%= will_paginate @pictures %>
+</div>
+<div class="admin">
 <h1>Listing pictures</h1>
 
 <table>
@@ -25,8 +31,7 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New picture', new_picture_path %>
+</div>
+<div class="admin">
+	<%= will_paginate @pictures %>
 </div>
