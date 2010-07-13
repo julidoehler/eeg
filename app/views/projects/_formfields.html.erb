@@ -15,6 +15,7 @@
     <%= f.label :info %><br />
     <%= f.text_area :info %>
   </p>
+	<h2>Picture</h2>
   <p>
     <% fields_for :picture do |picture_form| %>
         Picture: <%= picture_form.file_field :data %><br />
@@ -22,12 +23,15 @@
         <%= picture_form.hidden_field :gallery_id, :value => "3" %>
     <% end %>
   </p>
+	<h2>Background</h2>
   <p>
     <% fields_for :background do |background_form| %>
         Background:<br /><%= background_form.check_box :delete %>Delete Background
         <br /><%= background_form.file_field :data %>      
     <% end %>
   </p>
+	<h2>Tags</h2>
+	<p>Comma seperated. example: tag1, toller tag, weiterer tag, tag5</p>
   <p>
     <%= f.label :tag_list %>
     <%= f.text_field :tag_list, :size => 80 %>
