@@ -40,6 +40,8 @@ module ApplicationHelper
       render :partial => "layouts/video_youtube_show", :locals => {:e => e}
     elsif e.content['vimeo.com'] 
       render :partial => "layouts/video_vimeo_show", :locals => {:e => e}
+    elsif e.content['myspace.com']
+      render :partial => "layouts/video_myspace_show", :locals => {:e => e}
     else
       render :partial => "layouts/video_link", :locals => {:video => e.content}
     end
@@ -54,6 +56,8 @@ module ApplicationHelper
       render :partial => "layouts/video_youtube", :locals => {:p => p, :e => e}
     elsif e.content['vimeo.com'] 
       render :partial => "layouts/video_vimeo", :locals => {:p => p, :e => e}
+    elsif e.content['myspace.com']
+      render :partial => "layouts/video_myspace", :locals => {:p => p, :e => e}
     else
       render :partial => "layouts/video_link", :locals => {:video => e.content}
     end
