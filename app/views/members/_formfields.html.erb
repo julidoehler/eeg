@@ -24,7 +24,11 @@
         <br /><%= background_form.file_field :data %>      
     <% end %>
   </p>
-  <h2>Content of this post</h2>
+  <h2>Tags</h2>
+  <p>
+    <%= f.text_field :tag_list, :size => 50 %>
+  </p>
+  <h2>Content of this member</h2>
   <div id="elements">
     <%= render :partial => 'layouts/element', :collection => @member.elements, :locals => {:content_type => ''} %>
   </div>
