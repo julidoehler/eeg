@@ -8,9 +8,6 @@ one:
   title: MyString
   short_text: MyText
   published: false
-  post_to_twitter: false
-  post_to_facebook: false
-  post_to_myspace: false
 
 two:
   date_from: 2010-05-20
@@ -20,6 +17,3 @@ two:
   title: MyString
   short_text: MyText
   published: false
-  post_to_twitter: false
-  post_to_facebook: false
-  post_to_myspace: false
