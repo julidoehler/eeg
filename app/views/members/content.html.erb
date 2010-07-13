@@ -1,4 +1,4 @@
-<% content_for :html_title, @member.lastname.upcase %>
+<% content_for :html_title, @member.name.upcase %>
 <% content_for :background, @member.background.data.url if @member.background %>
 
 <% if signed_in? %>
