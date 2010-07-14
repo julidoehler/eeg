@@ -39,7 +39,7 @@ class PagesController < ApplicationController
   
   def schedule
     @dates = Post.find(:all, :select => "id, date_from, title").map! {|m| m unless m.date_from.nil?}.compact + Project.find(:all, :select => "id, date_from, title")
-    @dates.sort! { |a,b| a.date_from <=> b.date_from }
+    @dates.sort! { |a,b| b.date_from <=> a.date_from }
   end
   
   def profile
