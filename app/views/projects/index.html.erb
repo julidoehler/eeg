@@ -7,7 +7,7 @@
 <% end %>
 <% @years.each do |year| %>
   <div class="r">
-    <h1 class="c_element_head color2"><%= year %></h1>
+    <a name="<%= year %>" href="#<%= year %>" class="headline"><h1 class="c_element_head color2"><%= year %></h1></a>
   </div>
   <% @projects.map { |m| m if m.date_from.year == year}.compact.each do |project| %>
     <div class="r">
