@@ -3,10 +3,25 @@
 
 <% form_for @picture, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :gallery_id %><br />
-    <%= f.select :gallery_id, Gallery.all.collect {|p| [ p.title, p.id ] }, :include_blank => true %>
-  </p>
+  <table>
+    <tr>
+      <td>
+        <p>
+          Choose a gallery<br />
+          <%= f.select :gallery_id, Gallery.all.collect {|p| [ p.title, p.id ] }, :include_blank => true %>
+        </p>
+      </td>
+      <td>
+        <strong>or</strong>
+      </td>
+      <td>
+        <p>
+          Create a new one<br />
+          <%= f.text_field :new_gallery %>
+        </p>
+      </td>
+    </tr>
+  </table>
   <p>
     <%= f.label :data %><br />
     <%= f.file_field :data %>
@@ -24,7 +39,7 @@
     <%= f.text_field :licence %>
   </p>
   <p>
-    <%= f.label :tag_list %>
+    <%= f.label :tag_list %><br />
     <%= f.text_field :tag_list, :size => 80 %>
   </p>
   <p>

@@ -42,7 +42,7 @@ class PicturesController < ApplicationController
 
   # POST /pictures
   # POST /pictures.xml
-  def create
+  def create    
     @picture = Picture.create(params[:picture])
 
     respond_to do |format|
