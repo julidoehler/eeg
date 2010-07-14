@@ -12,7 +12,7 @@
   <%= image_tag Picture.find(@project.picture_id).data.url(:medium) %>
 </div>
 <div class="c">
-  <div class="c_element fixed_height color2">
+  <div class="c_element color2">
     <p class="date">
         <%=h @project.date_from.strftime("%d.%m.%Y") unless @project.date_from.nil? %>
         <%= '-' unless @project.date_to.nil? %> 

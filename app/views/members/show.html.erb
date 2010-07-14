@@ -12,7 +12,7 @@
   <%= image_tag Picture.find(@member.picture_id).data.url(:medium) %>
 </div>
 <div class="c">
-  <div class="c_element fixed_height color2">
+  <div class="c_element color2">
     <h1><%=h @member.name.upcase %></h1>
     <p><%= _ @member.info %></p>
   </div>  
