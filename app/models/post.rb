@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :short_text
   validates_length_of :short_text, :maximum => 200
-  validates_associated :picture, :on => :create
+  validates_associated :picture
   validates_associated :elements
   
   after_update :save_elements

@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true, :ascii_approximation_options => :german
   
   validates_presence_of :title
-  validates_associated :picture, :on => :create
+  validates_associated :picture
   validates_associated :elements
   
   after_update :save_elements

@@ -62,17 +62,12 @@ class MembersController < ApplicationController
   # PUT /members/1.xml
   def update
     @member = Member.find(params[:id])
+    @picture = @member.picture
     
     params[:member][:existing_element_attributes] ||= {}
     
-    #only update the picture if there is new data for it
-    if params[:picture].has_key?("data")
-      @picture = Picture.find(@member.picture_id)
-      @picture.update_attributes(params[:picture])
-    end
-
     respond_to do |format|
-      if @member.update_attributes(params[:member])
+      if @member.update_attributes(params[:member]) and @picture.update_attributes(params[:picture])
         format.html { redirect_to(@member, :notice => 'Member was successfully updated.') }
         format.xml  { head :ok }
       else

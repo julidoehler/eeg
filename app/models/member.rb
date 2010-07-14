@@ -8,7 +8,7 @@ class Member < ActiveRecord::Base
    
   validates_presence_of :name, :info, :position
   validates_format_of :name, :with => /^[A-Za-z0-9 üäöß\-]+$/i, :message => "only uppercase + lowercase letters and numbers"
-  validates_associated :picture, :on => :create
+  validates_associated :picture
   validates_associated :elements
   
   after_update :save_elements

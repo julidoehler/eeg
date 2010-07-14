@@ -62,7 +62,7 @@
   <p>
     <% fields_for :picture do |picture_form| %>
         Picture: <%= picture_form.file_field :data %><br />
-        Author: <%= picture_form.text_field :author %>
+        Author: <%= picture_form.text_field :author, :maxlength => 150, :size => 30 %>
         <%= picture_form.hidden_field :gallery_id, :value => "1" %>
     <% end %>
   </p>
