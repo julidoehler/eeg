@@ -35,21 +35,21 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @post.has_date_from = true unless @post.date_from.nil?
+    @post.has_time_from = true unless @post.time_from.nil?
+    @post.has_date_to = true unless @post.date_to.nil?
+    @post.has_time_to = true unless @post.time_to.nil?
   end
 
   # POST /posts
   # POST /posts.xml
   def create    
-    #make date and time field empty if they are not used
-    make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
-    make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
+    #make date field empty if they are not used
+    make_empty("date_from") if params[:post].fetch("has_date_from") == "false"
+    make_empty("date_to") if params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
     #if there is no date, then we need no time
-    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false"
-    
-    #delete unnessecary variables
-    params[:post].delete("has_date_to")
-    params[:post].delete("has_time_from")
-    params[:post].delete("has_time_to")
+    make_empty("time_from") if params[:post].fetch("has_time_from") == "false" or params[:post].fetch("has_date_from") == "false"
+    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
     
     @post = Post.new(params[:post])
     #additionally build a picture (but not save it until the post is saved!) (this is the distinction between build and create)
@@ -72,17 +72,13 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    #make date and time field empty if they are not used
-    make_empty("date_to") if params[:post].fetch("has_date_to") == "false"
-    make_empty("time_from") if params[:post].fetch("has_time_from") == "false"
+    #make date field empty if they are not used
+    make_empty("date_from") if params[:post].fetch("has_date_from") == "false"
+    make_empty("date_to") if params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
     #if there is no date, then we need no time
-    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false"
-    
-    #delete unnessecary variables
-    params[:post].delete("has_date_to")
-    params[:post].delete("has_time_from")
-    params[:post].delete("has_time_to")
-    
+    make_empty("time_from") if params[:post].fetch("has_time_from") == "false" or params[:post].fetch("has_date_from") == "false"
+    make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
+        
     params[:post][:existing_element_attributes] ||= {}
     
     @post = Post.find(params[:id])
