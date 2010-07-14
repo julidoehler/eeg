@@ -52,6 +52,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @picture = @project.picture
   end
 
   # POST /projects
@@ -83,14 +84,9 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
+    @picture = @project.picture
     
     params[:project][:existing_element_attributes] ||= {}
-
-    #only update the picture if there is new data for it
-    if params[:picture].has_key?("data")
-      @picture = Picture.find(@project.picture_id)
-      @picture.update_attributes(params[:picture])
-    end
     
     #only update the background if there is new data for it
     @background = Background.find(:first, :conditions => "parent_id = '#{@project.id}' AND parent_type = 'project'")
@@ -106,7 +102,7 @@ class ProjectsController < ApplicationController
     end
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
+      if @project.update_attributes(params[:project]) and @picture.update_attributes(params[:picture])
         flash[:notice] = 'Project was successfully updated.'
         format.html { redirect_to(@project) }
         format.xml  { head :ok }

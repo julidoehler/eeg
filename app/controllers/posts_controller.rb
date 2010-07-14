@@ -65,6 +65,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @picture = @post.picture
     @post.has_date_from = true unless @post.date_from.nil?
     @post.has_time_from = true unless @post.time_from.nil?
     @post.has_date_to = true unless @post.date_to.nil?
@@ -73,7 +74,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   # POST /posts.xml
-  def create    
+  def create
     #make date field empty if they are not used
     make_empty("date_from") if params[:post].fetch("has_date_from") == "false"
     make_empty("date_to") if params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
@@ -102,25 +103,25 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
+    @post = Post.find(params[:id])
+    @picture = @post.picture
+            
     #make date field empty if they are not used
     make_empty("date_from") if params[:post].fetch("has_date_from") == "false"
     make_empty("date_to") if params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
     #if there is no date, then we need no time
     make_empty("time_from") if params[:post].fetch("has_time_from") == "false" or params[:post].fetch("has_date_from") == "false"
     make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
-        
+    
+    params[:post]['has_date_from'] == "true" ? params[:post]['has_date_from'] = true : params[:post]['has_date_from'] = false
+    params[:post]['has_time_from'] == "true" ? params[:post]['has_time_from'] = true : params[:post]['has_time_from'] = false
+    params[:post]['has_date_to'] == "true" ? params[:post]['has_date_to'] = true : params[:post]['has_date_to'] = false
+    params[:post]['has_time_to'] == "true" ? params[:post]['has_time_to'] = true : params[:post]['has_time_to'] = false
+    
     params[:post][:existing_element_attributes] ||= {}
-    
-    @post = Post.find(params[:id])
-    
-    #only update the picture if there is new data for it
-    if params[:picture].has_key?("data")
-      @picture = Picture.find(@post.picture_id)
-      @picture.update_attributes(params[:picture])
-    end
-    
+            
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(params[:post]) and @picture.update_attributes(params[:picture])
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to(@post) }
         format.xml  { head :ok }

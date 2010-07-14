@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   has_one :background, :foreign_key => 'parent_id', :dependent => :destroy, :conditions => {:parent_type => 'project'}
   
   validates_presence_of :title
-  validates_associated :picture, :on => :create
+  validates_associated :picture
   validates_associated :elements
   
   after_update :save_elements
