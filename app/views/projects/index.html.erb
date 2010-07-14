@@ -26,7 +26,7 @@
             <%=h project.date_to.strftime("%d.%m.%Y") unless project.date_to.nil? %>
           </p>
           <h1><%= link_to project.title.upcase, project %></h1>
-          <p><%= _ truncate(project.info, :length => 200) %> <%= link_to '&raquo;', project %></p>
+          <p><%= truncate(project.info, :length => 200) %> <%= link_to '&raquo;', project %></p>
         </div>
       </div>
     </div>
