@@ -100,7 +100,7 @@ class ProjectsController < ApplicationController
         @project.create_background(params[:background])
       end
     end
-
+    
     respond_to do |format|
       if @project.update_attributes(params[:project]) and @picture.update_attributes(params[:picture])
         flash[:notice] = 'Project was successfully updated.'

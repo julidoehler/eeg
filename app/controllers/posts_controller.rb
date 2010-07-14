@@ -105,7 +105,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @picture = @post.picture
-            
+    
     #make date field empty if they are not used
     make_empty("date_from") if params[:post].fetch("has_date_from") == "false"
     make_empty("date_to") if params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
@@ -119,7 +119,7 @@ class PostsController < ApplicationController
     params[:post]['has_time_to'] == "true" ? params[:post]['has_time_to'] = true : params[:post]['has_time_to'] = false
     
     params[:post][:existing_element_attributes] ||= {}
-            
+    
     respond_to do |format|
       if @post.update_attributes(params[:post]) and @picture.update_attributes(params[:picture])
         flash[:notice] = 'Post was successfully updated.'

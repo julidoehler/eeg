@@ -99,7 +99,7 @@ class MembersController < ApplicationController
         @member.create_background(params[:background])
       end
     end
-
+    
     respond_to do |format|
       if @member.update_attributes(params[:member]) and @picture.update_attributes(params[:picture])
         format.html { redirect_to(@member, :notice => 'Member was successfully updated.') }
