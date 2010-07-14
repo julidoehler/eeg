@@ -28,7 +28,7 @@ class Picture < ActiveRecord::Base
   end
   
   def new_gallery_is_empty
-    new_gallery.empty? unless new_gallery.nil?
+    new_gallery.nil? ? true : new_gallery.empty?
   end
   
   def create_new_gallery
