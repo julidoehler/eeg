@@ -82,6 +82,12 @@ class PostsController < ApplicationController
     make_empty("time_from") if params[:post].fetch("has_time_from") == "false" or params[:post].fetch("has_date_from") == "false"
     make_empty("time_to") if params[:post].fetch("has_time_to") == "false" or params[:post].fetch("has_date_to") == "false" or params[:post].fetch("has_date_from") == "false"
     
+    #need to assign before @post = Post.new(params[:post])
+    params[:post]['has_date_from'] == "true" ? params[:post]['has_date_from'] = true : params[:post]['has_date_from'] = false
+    params[:post]['has_time_from'] == "true" ? params[:post]['has_time_from'] = true : params[:post]['has_time_from'] = false
+    params[:post]['has_date_to'] == "true" ? params[:post]['has_date_to'] = true : params[:post]['has_date_to'] = false
+    params[:post]['has_time_to'] == "true" ? params[:post]['has_time_to'] = true : params[:post]['has_time_to'] = false
+    
     @post = Post.new(params[:post])
     #additionally build a picture (but not save it until the post is saved!) (this is the distinction between build and create)
     @picture = @post.build_picture(params[:picture])
