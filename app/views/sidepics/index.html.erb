@@ -1,13 +1,21 @@
 <div class="admin">
+  <%= link_to 'New sidepic', new_sidepic_path %>
+</div>
+<div class="admin">
+  <%= will_paginate @sidepics %>
+</div>
+<div class="admin">
 <h1>Listing sidepics</h1>
 
 <table>
   <tr>
+    <th>Image</th>
     <th>Link</th>
   </tr>
 
 <% @sidepics.each do |sidepic| %>
   <tr>
+    <td><%= image_tag sidepic.picture.data.url(:thumb) %></td>
     <td><%=h sidepic.link %></td>
     <td><%= link_to 'Show', sidepic %></td>
     <td><%= link_to 'Edit', edit_sidepic_path(sidepic) %></td>
@@ -15,8 +23,7 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New sidepic', new_sidepic_path %>
+</div>
+<div class="admin">
+  <%= will_paginate @sidepics %>
 </div>

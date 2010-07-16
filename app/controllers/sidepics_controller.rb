@@ -2,7 +2,7 @@ class SidepicsController < ApplicationController
   # GET /sidepics
   # GET /sidepics.xml
   def index
-    @sidepics = Sidepic.all
+    @sidepics = Sidepic.paginate :page => params[:page], :order => 'created_at DESC'
 
     respond_to do |format|
       format.html # index.html.erb
