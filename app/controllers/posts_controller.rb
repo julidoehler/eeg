@@ -7,19 +7,14 @@ class PostsController < ApplicationController
   def index
     #@posts = Post.all
     @posts = Post.paginate :page => params[:page], :order => "date_from DESC"
-    @sidepics = Sidepic.find(:all, :limit => 25, :order => "created_at DESC")
+    @sidepics = Sidepic.find(:all).shuffle[0,25]
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
     end
   end
-  
-  def sidebar
-    sidepics = Sidepic.find(:all).shuffle[0,25]
-    render :partial => "layouts/sidebar", :locals => {:pics => sidepics}
-  end
-  
+    
   def to_web
     puts "service: " + params[:service]
     @post = Post.find(params[:id])

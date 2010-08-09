@@ -1,7 +1,4 @@
 <div class="c width_300" style="margin-left:60px;">
-  <div class="c_element_no_left color2">
-    <p><%= link_to_remote "SHUFFLE", {:update => 'sidebar', :url => {:action => 'sidebar'}}, :class => 'back_button' %></p>
-  </div>
 <% pics.each_index do |i| %>
 <% if signed_in? %>
   <div class="admin_panel" style="margin-left:200px;">
