@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.xml
   def index
-    @members = Member.all
+    @members = Member.find(:all, :order => "name ASC")
 
     respond_to do |format|
       format.html # index.html.erb
