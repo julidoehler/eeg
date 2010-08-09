@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
     #@posts = Post.all
     @posts = Post.paginate :page => params[:page], :order => "date_from DESC"
-    @sidepics = Sidepic.find(:all, :limit => 25)
+    @sidepics = Sidepic.find(:all, :limit => 25, :order => "created_at DESC")
     
     respond_to do |format|
       format.html # index.html.erb
