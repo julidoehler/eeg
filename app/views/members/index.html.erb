@@ -20,7 +20,7 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.name, member %></h1>
+          <h1><%= link_to member.name.upcase, member %></h1>
           <p><%= truncate(member.info, :length => 260) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
@@ -42,7 +42,7 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.name, member %></h1>
+          <h1><%= link_to member.name.upcase, member %></h1>
           <p><%= truncate(member.info, :length => 260) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
@@ -64,7 +64,7 @@
         <%= link_to image_tag(Picture.find(member.picture_id).data.url(:thumb),:class => 'c'), member %>
       <div class="c_element_index color2">
         <div class="pad">
-          <h1><%= link_to member.name, member %></h1>
+          <h1><%= link_to member.name.upcase, member %></h1>
           <p><%= truncate(member.info, :length => 260) %> <%= link_to '&raquo;', member %></p>
         </div>
       </div>
