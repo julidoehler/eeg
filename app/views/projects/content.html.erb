@@ -21,7 +21,7 @@
       </p>
     </div> 
     <% @project.elements.each_index do |i| %>
-      <% if i >= 2 and i.even? and @project.elements[i].id != @element.id %>
+      <% if i >= 3 and i.odd? and @project.elements[i].id != @element.id %>
         <div class="c_element color2">
           <%= render_element(@project,@project.elements[i]) %>
         </div>
@@ -40,14 +40,14 @@
     <%= add_this %>
   </div>
   <% @project.elements.each_index do |i| %>
-    <% if i < 2 and @project.elements[i].id != @element.id %>
+    <% if i < 3 and @project.elements[i].id != @element.id %>
       <div class="c_element color2">
         <%= render_element(@project,@project.elements[i]) %>
       </div>
     <% end %>
   <% end %>
   <% @project.elements.each_index do |i| %>
-    <% if i >= 2 and i.odd? and @project.elements[i].id != @element.id %>
+    <% if i >= 3 and i.even? and @project.elements[i].id != @element.id %>
       <div class="c_element color2">
         <%= render_element(@project,@project.elements[i]) %>
       </div>
