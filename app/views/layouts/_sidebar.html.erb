@@ -6,6 +6,6 @@
     <%= link_to 'Destroy', pics[i], :confirm => 'Are you sure?', :method => :delete, :class => 'admin_control' %>
   </div>
 <% end %>
-<%= link_to image_tag(Picture.find(pics[i].picture_id).data.url(:medium), :style => "display:block;"), pics[i].link %><%= '</div><div class="c width_300">' if (i+1) % 5 == 0 and i != 24 %>
+<%= link_to image_tag(Picture.find(pics[i].picture_id).data.url(:medium), :style => "display:block;"), pics[i].link %><%= '</div><div class="c width_300">' if (i) % 5 == 4 and i != 24 %>
 <% end %>
 </div>
