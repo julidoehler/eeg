@@ -20,7 +20,7 @@ module ApplicationHelper
     rescue
     
     end  
-    render :inline => image_tag(picture.data.url(:medium)) if picture
+    render :inline => image_tag(picture.data.url(:medium), :width => 290) if picture
   end  
   
   def render_gallery(c)
