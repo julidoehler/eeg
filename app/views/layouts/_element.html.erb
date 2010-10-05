@@ -8,6 +8,8 @@
   <p>Title</p><%= element_form.text_field :title %>
   <p>Content</p>
   <%= element_form.text_area :content if content_type == 'text' %>
+  <%= element_form.label :content, 'picture id' if content_type == 'picture' %>
+  <%= element_form.text_field :content if content_type == 'picture' %>
   <%= element_form.text_field :content if content_type == 'video' %>
   <%= element_form.file_field :data if content_type == 'file' %>
   <% @element.content = @element.content.to_i if content_type == 'gallery' %>

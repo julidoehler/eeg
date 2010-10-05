@@ -5,3 +5,4 @@ tmp/
 config/database.yml
 public/system/*
 .loadpath
+config/initializers/recaptcha_keys.rb

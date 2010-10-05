@@ -14,6 +14,15 @@ module ApplicationHelper
     end
   end
   
+  def render_picture(c)
+    begin
+    picture ||= Picture.find(c)
+    rescue
+    
+    end  
+    render :inline => image_tag(picture.data.url(:medium)) if picture
+  end  
+  
   def render_gallery(c)
     gallery = Gallery.find(c)
     render :partial => "layouts/gallery_link", :locals => {:p => gallery.pictures.first, :l => gallery}
